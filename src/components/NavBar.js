@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import {connect} from 'react-redux'
 import { Image, Menu, Segment, Icon } from 'semantic-ui-react'
+import {logOutUser} from '../redux/actions'
 
 class NavBar extends Component {
 
@@ -8,17 +10,8 @@ class NavBar extends Component {
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
-  logout = (e, { name }) => {
-    let response = window.confirm("Please confirm Logout")
-    if (!response) {
-      return
-    }
-    this.setState({ activeItem: name })
-    this.props.logoutUser()
-  }
-
   render() {
-    const { activeItem } = this.state
+    let { activeItem, loggedInUser } = this.state
 
     return (
 
@@ -36,22 +29,22 @@ class NavBar extends Component {
            <Icon name='home' />
            Home
            </Menu.Item>
-        {this.props.currentUser ?
+        {this.props.loggedInUser ?
           <>
           <Menu.Item
-            name='my barters'
+            name='Add Clothing'
             as={ Link }
-            to="/barters"
-            active={activeItem === 'my barters'}
+            to="/addclothing"
+            active={activeItem === 'Add Clothing'}
             onClick={this.handleItemClick}
           >
-          <Icon name='handshake' />
-          My Barters
+          <Icon name='plus square' />
+          Add Clothing
           </Menu.Item>
           <Menu.Item
             name='Logout'
             active={activeItem === 'logout'}
-            onClick={this.logout}
+            onClick={this.props.logOutUser}
           >
           <Icon name='hand peace' />
           Logout
@@ -76,4 +69,16 @@ class NavBar extends Component {
   }
 }
 
-export default NavBar;
+const mapStateToProps = state => {
+  return {
+    loggedInUser: state.loggedInUser
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    logOutUser: () => {dispatch ( logOutUser() )}
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

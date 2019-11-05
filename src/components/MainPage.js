@@ -4,9 +4,34 @@ import {connect} from 'react-redux'
 
 class MainPage extends Component {
 
+  state = {
+    searchActive: false,
+    selectedItem: null
+  }
+
   render() {
+    let { loggedInUser } = this.props
     return(
-      <div>Main Page</div>
+      loggedInUser ?
+      <Grid celled id="mainPage">
+        <Grid.Row>
+            <Grid.Column width={16}>
+
+            </Grid.Column>
+            <Grid.Column width={4}>
+
+          
+            </Grid.Column>
+        </Grid.Row>
+      </Grid>
+      :
+      <Grid celled id="mainPage">
+        <Grid.Row>
+            <Grid.Column width={16}>
+
+            </Grid.Column>
+        </Grid.Row>
+      </Grid>
     )
   }
 

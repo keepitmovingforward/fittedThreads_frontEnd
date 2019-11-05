@@ -20,3 +20,25 @@
 .App-link {
   color: #09d3ac;
 }
+
+#logo {
+  max-height: 140px;
+  background-color: #fffff7;
+  padding: 0;
+}
+
+#loginForm {
+  text-shadow: -1px -1px 0 white,
+		1px -1px 0 white,
+		-1px 1px 0 white,
+		1px 1px 0 white;
+  font-family: 'Abel', sans-serif;
+  font-size: 28px;
+}
+
+#loginBackground {
+  background-image: url("https://images.pexels.com/photos/6292/blue-pattern-texture-macro.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background-size: cover;
+  height: stretch;
+  margin: auto;
+}

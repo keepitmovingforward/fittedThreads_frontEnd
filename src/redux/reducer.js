@@ -4,8 +4,19 @@ import {combineReducers} from 'redux'
 let initialState = {
   clothingCollection: [],
   users: [],
-  loggedInUser: null
+  loggedInUser: null,
+  clothingLoading: true
 }
+
+let clothingLoadingReducer = (state=initialState.clothingLoading, action) => {
+  switch (action.type) {
+    case "FETCHED_CLOTHINGS":
+      return false
+    default:
+      return state
+  }
+}
+
 
 let clothingCollectionReducer = (state=initialState.clothingCollection, action) => {
   switch (action.type) {
@@ -21,13 +32,21 @@ let usersReducer = (state=initialState.users, action) => {
 }
 
 let loggedInUserReducer = (state=initialState.loggedInUser, action) => {
-  return state
-}
+  switch (action.type) {
+    case "LOG_OUT":
+      return null
+    case "LOGIN_USER":
+      return action.payload
+    default:
+      return state
+    }
+  }
 
 const rootReducer = combineReducers({
   clothingCollection: clothingCollectionReducer,
   users: usersReducer,
-  loggedInUser: loggedInUserReducer
+  loggedInUser: loggedInUserReducer,
+  clothingLoading: clothingLoadingReducer
 })
 
 
