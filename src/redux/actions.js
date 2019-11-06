@@ -1,8 +1,3 @@
-//copy all action objects
-
-// function changeSearch(searchText) {
-//   return {type: "CHANGE_SEARCH", payload: "searchText"}
-// }
 const Swal = require('sweetalert2')
 const _ = require("lodash")
 const CLOTHING_URL = "http://localhost:4000/clothes"
@@ -116,11 +111,54 @@ function goHome() {
   return {type: "HOME"}
 }
 
+function updateClothingSearch(clothingSearchTerm) {
+  return {type: "UPDATE_CLOTHING_SEARCH", payload: clothingSearchTerm }
+}
 
+function updateBrandsSearch(brand, checked) {
+  return (dispatch, getState) => {
+    let state = getState()
+    if (checked) {
+    let brandsArray = [...state.brandsSearch]
+    brandsArray.push(brand)
+    dispatch({type: 'UPDATE_BRANDS_SEARCH', payload: brandsArray })
+    }
+    else {
+      if(state.brandsSearch.includes(brand)) {
+      let brandsArray = state.brandsSearch.filter(b => b !== brand)
+      dispatch({type: 'UPDATE_BRANDS_SEARCH', payload: brandsArray })
+      }
+      else {
+        dispatch({type: 'DO_NOTHING'})
+      }
+    }
+  }
+}
+
+function updateCategoriesSearch(category, checked) {
+  return (dispatch, getState) => {
+    let state = getState()
+    if (checked) {
+    let categoriesArray = [...state.categoriesSearch]
+    categoriesArray.push(category)
+    dispatch({type: 'UPDATE_CATEGORIES_SEARCH', payload: categoriesArray })
+    }
+    else {
+      if(state.categoriesSearch.includes(category)) {
+      let categoriesArray = state.categoriesSearch.filter(c => c !== category)
+      dispatch({type: 'UPDATE_CATEGORIES_SEARCH', payload: categoriesArray })
+      }
+      else {
+        dispatch({type: 'DO_NOTHING'})
+      }
+    }
+  }
+}
 
 export {fetchingData, logOutUser,
         handleLoginSubmit, toggleSearch,
-        goHome
+        goHome, updateClothingSearch,
+        updateBrandsSearch, updateCategoriesSearch
       }
 
 //at top of components import {onChange} from '../redux/action'

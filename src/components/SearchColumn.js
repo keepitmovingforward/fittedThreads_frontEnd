@@ -1,26 +1,11 @@
 import React, { Component } from 'react';
-import { Container, Form, Segment, Checkbox, Grid } from 'semantic-ui-react';
+import { Form, Segment, Checkbox } from 'semantic-ui-react';
 import {connect} from 'react-redux'
+import {updateClothingSearch, updateBrandsSearch, updateCategoriesSearch} from '../redux/actions'
 
 const _ = require("lodash")
 
 class SearchColumn extends Component {
-
-  state = {
-    clothingSearch: ""
-  };
-
-  handleChange = (e, { name, value }) => {
-    this.setState({ [name]: value });
-  };
-
-  handleBrandChange = (e, {name, checked} ) => {
-    console.log(name, checked)
-  }
-
-  handleCategoryChange = (e, {name, checked} ) => {
-    console.log(name, checked)
-  }
 
   render() {
 
@@ -34,8 +19,8 @@ class SearchColumn extends Component {
             label='Search by Clothing Name'
             name='clothingSearch'
             placeholder='Enter clothing name'
-            onChange={this.handleChange}
-            value={this.state.clothingSearch}
+            onChange={this.props.updateClothingSearch}
+            value={this.props.clothingSearch}
           />
 
           <Form.Field>
@@ -47,7 +32,7 @@ class SearchColumn extends Component {
                 key={brand}
                 label={brand}
                 name={brand}
-                onChange={this.handleBrandChange}
+                onChange={this.props.updateBrandsSearch}
               />
             </Form.Field>
           )}
@@ -60,7 +45,7 @@ class SearchColumn extends Component {
                 key={categories.id}
                 label={_.capitalize(categories.name)}
                 name={categories.name}
-                onChange={this.handleCategoryChange}
+                onChange={this.props.updateCategoriesSearch}
               />
             </Form.Field>
           )}
@@ -75,10 +60,18 @@ class SearchColumn extends Component {
 
 const mapStateToProps = state => {
   return {
-    clothingCollection: state.clothingCollection,
     brands: state.brands,
-    categories: state.categories
+    categories: state.categories,
+    clothingSearch: state.clothingSearch
   }
 }
 
-export default connect(mapStateToProps)(SearchColumn);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    updateClothingSearch: (e, { name, value }) => {dispatch ( updateClothingSearch(value) )},
+    updateBrandsSearch: (e, { name, checked }) => {dispatch ( updateBrandsSearch(name, checked) )},
+    updateCategoriesSearch: (e, { name, checked }) => {dispatch ( updateCategoriesSearch(name, checked) )},
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchColumn);

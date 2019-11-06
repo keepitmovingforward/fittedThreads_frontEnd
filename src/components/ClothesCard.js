@@ -5,10 +5,45 @@ import { Card, Image } from 'semantic-ui-react'
 
 const ClothesCard = (props) => {
 
+  const filterClothingCollection = () => {
+    return props.clothingCollection.filter(
+      c =>
+      c.name.toLowerCase().includes(props.clothingSearch.toLowerCase())
+    ).filter(
+      c => {
+      if(props.brandsSearch.length === 0) {
+        return true
+      }
+      else {
+        if (props.brandsSearch.includes(c.brand)) {
+          return true
+        }
+      }
+      return false
+      }
+
+    ).filter(
+      c => {
+        for(let i = 0; i < c.categories.length; i++) {
+          if (props.categoriesSearch.length === 0) {
+            return true
+          }
+          else {
+            if (props.categoriesSearch.includes(c.categories[i].name)) {
+              return true
+            }
+          }
+        }
+        return false
+        }
+      )
+  }
+
+
   return (
 
     <>
-    {props.clothingCollection.map(clothingObj =>
+    {filterClothingCollection().map(clothingObj =>
       <Card color='black' as={Link} to={`/thread/${clothingObj.id}`}
         key={clothingObj.id}>
         <Image src={clothingObj.image_url} verticalAlign='middle' centered id="clothesPhoto" bordered />
@@ -23,9 +58,13 @@ const ClothesCard = (props) => {
   )
 }
 
+
 const mapStateToProps = state => {
   return {
-    clothingCollection: state.clothingCollection
+    clothingCollection: state.clothingCollection,
+    clothingSearch: state.clothingSearch,
+    brandsSearch: state.brandsSearch,
+    categoriesSearch: state.categoriesSearch
   }
 }
 

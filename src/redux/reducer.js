@@ -8,7 +8,10 @@ let initialState = {
   brands: [],
   loggedInUser: true,
   clothingLoading: true,
-  searchActive: false
+  searchActive: false,
+  clothingSearch: "",
+  brandsSearch: [],
+  categoriesSearch: []
 }
 
 let clothingLoadingReducer = (state=initialState.clothingLoading, action) => {
@@ -67,12 +70,40 @@ let searchActiveReducer = (state=initialState.searchActive, action) => {
   switch (action.type) {
     case "TOGGLE":
       return !state
-      case "HOME":
-        return false
+    case "HOME":
+      return false
     default:
       return state
     }
   }
+
+let clothingSearchReducer = (state=initialState.clothingSearch, action) => {
+  switch (action.type) {
+    case "UPDATE_CLOTHING_SEARCH":
+      return action.payload
+    default:
+      return state
+    }
+  }
+
+let brandsSearchReducer = (state=initialState.brandsSearch, action) => {
+  switch (action.type) {
+    case "UPDATE_BRANDS_SEARCH":
+      return action.payload
+    default:
+      return state
+    }
+  }
+
+let categoriesSearchReducer = (state=initialState.categoriesSearch, action) => {
+  switch (action.type) {
+    case "UPDATE_CATEGORIES_SEARCH":
+      return action.payload
+    default:
+      return state
+    }
+  }
+
 
 const rootReducer = combineReducers({
   clothingCollection: clothingCollectionReducer,
@@ -81,7 +112,10 @@ const rootReducer = combineReducers({
   brands: brandsReducer,
   loggedInUser: loggedInUserReducer,
   clothingLoading: clothingLoadingReducer,
-  searchActive: searchActiveReducer
+  searchActive: searchActiveReducer,
+  clothingSearch: clothingSearchReducer,
+  brandsSearch: brandsSearchReducer,
+  categoriesSearch: categoriesSearchReducer
 })
 
 export default rootReducer
