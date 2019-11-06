@@ -4,7 +4,7 @@ import ClothesCard from './ClothesCard'
 
 const ClothesContainer = props => {
   return(
-    <Card.Group>
+    <Card.Group centered>
       <ClothesCard/>
     </Card.Group>
   )

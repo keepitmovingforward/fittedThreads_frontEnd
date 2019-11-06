@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Segment, Checkbox } from 'semantic-ui-react';
+import { Container, Form, Segment, Checkbox, Grid } from 'semantic-ui-react';
 import {connect} from 'react-redux'
 
 const _ = require("lodash")
@@ -25,7 +25,8 @@ class SearchColumn extends Component {
   render() {
 
     return (
-      <Segment fluid inverted>
+      <>
+      <Segment inverted raised>
         <Form inverted>
           <Form.Input
             fluid icon='search'
@@ -63,9 +64,10 @@ class SearchColumn extends Component {
               />
             </Form.Field>
           )}
-
-        </Form>
+          </Form>
       </Segment>
+
+      </>
     )
   }
 

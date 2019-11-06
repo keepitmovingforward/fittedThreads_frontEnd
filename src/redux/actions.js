@@ -3,7 +3,8 @@
 // function changeSearch(searchText) {
 //   return {type: "CHANGE_SEARCH", payload: "searchText"}
 // }
-
+const Swal = require('sweetalert2')
+const _ = require("lodash")
 const CLOTHING_URL = "http://localhost:4000/clothes"
 
 function fetchingData() {
@@ -31,13 +32,30 @@ function fetchedBrands(brands) {
 }
 
 function logOutUser() {
-  let response = window.confirm("Please confirm Logout")
-  if (!response) {
-    return {type: "DO_NOTHING"}
+  return(dispatch) => {
+    Swal.fire({
+      title: 'Logout',
+      text: 'Please confirm logout',
+      confirmButtonText: 'Ok',
+      showCancelButton: true,
+      cancelButtonColor: '#d33',
+      showCloseButton: true,
+      showClass: {
+      popup: 'animated fadeInDown faster'
+      },
+      hideClass: {
+      popup: 'animated fadeOutUp faster'
+      }
+    })
+    .then((result) => {
+  if (result.value) {
+    dispatch({type: "LOG_OUT"})
   }
   else {
-  return {type: "LOG_OUT"}
+    dispatch({type: "DO_NOTHING"})
   }
+})
+}
 }
 
 function handleLoginSubmit(username, password) {
@@ -59,13 +77,34 @@ function handleLoginSubmit(username, password) {
       dispatch(updateLoggedInUser(data))
     }
     else {
-        alert(data.message)
+      const Toast = Swal.mixin({
+       toast: true,
+       showConfirmButton: false,
+       timer: 2500
+      })
+
+      Toast.fire({
+        title: `${data.message}`,
+        icon: 'error'
+      })
     }
   })
   }
 }
 
 function updateLoggedInUser(user) {
+
+  const Toast = Swal.mixin({
+   toast: true,
+   position: 'top-end',
+   showConfirmButton: false,
+   timer: 2500
+  })
+
+  Toast.fire({
+   icon: 'success',
+   title: `${_.capitalize(user.username)} signed in successfully`
+  })
   return {type: "LOGIN_USER", payload: user}
 }
 
@@ -73,9 +112,16 @@ function toggleSearch() {
   return {type: "TOGGLE"}
 }
 
+function goHome() {
+  return {type: "HOME"}
+}
 
 
-export {fetchingData, logOutUser, handleLoginSubmit, toggleSearch}
+
+export {fetchingData, logOutUser,
+        handleLoginSubmit, toggleSearch,
+        goHome
+      }
 
 //at top of components import {onChange} from '../redux/action'
 

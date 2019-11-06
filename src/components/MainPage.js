@@ -17,6 +17,7 @@ class MainPage extends Component {
       <>
       <Container fluid>
         <Grid columns='equal' divided>
+          <Grid.Row stretched>
             {searchActive ?
             <Grid.Column width={3}>
               <SearchColumn />
@@ -35,6 +36,7 @@ class MainPage extends Component {
             </Grid.Column>
       :
       null}
+          </Grid.Row>
         </Grid>
       </Container>
       </>

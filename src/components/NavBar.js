@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import {connect} from 'react-redux'
 import { Image, Menu, Segment, Icon } from 'semantic-ui-react'
-import {logOutUser, toggleSearch} from '../redux/actions'
+import {logOutUser, toggleSearch, goHome} from '../redux/actions'
 
 class NavBar extends Component {
 
@@ -15,16 +15,19 @@ class NavBar extends Component {
 
     return (
 
-      <div id="navBarBackground" style={{ padding: '10px 0px 0px 0px', marginBottom: '10px'}}>
+      <div id="navBarBackground" style={{ padding: '10px 0px 0px 0px', marginBottom: '6px'}}>
         <Image src="https://fontmeme.com/permalink/191104/0280bed54d0e9e77f2c3131d3b7a1b61.png" id="mainLogo"></Image>
         <Segment inverted color='black'>
-          <Menu inverted pointing secondary icon='labeled'>
+          <Menu fluid inverted secondary widths={4} icon='labeled'>
             <Menu.Item
               name='home'
               as={ Link }
               to="/home"
               active={activeItem === 'home'}
-              onClick={this.handleItemClick}
+              onClick={(e, clickObj) => {
+                this.props.goHome()
+                this.handleItemClick(e, clickObj)
+              }}
             >
              <Icon name='home' />
              Home
@@ -55,6 +58,7 @@ class NavBar extends Component {
             Add Clothing
             </Menu.Item>
 
+            <Menu.Menu position = 'right'>
             <Menu.Item
               name='Logout'
               active={activeItem === 'logout'}
@@ -63,6 +67,7 @@ class NavBar extends Component {
             <Icon name='hand peace' />
             Logout
             </Menu.Item>
+            </Menu.Menu>
           </Menu>
         </Segment>
       </div>
@@ -74,7 +79,8 @@ class NavBar extends Component {
 const mapDispatchToProps = (dispatch) => {
   return {
     logOutUser: () => {dispatch ( logOutUser() )},
-    toggleSearch: () => {dispatch ( toggleSearch() )}
+    toggleSearch: () => {dispatch ( toggleSearch() )},
+    goHome: () => {dispatch ( goHome() )}
   }
 }
 

@@ -6,7 +6,7 @@ let initialState = {
   users: [],
   categories: [],
   brands: [],
-  loggedInUser: true,
+  loggedInUser: null,
   clothingLoading: true,
   searchActive: false
 }
@@ -67,6 +67,8 @@ let searchActiveReducer = (state=initialState.searchActive, action) => {
   switch (action.type) {
     case "TOGGLE":
       return !state
+      case "HOME":
+        return false
     default:
       return state
     }
