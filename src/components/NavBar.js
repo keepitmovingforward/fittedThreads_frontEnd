@@ -18,7 +18,7 @@ class NavBar extends Component {
       <div id="navBarBackground" style={{ padding: '10px 0px 0px 0px', marginBottom: '6px'}}>
         <Image src="https://fontmeme.com/permalink/191104/0280bed54d0e9e77f2c3131d3b7a1b61.png" id="mainLogo"></Image>
         <Segment inverted color='black'>
-          <Menu fluid inverted secondary widths={4} icon='labeled'>
+          <Menu inverted secondary widths={6} icon='labeled'>
             <Menu.Item
               name='home'
               as={ Link }
@@ -58,8 +58,19 @@ class NavBar extends Component {
             Add Clothing
             </Menu.Item>
 
-            <Menu.Menu position = 'right'>
             <Menu.Item
+              name='Profile'
+              as={ Link }
+              to="/profile"
+              active={activeItem === 'Profile'}
+              onClick={this.handleItemClick}
+            >
+            <Icon name='user' />
+            Profile
+            </Menu.Item>
+
+
+            <Menu.Item position="right"
               name='Logout'
               active={activeItem === 'logout'}
               onClick={this.props.logOutUser}
@@ -67,7 +78,6 @@ class NavBar extends Component {
             <Icon name='hand peace' />
             Logout
             </Menu.Item>
-            </Menu.Menu>
           </Menu>
         </Segment>
       </div>
