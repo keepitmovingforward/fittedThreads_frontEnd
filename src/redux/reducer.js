@@ -4,8 +4,11 @@ import {combineReducers} from 'redux'
 let initialState = {
   clothingCollection: [],
   users: [],
-  loggedInUser: null,
-  clothingLoading: true
+  categories: [],
+  brands: [],
+  loggedInUser: true,
+  clothingLoading: true,
+  searchActive: false
 }
 
 let clothingLoadingReducer = (state=initialState.clothingLoading, action) => {
@@ -27,6 +30,24 @@ let clothingCollectionReducer = (state=initialState.clothingCollection, action) 
   }
 }
 
+let categoriesReducer = (state=initialState.categories, action) => {
+  switch (action.type) {
+    case "FETCHED_CATEGORIES":
+      return action.payload
+    default:
+      return state
+  }
+}
+
+let brandsReducer = (state=initialState.brands, action) => {
+  switch (action.type) {
+    case "FETCHED_BRANDS":
+      return action.payload
+    default:
+      return state
+  }
+}
+
 let usersReducer = (state=initialState.users, action) => {
   return state
 }
@@ -42,15 +63,24 @@ let loggedInUserReducer = (state=initialState.loggedInUser, action) => {
     }
   }
 
+let searchActiveReducer = (state=initialState.searchActive, action) => {
+  switch (action.type) {
+    case "TOGGLE":
+      return !state
+    default:
+      return state
+    }
+  }
+
 const rootReducer = combineReducers({
   clothingCollection: clothingCollectionReducer,
   users: usersReducer,
+  categories: categoriesReducer,
+  brands: brandsReducer,
   loggedInUser: loggedInUserReducer,
-  clothingLoading: clothingLoadingReducer
+  clothingLoading: clothingLoadingReducer,
+  searchActive: searchActiveReducer
 })
-
-
-
 
 export default rootReducer
 

@@ -21,10 +21,26 @@
   color: #09d3ac;
 }
 
+#clothesPhoto {
+  min-height: 250px;
+  max-height: 250px;
+  max-width: 260px;
+  margin: 5px auto 5px auto;
+}
+
 #logo {
   max-height: 140px;
-  background-color: #fffff7;
+  background-color: #fffffc;
   padding: 0;
+}
+
+#mainLogo {
+  max-height: 160px;
+  background-color: #fffffc;
+  padding: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #loginForm {
@@ -36,9 +52,51 @@
   font-size: 28px;
 }
 
+#signUpLink {
+  color: blue;
+}
+
+#signUpLink:hover,
+#signUplink:focus {
+    color: black;
+}
+
+
+#navBarBackground {
+  background-image: url("https://images.pexels.com/photos/3091200/pexels-photo-3091200.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background-size: cover;
+  height: stretch;
+  margin: auto;
+}
+
 #loginBackground {
   background-image: url("https://images.pexels.com/photos/6292/blue-pattern-texture-macro.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
   background-size: cover;
   height: stretch;
   margin: auto;
+}
+
+#clothesTextBox {
+  text-align: left;
+  line-height: 10px;
+  padding: 10px 5px 10px 5px;
+}
+
+#clothesCardBrand {
+  font-family: 'Staatliches', cursive;
+  font-size: 25px;
+  color: #0b093b;
+
+}
+
+#clothesCardName {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 15px;
+}
+
+#clothesCardUser {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 13px;
+  font-style: italic;
+  text-align: right;
 }

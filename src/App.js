@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import {BrowserRouter as Router, Route, Switch, Redirect, withRouter } from "react-router-dom"
 import {connect} from 'react-redux'
-import {fetchingClothings} from './redux/actions'
+import {fetchingData} from './redux/actions'
 import NavBar from './components/NavBar'
 import MainPage from './components/MainPage'
 import LoginForm from './components/LoginForm'
@@ -10,7 +10,7 @@ import LoginForm from './components/LoginForm'
 class App extends Component {
 
   componentDidMount() {
-    this.props.fetchingClothings()
+    this.props.fetchingData()
   }
 
   render() {
@@ -27,14 +27,14 @@ class App extends Component {
             :
             <Switch>
               <Route exact path="/home" render = {() => {
-                  return (loggedInUser ?
-                    <MainPage />
-                    :
-                    <Redirect to='/login' />
-                  )
+                return (loggedInUser ?
+                  <MainPage />
+                  :
+                  <Redirect to='/login' />
+                )
                 }} />
 
-                <Route exact path="/login" render={() => {
+              <Route exact path="/login" render={() => {
                 return (loggedInUser ?
                 <Redirect to='/home' />
                 :
@@ -76,7 +76,7 @@ class App extends Component {
 
   const mapDispatchToProps = (dispatch) => {
     return {
-      fetchingClothings: () => {dispatch ( fetchingClothings() )}
+      fetchingData: () => {dispatch ( fetchingData() )}
     }
   }
 

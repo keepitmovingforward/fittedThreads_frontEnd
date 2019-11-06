@@ -6,18 +6,28 @@
 
 const CLOTHING_URL = "http://localhost:4000/clothes"
 
-function fetchingClothings() {
+function fetchingData() {
   return (dispatch) => {fetch(CLOTHING_URL)
     .then(res => res.json())
-    .then(clothingsData => {
-      console.log(clothingsData)
-      dispatch (fetchedClothings(clothingsData))
+    .then(data => {
+      console.log(data.clothing)
+      dispatch (fetchedClothings(data.clothing))
+      dispatch (fetchedCategories(data.categories))
+      dispatch (fetchedBrands(data.brands))
     })
    }
 }
 
 function fetchedClothings(clothings) {
   return {type: "FETCHED_CLOTHINGS", payload: clothings}
+}
+
+function fetchedCategories(categories) {
+  return {type: "FETCHED_CATEGORIES", payload: categories}
+}
+
+function fetchedBrands(brands) {
+  return {type: "FETCHED_BRANDS", payload: brands}
 }
 
 function logOutUser() {
@@ -59,9 +69,13 @@ function updateLoggedInUser(user) {
   return {type: "LOGIN_USER", payload: user}
 }
 
+function toggleSearch() {
+  return {type: "TOGGLE"}
+}
 
 
-export {fetchingClothings, logOutUser, handleLoginSubmit}
+
+export {fetchingData, logOutUser, handleLoginSubmit, toggleSearch}
 
 //at top of components import {onChange} from '../redux/action'
 

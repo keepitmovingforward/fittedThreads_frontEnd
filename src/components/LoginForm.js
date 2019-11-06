@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom'
-import { Image, Grid, Button, Form, Container, Message, Header, Segment } from "semantic-ui-react";
+import { Image, Grid, Button, Form, Message, Header, Segment } from "semantic-ui-react";
 import {connect} from 'react-redux'
 import {handleLoginSubmit} from '../redux/actions'
 
@@ -51,8 +51,8 @@ class LoginForm extends React.Component {
           </Button>
         </Segment>
       </Form>
-      <Message as={ Link } to ='/signup'>
-        <a>Create an Account</a>
+      <Message as={ Link } to ='/signup' id="signUpLink">
+        Create an Account
       </Message>
     </Grid.Column>
   </Grid>

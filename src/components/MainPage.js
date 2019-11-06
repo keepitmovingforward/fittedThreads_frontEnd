@@ -1,37 +1,43 @@
 import React, { Component } from 'react';
-import { Grid } from 'semantic-ui-react'
+import { Grid, Container, Image } from 'semantic-ui-react'
 import {connect} from 'react-redux'
+import ClothesContainer from './ClothesContainer'
+import SearchColumn from './SearchColumn'
 
 class MainPage extends Component {
 
   state = {
-    searchActive: false,
-    selectedItem: null
+    selectedClothing: true
   }
 
   render() {
-    let { loggedInUser } = this.props
+    let { searchActive } = this.props
+    let { selectedClothing } = this.state
     return(
-      loggedInUser ?
-      <Grid celled id="mainPage">
-        <Grid.Row>
-            <Grid.Column width={16}>
-
+      <>
+      <Container fluid>
+        <Grid columns='equal' divided>
+            {searchActive ?
+            <Grid.Column width={3}>
+              <SearchColumn />
             </Grid.Column>
-            <Grid.Column width={4}>
 
-          
-            </Grid.Column>
-        </Grid.Row>
-      </Grid>
+
       :
-      <Grid celled id="mainPage">
-        <Grid.Row>
-            <Grid.Column width={16}>
-
+      null}
+            <Grid.Column>
+                <ClothesContainer />
             </Grid.Column>
-        </Grid.Row>
-      </Grid>
+
+      {selectedClothing ?
+            <Grid.Column width={3}>
+              <Image src="http://placeimg.com/200/200/animals" centered></Image>
+            </Grid.Column>
+      :
+      null}
+        </Grid>
+      </Container>
+      </>
     )
   }
 
@@ -39,38 +45,9 @@ class MainPage extends Component {
 
 const mapStateToProps = state => {
   return {
-    loggedInUser: state.loggedInUser
+    loggedInUser: state.loggedInUser,
+    searchActive: state.searchActive
   }
 }
 
 export default connect(mapStateToProps)(MainPage);
-
-// this.props.currentUser ?
-// <Grid celled id="mainPage">
-//   <Grid.Row>
-//       <Grid.Column width={12}>
-//           <ItemContainer items={this.props.items.filter(itemObj => itemObj.user_id !== this.props.currentUser.id)}
-//             users={this.props.users}
-//             currentUser={this.props.currentUser}
-//             itemsPerRow={5}
-//             />
-//       </Grid.Column>
-//       <Grid.Column width={4}>
-//       <UserBox user={this.props.currentUser}
-//         itemsPerRow={3}
-//       />
-//       </Grid.Column>
-//   </Grid.Row>
-// </Grid>
-// :
-// <Grid celled id="mainPage">
-//   <Grid.Row>
-//       <Grid.Column width={16}>
-//           <ItemContainer items={this.props.items}
-//             users={this.props.users}
-//             currentUser={this.props.currentUser}
-//             itemsPerRow={6}
-//             />
-//       </Grid.Column>
-//   </Grid.Row>
-// </Grid>
