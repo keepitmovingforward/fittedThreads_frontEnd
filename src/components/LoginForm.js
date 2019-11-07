@@ -29,7 +29,8 @@ class LoginForm extends React.Component {
         >
         <Segment stacked>
           <Form.Input
-            fluid icon='user'
+            fluid
+            icon='user'
             iconPosition='left'
             placeholder='Enter Username'
             name='username'

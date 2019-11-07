@@ -29,10 +29,15 @@
 }
 
 #previewImg {
-  min-height: 400px;
-  max-height: 400px;
+  min-height: 375px;
+  max-height: 375px;
   max-width: auto;
-  margin: 5px 10px 5px 10px;
+  margin: 5px auto 5px auto;
+}
+
+#clothingPreviewUser {
+  max-width: 65px;
+  max-height: 45px;
 }
 
 #logo {
