@@ -58,6 +58,14 @@ class App extends Component {
                 )}
                 } />
 
+              <Route exact path="/profile" render={() => {
+                return (loggedInUser ?
+                <div>My Profile</div>
+                :
+                <Redirect to='/home' />
+                )}
+                } />
+
               <Route path ='/' render = {() => {
                 return (loggedInUser ?
                 <Redirect to='/home' />

@@ -28,6 +28,13 @@
   margin: 5px auto 5px auto;
 }
 
+#previewImg {
+  min-height: 400px;
+  max-height: 400px;
+  max-width: auto;
+  margin: 5px 10px 5px 10px;
+}
+
 #logo {
   max-height: 140px;
   background-color: #fffffc;

@@ -75,7 +75,7 @@ class NavBar extends Component {
               active={activeItem === 'logout'}
               onClick={this.props.logOutUser}
             >
-            <Icon name='hand peace' />
+            <Icon name='hand spock' />
             Logout
             </Menu.Item>
           </Menu>

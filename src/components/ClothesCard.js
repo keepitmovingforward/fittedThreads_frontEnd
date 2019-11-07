@@ -47,7 +47,7 @@ const ClothesCard = (props) => {
       <Card color='black' onClick={(e) => props.updateSelectedClothing(e, clothingObj)}
         key={clothingObj.id}>
         <Card.Content extra textAlign='right'>
-          <Icon name='heart' onClick={(e) => console.log(e.target.classList["value"])} />
+          <Icon name='heart outline' color='red' onClick={(e) => console.log(e.target.classList["value"])} />
         </Card.Content>
         <Image src={clothingObj.image_url} verticalAlign='middle' centered id="clothesPhoto" bordered />
         <Card.Content id="clothesTextBox">

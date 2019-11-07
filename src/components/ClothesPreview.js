@@ -10,12 +10,12 @@ const ClothesPreview = (props) => {
 
     <>
 
-      <Card color='black'
+      <Card color='black' fluid
         key={selectedClothing.id}>
         <Card.Content extra textAlign='right'>
-          <Icon name='heart' onClick={(e) => console.log(e.target.classList["value"])} />
+          <Icon name='heart outline' color='red' onClick={(e) => console.log(e.target.classList["value"])} />
         </Card.Content>
-        <Image src={selectedClothing.image_url} verticalAlign='middle' centered bordered />
+        <Image src={selectedClothing.image_url} verticalAlign='middle' centered bordered id="previewImg" />
         <Card.Content id="clothesTextBox">
           <Card.Header id="clothesCardBrand">{selectedClothing.brand}</Card.Header>
           <Card.Header id="clothesCardName">{selectedClothing.name}</Card.Header>

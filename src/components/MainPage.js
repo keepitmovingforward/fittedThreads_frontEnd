@@ -16,7 +16,7 @@ class MainPage extends Component {
         <Grid columns='equal' divided>
           <Grid.Row>
             {searchActive ?
-            <Grid.Column width={3}>
+            <Grid.Column width={3} stretched>
               <SearchColumn />
             </Grid.Column>
 
@@ -28,7 +28,7 @@ class MainPage extends Component {
             </Grid.Column>
 
       {selectedClothing ?
-            <Grid.Column width={3}>
+            <Grid.Column width={3} stretched>
               <ClothesPreview />
             </Grid.Column>
       :

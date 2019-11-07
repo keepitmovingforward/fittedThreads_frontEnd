@@ -156,7 +156,7 @@ function updateCategoriesSearch(category, checked) {
 }
 
 function updateSelectedClothing(e, clothing) {
-  if (e.target.classList["value"] !== "heart icon") {
+  if (!e.target.classList["value"].includes("heart")) {
     return {type: "UPDATE_SELECTED_CLOTHING", payload: clothing }
   }
   return {type: "DO_NOTHING"}

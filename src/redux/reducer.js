@@ -6,7 +6,7 @@ let initialState = {
   users: [],
   categories: [],
   brands: [],
-  loggedInUser: null,
+  loggedInUser: true,
   clothingLoading: true,
   searchActive: false,
   clothingSearch: "",
@@ -73,6 +73,8 @@ let searchActiveReducer = (state=initialState.searchActive, action) => {
       return !state
     case "HOME":
       return false
+    case "LOG_OUT":
+      return false
     default:
       return state
     }
@@ -82,6 +84,8 @@ let clothingSearchReducer = (state=initialState.clothingSearch, action) => {
   switch (action.type) {
     case "UPDATE_CLOTHING_SEARCH":
       return action.payload
+    case "LOG_OUT":
+      return ""
     default:
       return state
     }
@@ -91,6 +95,8 @@ let brandsSearchReducer = (state=initialState.brandsSearch, action) => {
   switch (action.type) {
     case "UPDATE_BRANDS_SEARCH":
       return action.payload
+    case "LOG_OUT":
+      return []
     default:
       return state
     }
@@ -100,6 +106,8 @@ let categoriesSearchReducer = (state=initialState.categoriesSearch, action) => {
   switch (action.type) {
     case "UPDATE_CATEGORIES_SEARCH":
       return action.payload
+    case "LOG_OUT":
+      return []
     default:
       return state
     }
@@ -114,6 +122,8 @@ let selectedClothingReducer = (state=initialState.selectedClothing, action) => {
       else {
       return action.payload
       }
+    case "LOG_OUT":
+      return null
     default:
       return state
     }

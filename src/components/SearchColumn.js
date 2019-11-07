@@ -39,12 +39,12 @@ class SearchColumn extends Component {
           <Form.Field>
             <label>Search by Specific Categories</label>
           </Form.Field>
-          {this.props.categories.map(categories =>
-            <Form.Field key={categories.id}>
+          {this.props.categories.map(category =>
+            <Form.Field key={category}>
               <Checkbox
-                key={categories.id}
-                label={_.capitalize(categories.name)}
-                name={categories.name}
+                key={category}
+                label={_.capitalize(category)}
+                name={category}
                 onChange={this.props.updateCategoriesSearch}
               />
             </Form.Field>
@@ -61,7 +61,7 @@ class SearchColumn extends Component {
 const mapStateToProps = state => {
   return {
     brands: state.brands,
-    categories: state.categories,
+    categories: state.categories.map(c => c.name).sort(),
     clothingSearch: state.clothingSearch
   }
 }
