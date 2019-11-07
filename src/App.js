@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import './App.css';
 import {BrowserRouter as Router, Route, Switch, Redirect, withRouter } from "react-router-dom"
 import {connect} from 'react-redux'
+import { Card, Image } from 'semantic-ui-react'
 import {fetchingData} from './redux/actions'
 import NavBar from './components/NavBar'
 import MainPage from './components/MainPage'
 import LoginForm from './components/LoginForm'
+import ClothingShowContainer from './components/ClothingShowContainer'
 
 class App extends Component {
 
@@ -13,8 +15,27 @@ class App extends Component {
     this.props.fetchingData()
   }
 
+  clothingRoutingCheck = (loggedInUser, foundClothing) => {
+    if (loggedInUser && foundClothing) {
+      return <ClothingShowContainer />
+    }
+    else {
+      if (loggedInUser && !!foundClothing === false) {
+        return (
+          <Card fluid>
+            <Image src={"https://i.imgur.com/vdU2Jlg.png"} verticalAlign='middle' centered />
+          </Card>
+        )
+      } else {
+        if(!!loggedInUser === false ) {
+          return <Redirect to='/login' />
+        }
+      }
+    }
+  }
+
   render() {
-    let { loggedInUser, clothingLoading } = this.props
+    let { loggedInUser, clothingLoading, clothingCollection } = this.props
     return (
       <Router>
         {loggedInUser ?
@@ -33,6 +54,14 @@ class App extends Component {
                   <Redirect to='/login' />
                 )
                 }} />
+
+              <Route path='/threads/:threadId' render={(props) => {
+                  let threadId = parseInt(props.match.params.threadId)
+                  let foundClothing = clothingCollection.find(clothingObj => clothingObj.id === threadId)
+                  return (
+                    this.clothingRoutingCheck(loggedInUser, foundClothing)
+                )}
+                } />
 
               <Route exact path="/login" render={() => {
                 return (loggedInUser ?
@@ -91,7 +120,8 @@ class App extends Component {
   const mapStateToProps = state => {
     return {
       loggedInUser: state.loggedInUser,
-      clothingLoading: state.clothingLoading
+      clothingLoading: state.clothingLoading,
+      clothingCollection: state.clothingCollection
     }
   }
 

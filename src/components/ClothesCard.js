@@ -49,7 +49,7 @@ const ClothesCard = (props) => {
         <Card.Content extra textAlign='right'>
           <Icon name='heart outline' color='red' onClick={(e) => console.log(e.target.classList["value"])} />
         </Card.Content>
-        <Image src={clothingObj.image_url} verticalAlign='middle' centered id="clothesPhoto" bordered />
+        <Image src={clothingObj.image_url} verticalAlign='middle' centered id="clothesCardPhoto" bordered />
         <Card.Content id="clothesTextBox">
           <Card.Header id="clothesCardBrand">{clothingObj.brand}</Card.Header>
           <Card.Header id="clothesCardName">{clothingObj.name}</Card.Header>

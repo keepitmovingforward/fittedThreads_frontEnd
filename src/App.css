@@ -21,7 +21,7 @@
   color: #09d3ac;
 }
 
-#clothesPhoto {
+#clothesCardPhoto {
   min-height: 250px;
   max-height: 250px;
   max-width: 260px;
@@ -36,7 +36,7 @@
 }
 
 #clothingPreviewUser {
-  max-width: 65px;
+  max-width: 70px;
   max-height: 45px;
 }
 
@@ -110,7 +110,11 @@
 
 #clothesCardUser {
   font-family: 'Noto Sans JP', sans-serif;
-  font-size: 13px;
+  font-size: 12px;
   font-style: italic;
   text-align: right;
+}
+
+#clothingPrevDetailsBtn {
+  color: white;
 }
