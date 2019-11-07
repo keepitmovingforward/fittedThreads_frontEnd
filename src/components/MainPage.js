@@ -3,16 +3,13 @@ import { Grid, Container, Image } from 'semantic-ui-react'
 import {connect} from 'react-redux'
 import ClothesContainer from './ClothesContainer'
 import SearchColumn from './SearchColumn'
+import ClothesPreview from './ClothesPreview'
 
 class MainPage extends Component {
 
-  state = {
-    selectedClothing: true
-  }
-
   render() {
-    let { searchActive } = this.props
-    let { selectedClothing } = this.state
+    let { searchActive, selectedClothing } = this.props
+
     return(
       <>
       <Container fluid>
@@ -32,7 +29,7 @@ class MainPage extends Component {
 
       {selectedClothing ?
             <Grid.Column width={3}>
-              <Image src="http://placeimg.com/200/200/animals" centered></Image>
+              <ClothesPreview />
             </Grid.Column>
       :
       null}
@@ -48,7 +45,8 @@ class MainPage extends Component {
 const mapStateToProps = state => {
   return {
     loggedInUser: state.loggedInUser,
-    searchActive: state.searchActive
+    searchActive: state.searchActive,
+    selectedClothing: state.selectedClothing
   }
 }
 

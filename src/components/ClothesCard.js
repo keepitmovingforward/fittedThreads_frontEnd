@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import {connect} from 'react-redux'
-import { Card, Image } from 'semantic-ui-react'
+import { Card, Image, Icon } from 'semantic-ui-react'
+import {updateSelectedClothing} from '../redux/actions'
 
 const ClothesCard = (props) => {
 
@@ -44,8 +44,11 @@ const ClothesCard = (props) => {
 
     <>
     {filterClothingCollection().map(clothingObj =>
-      <Card color='black' as={Link} to={`/thread/${clothingObj.id}`}
+      <Card color='black' onClick={(e) => props.updateSelectedClothing(e, clothingObj)}
         key={clothingObj.id}>
+        <Card.Content extra textAlign='right'>
+          <Icon name='heart' onClick={(e) => console.log(e.target.classList["value"])} />
+        </Card.Content>
         <Image src={clothingObj.image_url} verticalAlign='middle' centered id="clothesPhoto" bordered />
         <Card.Content id="clothesTextBox">
           <Card.Header id="clothesCardBrand">{clothingObj.brand}</Card.Header>
@@ -68,6 +71,12 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(ClothesCard);
+const mapDispatchToProps = dispatch => {
+  return {
+    updateSelectedClothing: (e, clothing) => {dispatch ( updateSelectedClothing(e, clothing) )}
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ClothesCard);
 
 // {props.users.find( user => user.id === clothingObj.user_id).username}

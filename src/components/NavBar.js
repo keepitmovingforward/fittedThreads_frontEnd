@@ -86,7 +86,7 @@ class NavBar extends Component {
 }
 
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
     logOutUser: () => {dispatch ( logOutUser() )},
     toggleSearch: () => {dispatch ( toggleSearch() )},

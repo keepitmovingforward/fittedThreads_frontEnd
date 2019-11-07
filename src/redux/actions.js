@@ -155,10 +155,18 @@ function updateCategoriesSearch(category, checked) {
   }
 }
 
+function updateSelectedClothing(e, clothing) {
+  if (e.target.classList["value"] !== "heart icon") {
+    return {type: "UPDATE_SELECTED_CLOTHING", payload: clothing }
+  }
+  return {type: "DO_NOTHING"}
+}
+
 export {fetchingData, logOutUser,
         handleLoginSubmit, toggleSearch,
         goHome, updateClothingSearch,
-        updateBrandsSearch, updateCategoriesSearch
+        updateBrandsSearch, updateCategoriesSearch,
+        updateSelectedClothing
       }
 
 //at top of components import {onChange} from '../redux/action'
