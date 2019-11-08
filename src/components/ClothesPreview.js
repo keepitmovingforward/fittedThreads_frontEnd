@@ -1,8 +1,8 @@
 import React, { Component, createRef } from 'react'
 import { Link } from 'react-router-dom';
 import {connect} from 'react-redux'
-import { Card, Image, Icon, Button, Grid,
-        Rail, Ref, Sticky, Container
+import { Card, Image, Icon, Button,
+        Rail, Ref, Sticky
         } from 'semantic-ui-react'
 
 const _ = require("lodash")
@@ -14,12 +14,12 @@ class ClothesPreview extends Component {
     let {selectedClothing} = this.props
 
     return (
-      <Grid.Column width={3}>
+
         <Ref innerRef={this.contextRef}>
-            <Rail>
+            <Rail position='right' internal id="clothingPreviewCard">
                 <Sticky context={this.contextRef}>
-                <Container fluid>
-                  <Card fluid id="clothingPreviewCard">
+
+                  <Card fluid>
                     <Card.Content>
                       <Card.Description textAlign='right'>
                         <Icon name='heart outline' color='red' onClick={(e) => console.log(e.target.classList["value"])} />
@@ -66,11 +66,11 @@ class ClothesPreview extends Component {
                       </div>
                     </Card.Content>
                   </Card>
-                  </Container>
+
                 </Sticky>
               </Rail>
             </Ref>
-        </Grid.Column>
+
     )
   }
 }

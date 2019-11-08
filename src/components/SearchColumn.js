@@ -15,7 +15,7 @@ class SearchColumn extends Component {
     return (
       <>
       <Ref innerRef={this.contextRef}>
-        <Rail>
+        <Rail internal position='left' id='searchColumn'>
           <Sticky context={this.contextRef}>
             <Segment inverted raised>
               <Form inverted>

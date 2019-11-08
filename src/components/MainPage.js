@@ -13,7 +13,7 @@ class MainPage extends Component {
     return(
       <>
       <Container fluid>
-        <Grid columns='equal' divided>
+        <Grid columns='equal'>
           <Grid.Row>
             {searchActive ?
             <Grid.Column width={3}>
@@ -27,7 +27,9 @@ class MainPage extends Component {
             </Grid.Column>
 
             {selectedClothing ?
+            <Grid.Column width={3}>
             <ClothesPreview />
+            </Grid.Column>
             :
             null}
           </Grid.Row>

@@ -12,7 +12,6 @@ const ClothingShowContainer = props => {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
   return {
     clothing: state.clothingCollection.find(c => c.id === parseInt(ownProps.match.params.threadId))
   }
