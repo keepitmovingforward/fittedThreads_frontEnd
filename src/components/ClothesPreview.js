@@ -2,7 +2,7 @@ import React, { Component, createRef } from 'react'
 import { Link } from 'react-router-dom';
 import {connect} from 'react-redux'
 import { Card, Image, Icon, Button,
-        Rail, Ref, Sticky
+        Rail, Ref, Sticky, Grid
         } from 'semantic-ui-react'
 
 const _ = require("lodash")
@@ -21,8 +21,15 @@ class ClothesPreview extends Component {
 
                   <Card fluid>
                     <Card.Content>
-                      <Card.Description textAlign='right'>
-                        <Icon name='heart outline' color='red' onClick={(e) => console.log(e.target.classList["value"])} />
+                      <Card.Description>
+                        <Grid id='clothingPreviewCardTop'>
+                          <Grid.Column floated='left' width={1}>
+                            <Icon name='close' size='large'onClick={(e) => console.log(e.target.classList["value"])}/>
+                          </Grid.Column>
+                          <Grid.Column floated='right' width={1}>
+                            <Icon name='heart outline' color='red' size='large' onClick={(e) => console.log(e.target.classList["value"])} />
+                          </Grid.Column>
+                        </Grid>
                       </Card.Description>
                       <Card.Header id="clothesCardBrand">{selectedClothing.brand}</Card.Header>
                       <Card.Header id="clothesCardName">{selectedClothing.name}</Card.Header>
@@ -52,7 +59,7 @@ class ClothesPreview extends Component {
                       null
                       }
                     </Card.Content>
-                    <Card.Content extra>
+                    <Card.Content extra textAlign='center'>
                       <div>
                         <Button animated='fade' color='black'
                           as={ Link }
@@ -60,7 +67,7 @@ class ClothesPreview extends Component {
                           id="clothingPrevDetailsBtn">
                         <Button.Content visible>Details</Button.Content>
                         <Button.Content hidden>
-                          <Icon name='external alternate' />
+                          <Icon name='magnify' />
                         </Button.Content>
                         </Button>
                       </div>

@@ -128,3 +128,8 @@
   width: 100%;
   padding: 0 5px 0 0;
 }
+
+#clothingPreviewCardTop {
+  margin-right: 1px;
+  margin-bottom: 1px;
+}

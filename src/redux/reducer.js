@@ -116,12 +116,7 @@ let categoriesSearchReducer = (state=initialState.categoriesSearch, action) => {
 let selectedClothingReducer = (state=initialState.selectedClothing, action) => {
   switch (action.type) {
     case "UPDATE_SELECTED_CLOTHING":
-      if (state === action.payload){
-        return null
-      }
-      else {
       return action.payload
-      }
     case "LOG_OUT":
       return null
     default:
