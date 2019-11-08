@@ -16,23 +16,20 @@ class MainPage extends Component {
         <Grid columns='equal' divided>
           <Grid.Row>
             {searchActive ?
-            <Grid.Column width={3} stretched>
+            <Grid.Column width={3}>
               <SearchColumn />
             </Grid.Column>
+            :
+            null}
 
-
-      :
-      null}
             <Grid.Column>
-                <ClothesContainer />
+              <ClothesContainer />
             </Grid.Column>
 
-      {selectedClothing ?
-            <Grid.Column width={3}>
-              <ClothesPreview />
-            </Grid.Column>
-      :
-      null}
+            {selectedClothing ?
+            <ClothesPreview />
+            :
+            null}
           </Grid.Row>
         </Grid>
       </Container>

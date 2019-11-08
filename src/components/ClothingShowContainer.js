@@ -5,14 +5,16 @@ import { withRouter } from "react-router-dom";
 
 
 const ClothingShowContainer = props => {
+
   return(
-    <div>Clothing Show {props.clothing}</div>
+    <div>Clothing Show {props.clothing.name}</div>
   )
 }
 
 const mapStateToProps = (state, ownProps) => {
+  debugger
   return {
-    clothing: state.clothingCollection.find(c => c.id === ownProps.match.params.threadId)
+    clothing: state.clothingCollection.find(c => c.id === parseInt(ownProps.match.params.threadId))
   }
 }
 

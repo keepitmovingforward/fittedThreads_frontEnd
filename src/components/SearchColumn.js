@@ -1,56 +1,65 @@
-import React, { Component } from 'react';
-import { Form, Segment, Checkbox } from 'semantic-ui-react';
+import React, { Component, createRef   } from 'react';
+import { Form, Segment, Checkbox,
+        Rail, Ref, Sticky
+        } from 'semantic-ui-react';
 import {connect} from 'react-redux'
 import {updateClothingSearch, updateBrandsSearch, updateCategoriesSearch} from '../redux/actions'
 
 const _ = require("lodash")
 
 class SearchColumn extends Component {
+  contextRef = createRef()
 
   render() {
 
     return (
       <>
-      <Segment inverted raised>
-        <Form inverted>
-          <Form.Input
-            fluid icon='search'
-            iconPosition='left'
-            label='Search by Clothing Name'
-            name='clothingSearch'
-            placeholder='Enter clothing name'
-            onChange={this.props.updateClothingSearch}
-            value={this.props.clothingSearch}
-          />
+      <Ref innerRef={this.contextRef}>
+        <Rail>
+          <Sticky context={this.contextRef}>
+            <Segment inverted raised>
+              <Form inverted>
+                <Form.Input
+                  fluid icon='search'
+                  iconPosition='left'
+                  label='Search by Clothing Name'
+                  name='clothingSearch'
+                  placeholder='Enter clothing name'
+                  onChange={this.props.updateClothingSearch}
+                  value={this.props.clothingSearch}
+                />
 
-          <Form.Field>
-            <label>Search by Specific Brands</label>
-          </Form.Field>
-          {this.props.brands.map(brand =>
-            <Form.Field key={brand}>
-              <Checkbox
-                key={brand}
-                label={brand}
-                name={brand}
-                onChange={this.props.updateBrandsSearch}
-              />
-            </Form.Field>
-          )}
-          <Form.Field>
-            <label>Search by Specific Categories</label>
-          </Form.Field>
-          {this.props.categories.map(category =>
-            <Form.Field key={category}>
-              <Checkbox
-                key={category}
-                label={_.capitalize(category)}
-                name={category}
-                onChange={this.props.updateCategoriesSearch}
-              />
-            </Form.Field>
-          )}
-          </Form>
-      </Segment>
+                <Form.Field>
+                  <label>Search by Specific Brands</label>
+                </Form.Field>
+                {this.props.brands.map(brand =>
+                  <Form.Field key={brand}>
+                    <Checkbox
+                      key={brand}
+                      label={brand}
+                      name={brand}
+                      onChange={this.props.updateBrandsSearch}
+                    />
+                  </Form.Field>
+                )}
+                <Form.Field>
+                  <label>Search by Specific Categories</label>
+                </Form.Field>
+                {this.props.categories.map(category =>
+                  <Form.Field key={category}>
+                    <Checkbox
+                      key={category}
+                      label={_.capitalize(category)}
+                      name={category}
+                      onChange={this.props.updateCategoriesSearch}
+                    />
+                  </Form.Field>
+                )}
+                </Form>
+            </Segment>
+            </Sticky>
+          </Rail>
+        </Ref>
 
       </>
     )
