@@ -50,7 +50,7 @@
 #clothingShowUser {
   max-width: 120px;
   max-height: 80px;
-  margin-right: 1.5vw;
+  margin-right: 0.3vw;
   margin-top: 10px;
 }
 
@@ -244,4 +244,12 @@
   font-size: 20px;
   color: black;
   text-align: center;
+}
+
+#clothingShowImgCol {
+  background-color: #1d1e1f;
+}
+
+#clothingShowDetailCol {
+  background-color: #571028;
 }
