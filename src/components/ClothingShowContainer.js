@@ -1,7 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux'
+import { Link } from 'react-router-dom';
 import { withRouter } from "react-router-dom";
-import { Container, Grid, Card, Image, Icon } from 'semantic-ui-react'
+import { Container, Grid, Card, Image, Icon, Button } from 'semantic-ui-react'
 
 const _ = require("lodash")
 
@@ -20,6 +21,18 @@ const ClothingShowContainer = props => {
               <Card.Content>
                 <Card.Description>
                   <Grid>
+                    <Grid.Column floated='left' width={1}>
+                      <div>
+                        <Button animated='fade' color='black'
+                          as={ Link }
+                          to = {`/home`}>
+                        <Button.Content visible>Back</Button.Content>
+                        <Button.Content hidden>
+                          <Icon name='home' />
+                        </Button.Content>
+                        </Button>
+                      </div>
+                    </Grid.Column>
                     <Grid.Column id='clothingShowHeart' floated='right' width={1}>
                       <Icon name='heart outline' color='red' size='big' onClick={(e) => console.log(e.target.classList["value"])} />
                     </Grid.Column>
@@ -40,17 +53,45 @@ const ClothingShowContainer = props => {
                 </Card.Description>
               </Card.Content>
               <Card.Content>
-                <Card.Description>
+                <Card.Header id='clothingShowCategory'>
                   <strong>Category:</strong> {clothing.categories.map(c => _.capitalize(c.name)).join(", ")}
-                </Card.Description>
+                </Card.Header>
                 {clothing.sizes.length > 0 ?
-                <Card.Description>
-                  <strong>Sizes:</strong> {clothing.sizes.map(s => s.size).join(", ")}
+                <>
+                <Card.Description id='clothingShowSizes'>
+                  <strong>Sizes Available:</strong>
                 </Card.Description>
+                <Card.Description id='clothingShowSizes'>
+                  {clothing.sizes.map(s => s.size).join(", ")}
+                </Card.Description>
+                </>
                 :
                 null
                 }
               </Card.Content>
+                {clothing.user_clothings.length > 0 ?
+                  <>
+                  <Card.Content>
+                    <Card.Header id='clothingShowCategory'>
+                      <strong>Measurements</strong>
+                    </Card.Header>
+                <Card.Description id='clothingShowSizes'>
+                  <strong>Measurements Available:</strong>
+                </Card.Description>
+                <Card.Description id='clothingShowSizes'>
+                  {clothing.user_clothings.map(measurement => {
+                    return (
+                      <Card key={measurement.id}>
+                        <Card.Description>{measurement.measurements}</Card.Description>
+                      </Card>
+                    )
+                  })}
+                </Card.Description>
+              </Card.Content>
+                </>
+                :
+                null
+                }
 
             </Card>
 

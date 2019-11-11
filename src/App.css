@@ -126,6 +126,7 @@
   font-family: 'Staatliches', cursive;
   font-size: 40px;
   color: #571028;
+  margin-top: 5px;
 
 }
 
@@ -139,10 +140,16 @@
   font-size: 12px;
   font-style: italic;
   text-align: right;
+  margin-bottom: 10px;
 }
 
 #clothingPrevDetailsBtn {
   color: white;
+}
+
+#clothingCardDetailsBtn {
+  color: white;
+  font-size: 9px;
 }
 
 #clothingPreviewCard {
@@ -181,4 +188,13 @@
 
 #clothingShowDescription {
   font-size: 21px;
+}
+
+#clothingShowCategory {
+  margin-bottom: 10px;
+  font-size: 20px
+}
+
+#clothingShowSizes {
+  font-size: 17px
 }

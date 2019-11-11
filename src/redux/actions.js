@@ -156,7 +156,10 @@ function updateCategoriesSearch(category, checked) {
 }
 
 function updateSelectedClothing(e, clothing) {
-  if (!e.target.classList["value"].includes("heart")) {
+  if (!e.target.classList["value"].includes("heart")
+   && !e.target.classList["value"].includes('hidden')
+   && !e.target.classList["value"].includes('magnify')
+   && !e.target.classList["value"].includes('button')) {
     return {type: "UPDATE_SELECTED_CLOTHING", payload: clothing }
   }
   return {type: "DO_NOTHING"}

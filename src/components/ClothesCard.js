@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import { Card, Image, Icon } from 'semantic-ui-react'
+import { Link } from 'react-router-dom';
+import { Card, Image, Icon, Button } from 'semantic-ui-react'
 import {updateSelectedClothing} from '../redux/actions'
 
 const ClothesCard = (props) => {
@@ -54,6 +55,17 @@ const ClothesCard = (props) => {
           <Card.Header id="clothesCardBrand">{clothingObj.brand}</Card.Header>
           <Card.Header id="clothesCardName">{clothingObj.name}</Card.Header>
           <Card.Description id="clothesCardUser">posted by {clothingObj.user.username}</Card.Description>
+            <Card.Description textAlign='right'>
+            <Button animated='fade' color='black'
+              as={Link}
+              to = {`/threads/${clothingObj.id}`}
+              id='clothingCardDetailsBtn'>
+            <Button.Content visible>Details</Button.Content>
+            <Button.Content hidden>
+              <Icon name='magnify' />
+            </Button.Content>
+            </Button>
+            </Card.Description>
         </Card.Content>
       </Card>)
     }

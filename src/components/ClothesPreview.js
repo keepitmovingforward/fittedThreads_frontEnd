@@ -25,7 +25,7 @@ class ClothesPreview extends Component {
                       <Card.Description>
                         <Grid id='clothingPreviewCardTop'>
                           <Grid.Column floated='left' width={1}>
-                            <Icon id='clothPrevCloseBtn' name='close' size='large'onClick={(e) => this.props.closeSelectedClothing(e)}/>
+                            <Icon id='clothPrevCloseBtn' name='close' color='black' size='large'onClick={(e) => this.props.closeSelectedClothing(e)}/>
                           </Grid.Column>
                           <Grid.Column floated='right' width={1}>
                             <Icon name='heart outline' color='red' size='large' onClick={(e) => console.log(e.target.classList["value"])} />
