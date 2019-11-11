@@ -46,7 +46,7 @@ const ClothesCard = (props) => {
     <>
     {filterClothingCollection().map(clothingObj =>
       <Card color='black' onClick={(e) => props.updateSelectedClothing(e, clothingObj)}
-        key={clothingObj.id}>
+        key={clothingObj.id} id='clothesCard'>
         <Card.Content extra textAlign='right'>
           <Icon name='heart outline' color='red' onClick={(e) => console.log(e.target.classList["value"])} />
         </Card.Content>

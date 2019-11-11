@@ -17,10 +17,10 @@ class ClothesPreview extends Component {
     return (
 
         <Ref innerRef={this.contextRef}>
-            <Rail position='right' internal id="clothingPreviewCard">
+            <Rail position='right' internal id="clothingPreviewCardRail">
                 <Sticky context={this.contextRef}>
 
-                  <Card fluid>
+                  <Card fluid id="clothingPreviewCard">
                     <Card.Content>
                       <Card.Description>
                         <Grid id='clothingPreviewCardTop'>
