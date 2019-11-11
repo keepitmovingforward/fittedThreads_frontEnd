@@ -124,7 +124,7 @@
 
 #clothesShowBrand {
   font-family: 'Staatliches', cursive;
-  font-size: 40px;
+  font-size: 42px;
   color: #571028;
   margin-top: 5px;
 
@@ -132,7 +132,7 @@
 
 #clothesShowName {
   font-family: 'Noto Sans JP', sans-serif;
-  font-size: 30px;
+  font-size: 32px;
 }
 
 #clothesCardUser {
@@ -191,10 +191,45 @@
 }
 
 #clothingShowCategory {
+  font-family: 'Noto Sans JP', sans-serif;
   margin-bottom: 10px;
-  font-size: 20px
+  font-size: 20px;
+  color: black;
+}
+
+#clothingShowCategoryHeader {
+  font-family: 'Noto Sans JP', sans-serif;
+  margin-bottom: 10px;
+  font-size: 25px;
+  color: black;
 }
 
 #clothingShowSizes {
-  font-size: 17px
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 20px;
+  color: black;
+  margin-bottom: 5px;
+}
+
+#clothingShowMeasures {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 20px;
+  color: black;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+#clothingShowMeasuresHeader {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 25px;
+  color: black;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+#clothingShowInnerMeasures {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 20px;
+  color: black;
+  text-align: center;
 }

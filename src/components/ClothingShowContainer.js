@@ -2,9 +2,11 @@ import React from 'react';
 import {connect} from 'react-redux'
 import { Link } from 'react-router-dom';
 import { withRouter } from "react-router-dom";
-import { Container, Grid, Card, Image, Icon, Button } from 'semantic-ui-react'
+import { Container, Grid, Card, Image, Icon, Button, Segment } from 'semantic-ui-react'
 
 const _ = require("lodash")
+const topMeasurements = ["Neck", "Chest", "Waist", "Sleeve", "Front Length"]
+const bottomsMeasurements = ["Waist", "Length", "Hip", "Thigh", "Bottom Hem"]
 
 const ClothingShowContainer = props => {
   let { clothing } = props
@@ -53,9 +55,15 @@ const ClothingShowContainer = props => {
                 </Card.Description>
               </Card.Content>
               <Card.Content>
-                <Card.Header id='clothingShowCategory'>
-                  <strong>Category:</strong> {clothing.categories.map(c => _.capitalize(c.name)).join(", ")}
+                <Card.Header id='clothingShowCategoryHeader'>
+                  <strong>ADDITIONAL DETAILS</strong>
                 </Card.Header>
+                <Card.Description id='clothingShowCategory'>
+                  <strong>Category:</strong>
+                </Card.Description>
+                <Card.Description id='clothingShowCategory'>
+                  {clothing.categories.map(c => _.capitalize(c.name)).join(", ")}
+                </Card.Description>
                 {clothing.sizes.length > 0 ?
                 <>
                 <Card.Description id='clothingShowSizes'>
@@ -72,21 +80,39 @@ const ClothingShowContainer = props => {
                 {clothing.user_clothings.length > 0 ?
                   <>
                   <Card.Content>
-                    <Card.Header id='clothingShowCategory'>
-                      <strong>Measurements</strong>
+                    <Card.Header id='clothingShowMeasuresHeader'>
+                      <strong>MEASUREMENTS</strong>
                     </Card.Header>
-                <Card.Description id='clothingShowSizes'>
-                  <strong>Measurements Available:</strong>
-                </Card.Description>
-                <Card.Description id='clothingShowSizes'>
-                  {clothing.user_clothings.map(measurement => {
-                    return (
-                      <Card key={measurement.id}>
-                        <Card.Description>{measurement.measurements}</Card.Description>
-                      </Card>
-                    )
-                  })}
-                </Card.Description>
+                  <Grid columns='equal'>
+                    <Grid.Row id='clothingShowMeasures'>
+                      <Grid.Column width={8} textAlign='center'>
+                        <Card.Description id='clothingShowMeasures'>
+                          <strong>SIZE</strong>
+                        </Card.Description>
+                      </Grid.Column>
+                      <Grid.Column width={8} textAlign='center'>
+                        <Card.Description id='clothingShowMeasures'>
+                          <strong>FITTED MEASUREMENTS</strong>
+                        </Card.Description>
+                      </Grid.Column>
+                    </Grid.Row>
+                  </Grid>
+
+
+                <Grid columns='equal'>
+                  {clothing.sizes.map(size =>
+                    <Grid.Row key={size.id}>
+                      <Grid.Column width={8}>
+                        <Segment id='clothingShowInnerMeasures'><strong>{size.size}</strong> </Segment>
+                      </Grid.Column>
+                      <Grid.Column width={8}>
+                        {clothing.user_clothings.filter(measurement => size.id === measurement.size_id).map(sizedMeasures =>
+                          <Segment id='clothingShowInnerMeasures' key={sizedMeasures.id}> {sizedMeasures.measurements} by User ID:{sizedMeasures.user_id}</Segment>
+                        )}
+                      </Grid.Column>
+                    </Grid.Row>
+                  )}
+                </Grid>
               </Card.Content>
                 </>
                 :
