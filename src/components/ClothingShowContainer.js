@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import { Link } from 'react-router-dom';
 import { withRouter } from "react-router-dom";
@@ -8,17 +8,19 @@ const _ = require("lodash")
 const topMeasurements = ["Neck", "Chest", "Waist", "Sleeve", "Front Length"]
 const bottomsMeasurements = ["Waist", "Length", "Hip", "Thigh", "Bottom Hem"]
 
-const ClothingShowContainer = props => {
-  let { clothing } = props
+class ClothingShowContainer extends Component {
+
+  render() {
+  let { clothing } = this.props
 
   return(
     <Container fluid>
-      <Grid celled>
+      <Grid celled id='clothingShowGrid'>
         <Grid.Row>
           <Grid.Column width={4} id='clothingShowImgCol'>
             <Card fluid>
             <Card.Content textAlign='center'>
-            <Image id='clothingShowImg' src={props.clothing.image_url}/>
+            <Image id='clothingShowImg' src={clothing.image_url}/>
             </Card.Content>
             <Card.Content>
             <Image
@@ -137,6 +139,7 @@ const ClothingShowContainer = props => {
     </Container>
 
   )
+}
 }
 
 const mapStateToProps = (state, ownProps) => {

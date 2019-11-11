@@ -255,3 +255,7 @@
 #clothingShowDetailCol {
   background-color: #571028;
 }
+
+#clothingShowGrid {
+  margin-top: -1px;
+}
