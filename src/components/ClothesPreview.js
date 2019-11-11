@@ -50,7 +50,7 @@ class ClothesPreview extends Component {
                     </Card.Content>
                     <Card.Content>
                       <Card.Description>
-                        <strong>Categories:</strong> {selectedClothing.categories.map(c => _.capitalize(c.name)).join(", ")}
+                        <strong>Category:</strong> {selectedClothing.categories.map(c => _.capitalize(c.name)).join(", ")}
                       </Card.Description>
                       {selectedClothing.sizes.length > 0 ?
                       <Card.Description>

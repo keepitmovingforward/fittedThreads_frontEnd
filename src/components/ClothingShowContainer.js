@@ -41,7 +41,7 @@ const ClothingShowContainer = props => {
               </Card.Content>
               <Card.Content>
                 <Card.Description>
-                  <strong>Categories:</strong> {clothing.categories.map(c => _.capitalize(c.name)).join(", ")}
+                  <strong>Category:</strong> {clothing.categories.map(c => _.capitalize(c.name)).join(", ")}
                 </Card.Description>
                 {clothing.sizes.length > 0 ?
                 <Card.Description>
