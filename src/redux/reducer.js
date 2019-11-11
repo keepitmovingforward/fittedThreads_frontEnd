@@ -117,6 +117,8 @@ let selectedClothingReducer = (state=initialState.selectedClothing, action) => {
   switch (action.type) {
     case "UPDATE_SELECTED_CLOTHING":
       return action.payload
+    case "CLOSE_SELECTED_CLOTHING":
+      return null
     case "LOG_OUT":
       return null
     default:

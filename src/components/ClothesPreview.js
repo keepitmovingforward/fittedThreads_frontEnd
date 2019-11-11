@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import { Card, Image, Icon, Button,
         Rail, Ref, Sticky, Grid
         } from 'semantic-ui-react'
+import {closeSelectedClothing} from '../redux/actions'
 
 const _ = require("lodash")
 
@@ -24,7 +25,7 @@ class ClothesPreview extends Component {
                       <Card.Description>
                         <Grid id='clothingPreviewCardTop'>
                           <Grid.Column floated='left' width={1}>
-                            <Icon name='close' size='large'onClick={(e) => console.log(e.target.classList["value"])}/>
+                            <Icon id='clothPrevCloseBtn' name='close' size='large'onClick={(e) => this.props.closeSelectedClothing(e)}/>
                           </Grid.Column>
                           <Grid.Column floated='right' width={1}>
                             <Icon name='heart outline' color='red' size='large' onClick={(e) => console.log(e.target.classList["value"])} />
@@ -89,5 +90,10 @@ const mapStateToProps = state => {
   }
 }
 
+const mapDispatchToProps = dispatch => {
+  return {
+    closeSelectedClothing: (e, clothing) => {dispatch ( closeSelectedClothing(e, clothing) )}
+  }
+}
 
-export default connect(mapStateToProps)(ClothesPreview);
+export default connect(mapStateToProps, mapDispatchToProps)(ClothesPreview);

@@ -162,11 +162,18 @@ function updateSelectedClothing(e, clothing) {
   return {type: "DO_NOTHING"}
 }
 
+function closeSelectedClothing(e) {
+  if (e.target.classList["value"].includes("close")) {
+    return {type: "CLOSE_SELECTED_CLOTHING"}
+  }
+  return {type: "DO_NOTHING"}
+}
+
 export {fetchingData, logOutUser,
         handleLoginSubmit, toggleSearch,
         goHome, updateClothingSearch,
         updateBrandsSearch, updateCategoriesSearch,
-        updateSelectedClothing
+        updateSelectedClothing, closeSelectedClothing
       }
 
 //at top of components import {onChange} from '../redux/action'
