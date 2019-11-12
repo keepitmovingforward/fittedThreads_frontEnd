@@ -10,9 +10,18 @@ class AddMeasurementsForm extends Component {
 
   state = {
     addCustomSize: false,
+    existingSizeId: "",
     customSizeEntry: "",
-    
-
+    topNeck: "",
+    topChest: "",
+    topWaist: "",
+    topSleeve: "",
+    topFrontLength: "",
+    bottomWaist: "",
+    bottomLength: "",
+    bottomHip: "",
+    bottomThigh: "",
+    bottomBottomHem: ""
   }
 
   createSizeOptions = () => {
@@ -32,7 +41,7 @@ class AddMeasurementsForm extends Component {
     return options
   }
 
-  checkForNewSize = (e) => {
+  checkForNewSize = (e, {name, value}) => {
     if (e.target.innerText === "Add New Size") {
       this.setState({
         addCustomSize: true
@@ -40,7 +49,8 @@ class AddMeasurementsForm extends Component {
     }
     else {
       this.setState({
-        addCustomSize: false
+        addCustomSize: false,
+        [name]: value
       })
     }
   }
@@ -51,13 +61,30 @@ class AddMeasurementsForm extends Component {
     })
   }
 
-  handleMeasurementSubmit = (e, obj) => {
-    console.log(e, obj)
+  handleDimensionsChange = (e, {name, value}) => {
+    this.setState({
+      [name]: value
+    })
   }
 
-  handleDimensionsChange = (e, {name, value}) => {
-    console.log(e, name, value)
+  handleMeasurementSubmit = (e, obj) => {
+    let {clothing} = this.props
+    let {addCustomSize, existingSizeId, customSizeEntry,
+        topNeck, topChest, topWaist, topSleeve, topFrontLength,
+        bottomWaist, bottomLength, bottomHip, bottomThigh, bottomBottomHem } = this.state
+
+    if (!addCustomSize && customSizeEntry === "") {
+      console.log("we need size fools!")
+
+    }
+
+
+    if(clothing.categories[0].name.toLowerCase() === "pants" ||
+    clothing.categories[0].name.toLowerCase() === "jeans") {
+
+    }
   }
+
 
   render() {
     let {clothing} = this.props
@@ -69,6 +96,7 @@ class AddMeasurementsForm extends Component {
         placeholder='Select A Size'
         width={4}
         control={Select}
+        name='existingSizeId'
         options={this.createSizeOptions()}
         onChange={this.checkForNewSize}
         required
@@ -92,7 +120,7 @@ class AddMeasurementsForm extends Component {
                 <label>{dim}</label>
                 <Dropdown clearable options={this.generateOptions()}
                   selection search
-                  name={`bottom${dim}`}
+                  name={`bottom${dim.split(" ").join("")}`}
                   onChange={this.handleDimensionsChange}/>
               </Form.Field>
             )
@@ -104,7 +132,7 @@ class AddMeasurementsForm extends Component {
                 <label>{dim}</label>
                 <Dropdown clearable options={this.generateOptions()}
                    selection search
-                   name={`top${dim}`}
+                   name={`top${dim.split(" ").join("")}`}
                    onChange={this.handleDimensionsChange}
                    />
               </Form.Field>
@@ -113,7 +141,7 @@ class AddMeasurementsForm extends Component {
         }
       </Form.Group>
       <Card.Content textAlign='center'>
-          <Button type='submit' animated='fade' color='black'
+          <Button type='submit' animated='fade' color='black' size='big'
            onClick={this.handleMeasurementSubmit}
           >
            <Button.Content visible>Submit Measurement</Button.Content>
