@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import { Link } from 'react-router-dom';
 import { withRouter } from "react-router-dom";
-import { Container, Grid, Card, Image, Icon, Button, Segment } from 'semantic-ui-react'
+import { Container, Grid, Card, Image, Icon, Button, Segment, Form, Select } from 'semantic-ui-react'
 
 const _ = require("lodash")
 const topMeasurements = ["Neck", "Chest", "Waist", "Sleeve", "Front Length"]
@@ -13,6 +13,12 @@ class ClothingShowContainer extends Component {
   state = {
     addMeasurement: false,
     customSize: false
+  }
+
+  handleAddMeasurement = () => {
+    this.setState({
+      addMeasurement: !this.state.addMeasurement
+    })
   }
 
   render() {
@@ -134,16 +140,28 @@ class ClothingShowContainer extends Component {
                 }
                 {!this.state.addMeasurement ?
                 <Card.Content textAlign='center'>
-                <Button animated='vertical' color='black' size='large' id='addMeasBtn'>
+                <Button animated='vertical' color='black'
+                  size='big' id='addMeasBtn' onClick={this.handleAddMeasurement}>
                   <Button.Content visible>Add Measurement</Button.Content>
                   <Button.Content hidden>
-                    <Icon name='add circle' id='addMeasIcon'/>
+                    <Icon name='add circle' />
                   </Button.Content>
                 </Button>
                 </Card.Content>
 
                 :
-                null
+                <Card.Content>
+                <Card.Header textAlign='right'>
+                  <Button icon color='black' size='large' onClick={this.handleAddMeasurement}>
+                    <Icon name='close'/>
+                  </Button>
+                </Card.Header>
+                  <Form>
+                  <Form.Group>
+                  <Form.Input label='First name' placeholder='First Name' width={6} />
+                  </Form.Group>
+                  </Form>
+                </Card.Content>
                 }
 
             </Card>
