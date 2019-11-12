@@ -10,6 +10,11 @@ const bottomsMeasurements = ["Waist", "Length", "Hip", "Thigh", "Bottom Hem"]
 
 class ClothingShowContainer extends Component {
 
+  state = {
+    addMeasurement: false,
+    customSize: false
+  }
+
   render() {
   let { clothing } = this.props
 
@@ -122,8 +127,21 @@ class ClothingShowContainer extends Component {
                     </Grid.Row>
                   )}
                 </Grid>
-              </Card.Content>
+                </Card.Content>
                 </>
+                :
+                null
+                }
+                {!this.state.addMeasurement ?
+                <Card.Content textAlign='center'>
+                <Button animated='vertical' color='black' size='large' id='addMeasBtn'>
+                  <Button.Content visible>Add Measurement</Button.Content>
+                  <Button.Content hidden>
+                    <Icon name='add circle' id='addMeasIcon'/>
+                  </Button.Content>
+                </Button>
+                </Card.Content>
+
                 :
                 null
                 }

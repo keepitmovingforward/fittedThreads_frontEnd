@@ -249,7 +249,7 @@
 }
 
 #clothingShowImgCol {
-  background-color: #1d1e1f;
+  background-color: #0d0d0d;
 }
 
 #clothingShowDetailCol {
@@ -258,4 +258,12 @@
 
 #clothingShowGrid {
   margin-top: -1px;
+}
+
+#addMeasBtn {
+  padding-bottom: 15px;
+}
+
+#addMeasIcon {
+
 }
