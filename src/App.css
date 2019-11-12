@@ -118,7 +118,7 @@
 
 #clothingPreviewCard {
   border-style: solid;
-  border-width: 5px 5px 5px 5px;
+  border-width: 4px 4px 4px 4px;
   border-color: #571028;
 }
 
@@ -239,7 +239,7 @@
   font-size: 25px;
   color: black;
   padding-bottom: 0px;
-  margin-bottom: 0px;
+  margin-bottom: 10px;
 }
 
 #clothingShowInnerMeasures {
