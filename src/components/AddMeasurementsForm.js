@@ -10,7 +10,9 @@ class AddMeasurementsForm extends Component {
 
   state = {
     addCustomSize: false,
-    customSizeEntry: ""
+    customSizeEntry: "",
+    
+
   }
 
   createSizeOptions = () => {
@@ -49,9 +51,12 @@ class AddMeasurementsForm extends Component {
     })
   }
 
-  handleMeasurementSubmit = (e) => {
-    console.log(e)
-    debugger
+  handleMeasurementSubmit = (e, obj) => {
+    console.log(e, obj)
+  }
+
+  handleDimensionsChange = (e, {name, value}) => {
+    console.log(e, name, value)
   }
 
   render() {
@@ -87,7 +92,8 @@ class AddMeasurementsForm extends Component {
                 <label>{dim}</label>
                 <Dropdown clearable options={this.generateOptions()}
                   selection search
-                  key={dim}/>
+                  name={`bottom${dim}`}
+                  onChange={this.handleDimensionsChange}/>
               </Form.Field>
             )
           })
@@ -98,6 +104,8 @@ class AddMeasurementsForm extends Component {
                 <label>{dim}</label>
                 <Dropdown clearable options={this.generateOptions()}
                    selection search
+                   name={`top${dim}`}
+                   onChange={this.handleDimensionsChange}
                    />
               </Form.Field>
             )
