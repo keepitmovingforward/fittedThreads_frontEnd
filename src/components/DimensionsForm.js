@@ -3,13 +3,24 @@ import { Card, Form } from 'semantic-ui-react'
 import {connect} from 'react-redux'
 import { withRouter } from "react-router-dom";
 
+const topMeasurements = ["Neck", "Chest", "Waist", "Sleeve", "Front Length"]
+const bottomsMeasurements = ["Waist", "Length", "Hip", "Thigh", "Bottom Hem"]
 
 const DimensionsForm = props => {
   let {clothing} = props
 
   return(
     <Form.Group>
-      {if clothing.categories.name.toLowerCase() === "" }
+      {clothing.categories[0].name.toLowerCase() === "pants" ||
+      clothing.categories[0].name.toLowerCase() === "jeans" ?
+        bottomsMeasurements.map(dim => {
+          return <Form.Input label={dim} placeholder={`${dim}"`} />
+        })
+        :
+        topMeasurements.map(dim => {
+          return <Form.Input label={dim} placeholder={`${dim}"`} />
+        })
+      }
     </Form.Group>
   )
 }
