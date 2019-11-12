@@ -73,7 +73,7 @@ class AddMeasurementsForm extends Component {
         topNeck, topChest, topWaist, topSleeve, topFrontLength,
         bottomWaist, bottomLength, bottomHip, bottomThigh, bottomBottomHem } = this.state
 
-    if (!addCustomSize && customSizeEntry === "") {
+    if (addCustomSize && customSizeEntry === "") {
       console.log("we need size fools!")
 
     }
