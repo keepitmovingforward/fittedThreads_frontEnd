@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Form, Dropdown, Select } from 'semantic-ui-react'
+import { Card, Form, Dropdown, Select, Button, Icon } from 'semantic-ui-react'
 import {connect} from 'react-redux'
 import { withRouter } from "react-router-dom";
 
@@ -47,6 +47,11 @@ class AddMeasurementsForm extends Component {
     this.setState({
       customSizeEntry: e.target.value
     })
+  }
+
+  handleMeasurementSubmit = (e) => {
+    console.log(e)
+    debugger
   }
 
   render() {
@@ -99,6 +104,16 @@ class AddMeasurementsForm extends Component {
           })
         }
       </Form.Group>
+      <Card.Content textAlign='center'>
+          <Button type='submit' animated='fade' color='black'
+           onClick={this.handleMeasurementSubmit}
+          >
+           <Button.Content visible>Submit Measurement</Button.Content>
+           <Button.Content hidden>
+              <Icon name='arrow circle up' />
+           </Button.Content>
+          </Button>
+      </Card.Content>
     </Form>
   )
 }

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import { Link } from 'react-router-dom';
 import { withRouter } from "react-router-dom";
-import { Container, Grid, Card, Image, Icon, Button, Segment, Form, Select } from 'semantic-ui-react'
+import { Container, Grid, Card, Image, Icon, Button, Segment } from 'semantic-ui-react'
 import AddMeasurementsForm from './AddMeasurementsForm'
 
 const _ = require("lodash")
