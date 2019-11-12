@@ -186,6 +186,7 @@
 
 #clothingShowHeart {
   margin-right: 0px;
+  cursor: pointer;
 }
 
 #clothingShowUserPosted {
@@ -257,7 +258,7 @@
 }
 
 #clothingShowGrid {
-  margin-top: -1px;
+  margin-top: 0px;
 }
 
 #addMeasBtn {

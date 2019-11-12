@@ -21,6 +21,15 @@ class ClothingShowContainer extends Component {
     })
   }
 
+  createSizeOptions = () => {
+    let {clothing} = this.props
+    let sizeOptions = clothing.sizes.map(s => {
+      return {"key": s.id, "text": s.size, "value": s.id}
+    })
+    sizeOptions.push({"key": 'New', "text": 'Add New Size', "value": 'New'})
+    return sizeOptions
+  }
+
   render() {
   let { clothing } = this.props
 
@@ -158,7 +167,13 @@ class ClothingShowContainer extends Component {
                 </Card.Header>
                   <Form>
                   <Form.Group>
-                  <Form.Input label='First name' placeholder='First Name' width={6} />
+                  <Form.Field
+                    label='Size'
+                    placeholder='Select A Size'
+                    width={4}
+                    control={Select}
+                    options={this.createSizeOptions()}
+                    />
                   </Form.Group>
                   </Form>
                 </Card.Content>
