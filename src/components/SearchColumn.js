@@ -39,6 +39,7 @@ class SearchColumn extends Component {
                       label={brand}
                       name={brand}
                       onChange={this.props.updateBrandsSearch}
+                      checked={this.props.brandsSearch.includes(brand)}
                     />
                   </Form.Field>
                 )}
@@ -52,6 +53,7 @@ class SearchColumn extends Component {
                       label={_.capitalize(category)}
                       name={category}
                       onChange={this.props.updateCategoriesSearch}
+                      checked={this.props.categoriesSearch.includes(category)}
                     />
                   </Form.Field>
                 )}
@@ -71,7 +73,9 @@ const mapStateToProps = state => {
   return {
     brands: state.brands,
     categories: state.categories.map(c => c.name).sort(),
-    clothingSearch: state.clothingSearch
+    clothingSearch: state.clothingSearch,
+    brandsSearch: state.brandsSearch,
+    categoriesSearch: state.categoriesSearch
   }
 }
 
