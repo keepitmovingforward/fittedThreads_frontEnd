@@ -12,6 +12,7 @@ class NavBar extends Component {
 
   render() {
     let { activeItem } = this.state
+    let {user } = this.props
 
     return (
 
@@ -66,7 +67,7 @@ class NavBar extends Component {
               onClick={this.handleItemClick}
             >
             <Icon name='user' />
-            Profile
+            {`${user.username}'s`} Profile
             </Menu.Item>
 
 
@@ -85,6 +86,12 @@ class NavBar extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    user: state.loggedInUser
+  }
+}
+
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -94,4 +101,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(NavBar);
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

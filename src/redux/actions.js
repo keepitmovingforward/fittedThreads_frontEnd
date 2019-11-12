@@ -180,7 +180,7 @@ function addMeasurement(measurementObj) {
     "Accept": "application/json"
   },
   body: JSON.stringify({
-    test: test
+    measurementObj
   })
 })
   .then(res => {
@@ -195,7 +195,8 @@ export {fetchingData, logOutUser,
         handleLoginSubmit, toggleSearch,
         goHome, updateClothingSearch,
         updateBrandsSearch, updateCategoriesSearch,
-        updateSelectedClothing, closeSelectedClothing
+        updateSelectedClothing, closeSelectedClothing,
+        addMeasurement
       }
 
 //at top of components import {onChange} from '../redux/action'

@@ -2,8 +2,10 @@ import React, {Component} from 'react';
 import { Card, Form, Dropdown, Select, Button, Icon } from 'semantic-ui-react'
 import {connect} from 'react-redux'
 import { withRouter } from "react-router-dom";
+import {addMeasurement} from '../redux/actions'
 
 const Swal = require('sweetalert2')
+const _ = require("lodash")
 const topMeasurements = ["Neck", "Chest", "Waist", "Sleeve", "Front Length"]
 const bottomsMeasurements = ["Waist", "Length", "Hip", "Thigh", "Bottom Hem"]
 
@@ -76,8 +78,9 @@ class AddMeasurementsForm extends Component {
       if(!!existingSizeId) {
         let newMeasure = this.validateMinThreeMeasures()
         if(newMeasure) {
-        newMeasure.push({"size": existingSizeId}, {"clothing_id": clothing.id})
-        console.log(newMeasure)
+          newMeasure.push(["size", existingSizeId], ["clothing_id", clothing.id])
+          newMeasure = _.fromPairs(newMeasure)
+          this.props.addMeasurement(newMeasure)
         }
       }
       else {
@@ -93,8 +96,9 @@ class AddMeasurementsForm extends Component {
       if(!!customSizeEntry) {
         let customMeasure = this.validateMinThreeMeasures()
         if(customMeasure) {
-        customMeasure.push({"custom_size":customSizeEntry}, {"clothing_id": clothing.id})
-        console.log(customMeasure)
+        customMeasure.push(["custom_size", customSizeEntry], ["clothing_id", clothing.id])
+        customMeasure = _.fromPairs(customMeasure)
+        this.props.addMeasurement(customMeasure)
         }
       }
       else {
@@ -115,8 +119,8 @@ class AddMeasurementsForm extends Component {
 
     if(clothing.categories[0].name.toLowerCase() === "pants" ||
     clothing.categories[0].name.toLowerCase() === "jeans") {
-      let bottomMeasurements = [{"bottomWaist":bottomWaist}, {"bottomLength":bottomLength}, {"bottomHip":bottomHip}, {"bottomThigh":bottomThigh}, {"bottomBottomHem":bottomBottomHem}].filter(m => {
-        return Object.values(m)[0] !== ""} )
+      let bottomMeasurements = [["bottomWaist", bottomWaist], ["bottomLength", bottomLength], ["bottomHip", bottomHip], ["bottomThigh", bottomThigh], ["bottomBottomHem",bottomBottomHem]].filter(m => {
+        return m[1] !== ""} )
       if(bottomMeasurements.length < 3) {
         Swal.fire({
           title: 'Additional Measurements Needed',
@@ -130,8 +134,8 @@ class AddMeasurementsForm extends Component {
       }
     }
     else {
-      let topMeasurements = [{"topNeck":topNeck}, {"topChest":topChest}, {"topWaist":topWaist}, {"topSleeve":topSleeve}, {"topFrontLength":topFrontLength}].filter(m => {
-        return Object.values(m)[0] !== ""} )
+      let topMeasurements = [["topNeck", topNeck], ["topChest", topChest], ["topWaist",topWaist], ["topSleeve",topSleeve], ["topFrontLength", topFrontLength]].filter(m => {
+        return m[1] !== ""} )
       if(topMeasurements.length < 3) {
         Swal.fire({
           title: 'Additional Measurements Needed',
@@ -218,8 +222,15 @@ class AddMeasurementsForm extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    clothing: state.clothingCollection.find(c => c.id === parseInt(ownProps.match.params.threadId))
+    clothing: state.clothingCollection.find(c => c.id === parseInt(ownProps.match.params.threadId)),
+    user: state.loggedInUser
   }
 }
 
-export default withRouter(connect(mapStateToProps)(AddMeasurementsForm));
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addMeasurement: (measurementObj) => {dispatch( addMeasurement(measurementObj) )}
+  }
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AddMeasurementsForm));

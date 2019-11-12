@@ -6,7 +6,7 @@ let initialState = {
   users: [],
   categories: [],
   brands: [],
-  loggedInUser: true,
+  loggedInUser: null,
   clothingLoading: true,
   searchActive: false,
   clothingSearch: "",
