@@ -3,6 +3,7 @@ import { Card, Form, Dropdown, Select, Button, Icon } from 'semantic-ui-react'
 import {connect} from 'react-redux'
 import { withRouter } from "react-router-dom";
 
+const Swal = require('sweetalert2')
 const topMeasurements = ["Neck", "Chest", "Waist", "Sleeve", "Front Length"]
 const bottomsMeasurements = ["Waist", "Length", "Hip", "Thigh", "Bottom Hem"]
 
@@ -69,19 +70,81 @@ class AddMeasurementsForm extends Component {
 
   handleMeasurementSubmit = (e, obj) => {
     let {clothing} = this.props
-    let {addCustomSize, existingSizeId, customSizeEntry,
-        topNeck, topChest, topWaist, topSleeve, topFrontLength,
-        bottomWaist, bottomLength, bottomHip, bottomThigh, bottomBottomHem } = this.state
+    let {addCustomSize, existingSizeId, customSizeEntry } = this.state
 
-    if (addCustomSize && customSizeEntry === "") {
-      console.log("we need size fools!")
-
+    if (!addCustomSize){
+      if(!!existingSizeId) {
+        let newMeasure = this.validateMinThreeMeasures()
+        if(newMeasure) {
+        newMeasure.push({"size": existingSizeId}, {"clothing_id": clothing.id})
+        console.log(newMeasure)
+        }
+      }
+      else {
+        Swal.fire({
+          title: 'Missing Size!',
+          text: 'Please select a size',
+          icon: 'error',
+          timer: 2500
+        })
+      }
     }
+    else {
+      if(!!customSizeEntry) {
+        let customMeasure = this.validateMinThreeMeasures()
+        if(customMeasure) {
+        customMeasure.push({"size":customSizeEntry}, {"clothing_id": clothing.id})
+        console.log(customMeasure)
+        }
+      }
+      else {
+        Swal.fire({
+          title: 'Missing New Size!',
+          text: 'Please enter a new size',
+          icon: 'error',
+          timer: 2500
+        })
+      }
+    }
+  }
 
+  validateMinThreeMeasures = () => {
+    let {clothing} = this.props
+    let {topNeck, topChest, topWaist, topSleeve, topFrontLength,
+        bottomWaist, bottomLength, bottomHip, bottomThigh, bottomBottomHem } = this.state
 
     if(clothing.categories[0].name.toLowerCase() === "pants" ||
     clothing.categories[0].name.toLowerCase() === "jeans") {
-
+      let bottomMeasurements = [{"bottomWaist":bottomWaist}, {"bottomLength":bottomLength}, {"bottomHip":bottomHip}, {"bottomThigh":bottomThigh}, {"bottomBottomHem":bottomBottomHem}].filter(m => {
+        return Object.values(m)[0] !== ""} )
+      if(bottomMeasurements.length < 3) {
+        Swal.fire({
+          title: 'Additional Measurements Required',
+          text: 'Please provide at least 3 measurement values before submitting',
+          icon: 'error',
+          timer: 2500
+        })
+      }
+      else {
+        console.log("success!", bottomMeasurements)
+        return bottomMeasurements
+      }
+    }
+    else {
+      let topMeasurements = [{"topNeck":topNeck}, {"topChest":topChest}, {"topWaist":topWaist}, {"topSleeve":topSleeve}, {"topFrontLength":topFrontLength}].filter(m => {
+        return Object.values(m)[0] !== ""} )
+      if(topMeasurements.length < 3) {
+        Swal.fire({
+          title: 'Additional Measurements Required',
+          text: 'Please provide at least 3 measurement values before submitting',
+          icon: 'error',
+          timer: 2500
+        })
+      }
+      else {
+        console.log("success!", topMeasurements)
+        return topMeasurements
+      }
     }
   }
 
