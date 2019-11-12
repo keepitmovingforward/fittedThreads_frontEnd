@@ -3,51 +3,20 @@ import {connect} from 'react-redux'
 import { Link } from 'react-router-dom';
 import { withRouter } from "react-router-dom";
 import { Container, Grid, Card, Image, Icon, Button, Segment, Form, Select } from 'semantic-ui-react'
-import DimensionsForm from './DimensionsForm'
+import AddMeasurementsForm from './AddMeasurementsForm'
 
 const _ = require("lodash")
 
 class ClothingShowContainer extends Component {
 
   state = {
-    addMeasurement: false,
-    addCustomSize: false,
-    customSizeEntry: ""
+    addMeasurement: false
   }
 
   handleAddMeasurement = () => {
     this.setState({
       addMeasurement: !this.state.addMeasurement
     })
-  }
-
-  checkForNewSize = (e) => {
-    if (e.target.innerText === "Add New Size") {
-      this.setState({
-        addCustomSize: true
-      })
-    }
-    else {
-      this.setState({
-        addCustomSize: false
-      })
-    }
-  }
-
-  customSizeEntry = (e) => {
-    this.setState({
-      customSizeEntry: e.target.value
-    })
-  }
-
-
-  createSizeOptions = () => {
-    let {clothing} = this.props
-    let sizeOptions = clothing.sizes.map(s => {
-      return {"key": s.id, "text": s.size, "value": s.id}
-    })
-    sizeOptions.push({"key": 'New', "text": 'Add New Size', "value": 'New'})
-    return sizeOptions
   }
 
   render() {
@@ -177,7 +146,6 @@ class ClothingShowContainer extends Component {
                   </Button.Content>
                 </Button>
                 </Card.Content>
-
                 :
                 <Card.Content>
                 <Card.Header textAlign='right'>
@@ -185,27 +153,12 @@ class ClothingShowContainer extends Component {
                     <Icon name='close'/>
                   </Button>
                 </Card.Header>
-                  <Form>
 
-                  <Form.Group>
-                  <Form.Field
-                    label='Size'
-                    placeholder='Select A Size'
-                    width={4}
-                    control={Select}
-                    options={this.createSizeOptions()}
-                    onChange={this.checkForNewSize}
-                    />
-                    {this.state.addCustomSize ?
-                    <Form.Input label='Add Custom Size'
-                      placeholder='Enter size' width={4}
-                      onChange={this.customSizeEntry} />
-                    :
-                    null
-                    }
-                  </Form.Group>
-                  <DimensionsForm />
-                  </Form>
+
+
+                  <AddMeasurementsForm />
+
+
                 </Card.Content>
                 }
 
