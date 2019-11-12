@@ -172,6 +172,25 @@ function closeSelectedClothing(e) {
   return {type: "DO_NOTHING"}
 }
 
+function addMeasurement(measurementObj) {
+  return (dispatch) => {fetch("http://localhost:4000/addMeasurement", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    "Accept": "application/json"
+  },
+  body: JSON.stringify({
+    test: test
+  })
+})
+  .then(res => {
+    return res.json()
+  }).then(data => {
+  console.log(data)
+  })
+  }
+}
+
 export {fetchingData, logOutUser,
         handleLoginSubmit, toggleSearch,
         goHome, updateClothingSearch,

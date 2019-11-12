@@ -93,14 +93,14 @@ class AddMeasurementsForm extends Component {
       if(!!customSizeEntry) {
         let customMeasure = this.validateMinThreeMeasures()
         if(customMeasure) {
-        customMeasure.push({"size":customSizeEntry}, {"clothing_id": clothing.id})
+        customMeasure.push({"custom_size":customSizeEntry}, {"clothing_id": clothing.id})
         console.log(customMeasure)
         }
       }
       else {
         Swal.fire({
           title: 'Missing New Size!',
-          text: 'Please enter a new size',
+          text: 'Please enter a custom size',
           icon: 'error',
           timer: 2500
         })
@@ -119,14 +119,13 @@ class AddMeasurementsForm extends Component {
         return Object.values(m)[0] !== ""} )
       if(bottomMeasurements.length < 3) {
         Swal.fire({
-          title: 'Additional Measurements Required',
+          title: 'Additional Measurements Needed',
           text: 'Please provide at least 3 measurement values before submitting',
           icon: 'error',
           timer: 2500
         })
       }
       else {
-        console.log("success!", bottomMeasurements)
         return bottomMeasurements
       }
     }
@@ -135,14 +134,13 @@ class AddMeasurementsForm extends Component {
         return Object.values(m)[0] !== ""} )
       if(topMeasurements.length < 3) {
         Swal.fire({
-          title: 'Additional Measurements Required',
+          title: 'Additional Measurements Needed',
           text: 'Please provide at least 3 measurement values before submitting',
           icon: 'error',
           timer: 2500
         })
       }
       else {
-        console.log("success!", topMeasurements)
         return topMeasurements
       }
     }
