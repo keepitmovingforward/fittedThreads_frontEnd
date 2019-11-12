@@ -58,7 +58,7 @@ class ClothingShowContainer extends Component {
       <Grid celled id='clothingShowGrid'>
         <Grid.Row>
           <Grid.Column width={4} id='clothingShowImgCol'>
-            <Card fluid>
+            <Card fluid id='clothingShowImageCard'>
             <Card.Content textAlign='center'>
             <Image id='clothingShowImg' src={clothing.image_url}/>
             </Card.Content>
