@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import { Link } from 'react-router-dom';
 import { withRouter } from "react-router-dom";
 import { Container, Grid, Card, Image, Icon, Button, Segment, Form, Select } from 'semantic-ui-react'
+import DimensionsForm from './DimensionsForm'
 
 const _ = require("lodash")
 const topMeasurements = ["Neck", "Chest", "Waist", "Sleeve", "Front Length"]
@@ -12,7 +13,8 @@ class ClothingShowContainer extends Component {
 
   state = {
     addMeasurement: false,
-    addCustomSize: false
+    addCustomSize: false,
+    customSizeEntry: ""
   }
 
   handleAddMeasurement = () => {
@@ -32,6 +34,12 @@ class ClothingShowContainer extends Component {
         addCustomSize: false
       })
     }
+  }
+
+  customSizeEntry = (e) => {
+    this.setState({
+      customSizeEntry: e.target.value
+    })
   }
 
 
@@ -191,14 +199,14 @@ class ClothingShowContainer extends Component {
                     onChange={this.checkForNewSize}
                     />
                     {this.state.addCustomSize ?
-                    <Form.Input label='Add Custom Size' placeholder='Enter size' width={4} />
+                    <Form.Input label='Add Custom Size'
+                      placeholder='Enter size' width={4}
+                      onChange={this.customSizeEntry} />
                     :
                     null
                     }
                   </Form.Group>
-                  <Form.Group>
-                    
-                  </Form.Group>
+                  <DimensionsForm />
                   </Form>
                 </Card.Content>
                 }
