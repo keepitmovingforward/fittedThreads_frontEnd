@@ -12,7 +12,7 @@ class ClothingShowContainer extends Component {
 
   state = {
     addMeasurement: false,
-    customSize: false
+    addCustomSize: false
   }
 
   handleAddMeasurement = () => {
@@ -21,9 +21,19 @@ class ClothingShowContainer extends Component {
     })
   }
 
-  checkForNew = (e) => {
-    console.log(e.target.innerText)
+  checkForNewSize = (e) => {
+    if (e.target.innerText === "Add New Size") {
+      this.setState({
+        addCustomSize: true
+      })
+    }
+    else {
+      this.setState({
+        addCustomSize: false
+      })
+    }
   }
+
 
   createSizeOptions = () => {
     let {clothing} = this.props
@@ -170,7 +180,7 @@ class ClothingShowContainer extends Component {
                   </Button>
                 </Card.Header>
                   <Form>
-                  
+
                   <Form.Group>
                   <Form.Field
                     label='Size'
@@ -178,8 +188,16 @@ class ClothingShowContainer extends Component {
                     width={4}
                     control={Select}
                     options={this.createSizeOptions()}
-                    onChange={this.checkForNew}
+                    onChange={this.checkForNewSize}
                     />
+                    {this.state.addCustomSize ?
+                    <Form.Input label='Add Custom Size' placeholder='Enter size' width={4} />
+                    :
+                    null
+                    }
+                  </Form.Group>
+                  <Form.Group>
+                    
                   </Form.Group>
                   </Form>
                 </Card.Content>
