@@ -118,7 +118,7 @@
 
 #clothingPreviewCard {
   border-style: solid;
-  border-width: 4px 4px 4px 4px;
+  border-width: 5px 5px 5px 5px;
   border-color: #571028;
 }
 
@@ -244,17 +244,21 @@
 
 #clothingShowInnerMeasures {
   font-family: 'Noto Sans JP', sans-serif;
-  font-size: 20px;
+  font-size: 17px;
   color: black;
   text-align: center;
 }
 
 #clothingShowImgCol {
-  background-color: #0d0d0d;
+  border-width: 7px 10px 7px 10px;
+  border-style: solid;
+  border-color: #0d0d0d;
 }
 
 #clothingShowDetailCol {
-  background-color: #571028;
+  border-width: 7px 10px 7px 10px;
+  border-style: solid;
+  border-color: #571028;
 }
 
 #clothingShowGrid {

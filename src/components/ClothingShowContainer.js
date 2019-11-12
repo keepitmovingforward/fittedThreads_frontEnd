@@ -21,6 +21,10 @@ class ClothingShowContainer extends Component {
     })
   }
 
+  checkForNew = (e) => {
+    console.log(e.target.innerText)
+  }
+
   createSizeOptions = () => {
     let {clothing} = this.props
     let sizeOptions = clothing.sizes.map(s => {
@@ -166,6 +170,7 @@ class ClothingShowContainer extends Component {
                   </Button>
                 </Card.Header>
                   <Form>
+                  
                   <Form.Group>
                   <Form.Field
                     label='Size'
@@ -173,6 +178,7 @@ class ClothingShowContainer extends Component {
                     width={4}
                     control={Select}
                     options={this.createSizeOptions()}
+                    onChange={this.checkForNew}
                     />
                   </Form.Group>
                   </Form>
