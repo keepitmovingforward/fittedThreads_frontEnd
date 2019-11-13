@@ -187,6 +187,7 @@ function addMeasurement(measurementObj) {
     return res.json()
   }).then(data => {
   console.log(data)
+  dispatch (fetchedClothings(data))
   })
   }
 }
