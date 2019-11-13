@@ -78,9 +78,9 @@ class AddMeasurementsForm extends Component {
       if(!!existingSizeId) {
         let newMeasure = this.validateMinThreeMeasures()
         if(newMeasure) {
-          newMeasure.push(["size", existingSizeId], ["clothing_id", clothing.id], ["user_id", user.id])
-          newMeasure = _.fromPairs(newMeasure)
-          this.props.addMeasurement(newMeasure)
+          let wrappedNewMeasure = {measurements: _.fromPairs(newMeasure)}
+          let newMeasObj ={...wrappedNewMeasure, "size": existingSizeId, "clothing_id": clothing.id, "user_id": user.id}
+          this.props.addMeasurement(newMeasObj)
         }
       }
       else {
@@ -96,9 +96,9 @@ class AddMeasurementsForm extends Component {
       if(!!customSizeEntry) {
         let customMeasure = this.validateMinThreeMeasures()
         if(customMeasure) {
-        customMeasure.push(["custom_size", customSizeEntry], ["clothing_id", clothing.id], ["user_id", user.id])
-        customMeasure = _.fromPairs(customMeasure)
-        this.props.addMeasurement(customMeasure)
+          let wrappedCustomMeasure = {measurements: _.fromPairs(customMeasure)}
+          let newCustObj = {...wrappedCustomMeasure, "custom_size": customSizeEntry, "clothing_id": clothing.id, "user_id": user.id}
+          this.props.addMeasurement(newCustObj)
         }
       }
       else {

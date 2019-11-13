@@ -14,11 +14,11 @@ class MeasurementsDisplay extends Component {
     let keys = Object.keys(newPrep)
     let sizePhrases = []
     keys.forEach(key => {
-      let meas1 = [newPrep[key][0][1].split(": ")[0], newPrep[key][0][1].split(": ")[1] === "null" ? `(?)` : newPrep[key][0][1].split(": ")[1]+ `"`].join(" ")
-      let meas2 = [newPrep[key][1][1].split(": ")[0], newPrep[key][1][1].split(": ")[1] === "null" ? `(?)` : newPrep[key][1][1].split(": ")[1]+ `"`].join(" ")
-      let meas3 = [newPrep[key][2][1].split(": ")[0], newPrep[key][2][1].split(": ")[1] === "null" ? `(?)` : newPrep[key][2][1].split(": ")[1]+ `"`].join(" ")
-      let meas4 = [newPrep[key][3][1].split(": ")[0], newPrep[key][3][1].split(": ")[1] === "null" ? `(?)` : newPrep[key][3][1].split(": ")[1]+ `"`].join(" ")
-      let meas5 = [newPrep[key][4][1].split(": ")[0].split("_").join(" "), newPrep[key][4][1].split(": ")[1] === "null" ? `(?)` : newPrep[key][4][1].split(": ")[1]+ `"`].join(" ")
+      let meas1 = [newPrep[key][0][1].split(": ")[0], newPrep[key][0][1].split(": ")[1] === "null" ? ` 🔘 ` : newPrep[key][0][1].split(": ")[1]+ `"`].join(" ")
+      let meas2 = [newPrep[key][1][1].split(": ")[0], newPrep[key][1][1].split(": ")[1] === "null" ? ` 🔘 ` : newPrep[key][1][1].split(": ")[1]+ `"`].join(" ")
+      let meas3 = [newPrep[key][2][1].split(": ")[0], newPrep[key][2][1].split(": ")[1] === "null" ? ` 🔘 ` : newPrep[key][2][1].split(": ")[1]+ `"`].join(" ")
+      let meas4 = [newPrep[key][3][1].split(": ")[0], newPrep[key][3][1].split(": ")[1] === "null" ? ` 🔘 ` : newPrep[key][3][1].split(": ")[1]+ `"`].join(" ")
+      let meas5 = [newPrep[key][4][1].split(": ")[0].split("_").join(" "), newPrep[key][4][1].split(": ")[1] === "null" ? ` 🔘 ` : newPrep[key][4][1].split(": ")[1]+ `"`].join(" ")
       let measured_user_id = clothing.user_clothings.find(m => m.id === parseInt(key)).user_id
       let measured_user = clothing.user_measurements.find(user => user.id === measured_user_id)
       sizePhrases.push([[meas1, meas2, meas3, meas4, meas5].join(" x "), measured_user])
