@@ -20,6 +20,12 @@ class ClothingShowContainer extends Component {
     })
   }
 
+  sortSizes = () => {
+    debugger
+
+    return clothing.sizes.map(s => s.size).join(", ")
+  }
+
   render() {
   let { clothing } = this.props
 
@@ -89,7 +95,7 @@ class ClothingShowContainer extends Component {
                   <strong>Sizes Available:</strong>
                 </Card.Description>
                 <Card.Description id='clothingShowSizes'>
-                  {clothing.sizes.map(s => s.size).join(", ")}
+                  {this.sortSizes()}
                 </Card.Description>
                 </>
                 :
@@ -123,7 +129,7 @@ class ClothingShowContainer extends Component {
 
 
 
-                  <AddMeasurementsForm />
+                  <AddMeasurementsForm handleAddMeasurement={this.handleAddMeasurement}/>
 
 
                 </Card.Content>

@@ -21,10 +21,10 @@ class MeasurementsDisplay extends Component {
       let meas5 = [newPrep[key][4][1].split(": ")[0].split("_").join(" "), newPrep[key][4][1].split(": ")[1] === "null" ? ` 🔘 ` : newPrep[key][4][1].split(": ")[1]+ `"`].join(" ")
       let measured_user_id = clothing.user_clothings.find(m => m.id === parseInt(key)).user_id
       let measured_user = clothing.user_measurements.find(user => user.id === measured_user_id)
-      sizePhrases.push([[meas1, meas2, meas3, meas4, meas5].join(" x "), measured_user])
+      sizePhrases.push([[meas1, meas2, meas3, meas4, meas5].join(" x "), measured_user, key])
     })
      return sizePhrases.map(sizeComponent => {
-       return <Card fluid id='clothingShowDimensions' key={sizeComponent[1].id}>
+       return <Card fluid id='clothingShowDimensions' key={sizeComponent[2]}>
                 <Card.Content>
                   <Card.Header>{sizeComponent[0]}</Card.Header>
                   <Card.Meta>uploaded by {sizeComponent[1].username}</Card.Meta>

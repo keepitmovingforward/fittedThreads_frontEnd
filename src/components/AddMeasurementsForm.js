@@ -81,6 +81,7 @@ class AddMeasurementsForm extends Component {
           let wrappedNewMeasure = {measurements: _.fromPairs(newMeasure)}
           let newMeasObj ={...wrappedNewMeasure, "size": existingSizeId, "clothing_id": clothing.id, "user_id": user.id}
           this.props.addMeasurement(newMeasObj)
+          setTimeout(this.props.handleAddMeasurement, 500)
         }
       }
       else {
@@ -99,6 +100,7 @@ class AddMeasurementsForm extends Component {
           let wrappedCustomMeasure = {measurements: _.fromPairs(customMeasure)}
           let newCustObj = {...wrappedCustomMeasure, "custom_size": customSizeEntry, "clothing_id": clothing.id, "user_id": user.id}
           this.props.addMeasurement(newCustObj)
+          setTimeout(this.props.handleAddMeasurement, 500)
         }
       }
       else {
