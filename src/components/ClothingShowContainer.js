@@ -23,6 +23,7 @@ class ClothingShowContainer extends Component {
 
   render() {
   let { clothing } = this.props
+  window.scrollTo(0,0);
 
   return(
     <Container fluid>

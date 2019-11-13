@@ -244,7 +244,7 @@
 }
 
 #clothingShowInnerMeasuresSize {
-  padding-top: 5%
+  padding-top: 2%
 }
 
 #clothingShowInnerMeasures {
@@ -281,4 +281,71 @@
 
 #addMeasBtn {
   padding-bottom: 15px;
+}
+#profileAvatarBox {
+  height: 100%
+}
+#profileHeader {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 21px;
+  color: black;
+  padding-bottom: 0px;
+  margin-bottom: 10px;
+}
+
+#profileStatsHeader {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 18px;
+  color: black;
+  padding-bottom: 0px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+#profileStats {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 15px;
+  color: black;
+  padding-bottom: 0px;
+  margin-bottom: 3px;
+}
+
+#profileThreadsBox {
+  height: 100%;
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+#profileThreadsHeaderPostCard {
+  padding-bottom: 0px;
+  margin-bottom: 10px;
+  background-color: black;
+}
+
+#profileThreadsHeaderPost {
+  font-family: 'Staatliches', cursive;
+  font-size: 22px;
+  color: white;
+  padding-bottom: 0px;
+  margin-bottom: 2px;
+  font-weight: 600;
+  text-align: center;
+  background-color: black;
+}
+
+#profileThreadsHeaderMeasuredCard {
+  padding-bottom: 0px;
+  margin-bottom: 10px;
+  background-color: #571028;
+}
+
+#profileThreadsHeaderMeasured {
+  font-family: 'Staatliches', cursive;
+  font-size: 22px;
+  color: white;
+  padding-bottom: 0px;
+  margin-bottom: 2px;
+  font-weight: 600;
+  text-align: center;
+  background-color: #571028;
 }

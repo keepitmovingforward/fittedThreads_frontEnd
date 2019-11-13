@@ -74,7 +74,9 @@ class App extends Component {
 
               <Route exact path="/addclothing" render={() => {
                 return (loggedInUser ?
-                <div>Add Clothing</div>
+                <Card fluid>
+                  <Image src={'http://karenmcgrane.com/wp-content/uploads/2018/06/under-construction1.gif'}  verticalAlign='middle' centered />
+                </Card>
                 :
                 <Redirect to='/home' />
                 )}

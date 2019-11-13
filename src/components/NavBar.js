@@ -6,13 +6,11 @@ import {logOutUser, toggleSearch, goHome} from '../redux/actions'
 
 class NavBar extends Component {
 
-  state = { activeItem: 'home'}
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
   render() {
-    let { activeItem } = this.state
-    let {user } = this.props
+    let { user, activeItem } = this.props
 
     return (
 
@@ -89,6 +87,7 @@ class NavBar extends Component {
 const mapStateToProps = state => {
   return {
     user: state.loggedInUser
+    activeItem: state.activeItem
   }
 }
 

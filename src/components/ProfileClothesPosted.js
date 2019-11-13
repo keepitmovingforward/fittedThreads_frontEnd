@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 import { Card, Image, Icon, Button } from 'semantic-ui-react'
 
 const ProfileClothesPosted = (props) => {
-  let {user} = props
+  debugger
   return (
 
     <>
-    {user.clothings.map(clothingObj =>
+    {props.clothingArray.map(clothingObj =>
       <Card color='black'
         key={clothingObj.id} id='clothesCard'>
         <Card.Content extra textAlign='right'>
@@ -18,7 +18,6 @@ const ProfileClothesPosted = (props) => {
         <Card.Content id="clothesTextBox">
           <Card.Header id="clothesCardBrand">{clothingObj.brand}</Card.Header>
           <Card.Header id="clothesCardName">{clothingObj.name}</Card.Header>
-          <Card.Description id="clothesCardUser">posted by {user.username}</Card.Description>
             <Card.Description textAlign='right'>
             <Button animated='fade' color='black'
               as={Link}

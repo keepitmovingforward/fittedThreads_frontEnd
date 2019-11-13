@@ -12,7 +12,8 @@ let initialState = {
   clothingSearch: "",
   brandsSearch: [],
   categoriesSearch: [],
-  selectedClothing: null
+  selectedClothing: null,
+  activeItem: 'home'
 }
 
 let clothingLoadingReducer = (state=initialState.clothingLoading, action) => {

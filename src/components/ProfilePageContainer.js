@@ -3,16 +3,28 @@ import {connect} from 'react-redux'
 import { Container, Grid, Card, Image, Form } from 'semantic-ui-react'
 import ProfileClothesPosted from './ProfileClothesPosted'
 
+const _ = require("lodash")
+
 class ProfilePageContainer extends Component {
 
+  filterMeasuredClothing = () => {
+    let {user} = this.props
+    let uniqueClothKeys = _.uniq(user.measured_clothings.map(e => e.id))
+
+    return uniqueClothKeys.map(k => user.measured_clothings.find(c => c.id === k))
+
+
+  }
+
   render() {
-    let {user, clothingCollection} = this.props
+    window.scrollTo(0,0);
+    let {user} = this.props
     return(
       <Container fluid>
-        <Grid celled>
+        <Grid celled columns='equal'>
           <Grid.Row>
             <Grid.Column width={5}>
-              <Card fluid>
+              <Card fluid id='profileAvatarBox'>
                 <Card.Content textAlign='center'>
                 <Image id='profileAvatar' src={user.avatar}/>
                 </Card.Content>
@@ -21,17 +33,17 @@ class ProfilePageContainer extends Component {
             <Grid.Column width={11}>
               <Card fluid>
                 <Card.Content>
-                  <Card.Header>{user.username}'s Profile</Card.Header>
-                  <Card.Description>Stats:</Card.Description>
-                  <Card.Description>Threads Posted: {user.clothings.length}</Card.Description>
-                  <Card.Description>Threads Fitted: {user.measured_clothings.length}</Card.Description>
+                  <Card.Header id='profileHeader'>{user.username}'s Profile</Card.Header>
+                  <Card.Description id='profileStatsHeader'>User Stats</Card.Description>
+                  <Card.Description id='profileStats'>Threads Posted: {user.clothings.length}</Card.Description>
+                  <Card.Description id='profileStats'>Threads Fitted: {user.measured_clothings.length}</Card.Description>
                 </Card.Content>
                 <Card.Content>
-                  <Card.Header>My Measurements</Card.Header>
+                  <Card.Header id='profileStatsHeader'>My Measurements</Card.Header>
 
                   <Card.Content>
 
-                    <Card.Header>Top Measurements</Card.Header>
+                    <Card.Header id='profileStats'>Top Measurements</Card.Header>
                     <Form>
                      <Form.Group widths='equal'>
                        <Form.Input fluid label='Neck' placeholder='Neck' />
@@ -45,7 +57,7 @@ class ProfilePageContainer extends Component {
                   </Card.Content>
 
                   <Card.Content>
-                    <Card.Header>Bottom Measurements</Card.Header>
+                    <Card.Header id='profileStats'>Bottom Measurements</Card.Header>
                     <Form>
                      <Form.Group widths='equal'>
                        <Form.Input fluid label='Waist' placeholder='Waist' />
@@ -62,26 +74,42 @@ class ProfilePageContainer extends Component {
           </Grid.Row>
 
           <Grid.Row>
-          <Grid.Column width={8}>
-            <Card fluid>
+          {user.clothings.length > 0 ?
+          <Grid.Column>
+            <Card fluid id='profileThreadsHeaderPostCard'>
               <Card.Content>
-              <Card.Header>Threads I've Posted</Card.Header>
+              <Card.Header id='profileThreadsHeaderPost'>Threads I've Posted</Card.Header>
+              </Card.Content>
+            </Card>
+            <Card fluid id='profileThreadsBox'>
+              <Card.Content>
               <Card.Group centered>
-                <ProfileClothesPosted />
+                <ProfileClothesPosted clothingArray={user.clothings}/>
               </Card.Group>
               </Card.Content>
             </Card>
           </Grid.Column>
-          <Grid.Column width={8}>
-            <Card fluid>
+          :
+          null
+          }
+          {user.measured_clothings.length > 0 ?
+          <Grid.Column>
+            <Card fluid id='profileThreadsHeaderMeasuredCard'>
               <Card.Content>
-              <Card.Header>Threads I've Measured</Card.Header>
+              <Card.Header id='profileThreadsHeaderMeasured'>Threads I've Measured</Card.Header>
+              </Card.Content>
+            </Card>
+            <Card fluid id='profileThreadsBox'>
+              <Card.Content>
               <Card.Group centered>
-                <ProfileClothesPosted />
+                <ProfileClothesPosted clothingArray={this.filterMeasuredClothing()}/>
               </Card.Group>
               </Card.Content>
             </Card>
           </Grid.Column>
+          :
+          null
+          }
           </Grid.Row>
         </Grid>
       </Container>
