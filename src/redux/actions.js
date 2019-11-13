@@ -6,7 +6,6 @@ function fetchingData() {
   return (dispatch) => {fetch(CLOTHING_URL)
     .then(res => res.json())
     .then(data => {
-      console.log(data.clothing)
       dispatch (fetchedClothings(data.clothing))
       dispatch (fetchedCategories(data.categories))
       dispatch (fetchedBrands(data.brands))

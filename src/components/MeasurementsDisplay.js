@@ -68,7 +68,52 @@ class MeasurementsDisplay extends Component {
       return sizedArray
     }
 
+    sortSizes = () => {
+      let {clothing} = this.props
+      let value
+      let sizeNames = clothing.sizes.map(s => s.size)
+      let prepForSort = sizeNames.map(name => {
+        switch(name.toLowerCase()) {
+          case 'x-small' || 'xs' || 'x-s':
+            value = 1000;
+            break;
+          case 'small' || 's' || 'sm':
+            value = 1001;
+            break;
+          case 'medium' || 'm' || 'med':
+            value = 1002;
+            break;
+          case 'large' || 'l' || 'lg':
+            value = 1003;
+            break;
+          case 'x-large' || 'xl' || 'x-l':
+            value = 1004;
+            break;
+          case 'xx-large' || 'xxl' || 'xx-l':
+            value = 1005;
+            break;
+          case (parseInt(name.toLowerCase()).toString()):
+            value = 1 + parseInt(name.toLowerCase());
+            break;
+          default:
+            value = 9999;
+        }
+        return [value, name]
+      })
+        prepForSort.sort((function(a, b)
+        {
+            if(a[0] === b[0])
+            {
+                var x = a[1].toLowerCase(), y = b[1].toLowerCase();
 
+                return x < y ? -1 : x > y ? 1 : 0;
+            }
+            return a[0] - b[0];
+        }))
+        console.log(prepForSort)
+
+        return prepForSort.map(e => e[1])
+    }
 
 
 
@@ -94,13 +139,13 @@ class MeasurementsDisplay extends Component {
       </Grid.Row>
     </Grid>
     <Grid columns='equal'>
-      {clothing.sizes.map(size =>
-        <Grid.Row key={size.id}>
+      {this.sortSizes().map(sizeName =>
+        <Grid.Row key={clothing.sizes.find(size => size.size === sizeName).id}>
           <Grid.Column width={4}>
-            <Segment id='clothingShowInnerMeasures'><strong>{size.size}</strong> </Segment>
+            <Segment id='clothingShowInnerMeasures'><strong>{sizeName}</strong> </Segment>
           </Grid.Column>
           <Grid.Column width={12}>
-            {this.generateMeasurementDisplay(size)}
+            {this.generateMeasurementDisplay(clothing.sizes.find(size => size.size === sizeName))}
           </Grid.Column>
         </Grid.Row>
       )}
