@@ -194,27 +194,27 @@
 }
 
 #clothingShowDescription {
-  font-size: 21px;
+  font-size: 19px;
   margin-top: 20px;
 }
 
 #clothingShowCategory {
   font-family: 'Noto Sans JP', sans-serif;
   margin-bottom: 10px;
-  font-size: 20px;
+  font-size: 18px;
   color: black;
 }
 
 #clothingShowCategoryHeader {
   font-family: 'Noto Sans JP', sans-serif;
   margin-bottom: 10px;
-  font-size: 25px;
+  font-size: 21px;
   color: black;
 }
 
 #clothingShowSizes {
   font-family: 'Noto Sans JP', sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   color: black;
   margin-bottom: 5px;
   margin-top: 10px;
@@ -222,7 +222,7 @@
 
 #clothingShowMeasures {
   font-family: 'Noto Sans JP', sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   color: black;
   padding-bottom: 0px;
   margin-bottom: 0px;
@@ -230,7 +230,7 @@
 
 #clothingShowMeasuresHeader {
   font-family: 'Noto Sans JP', sans-serif;
-  font-size: 25px;
+  font-size: 21px;
   color: black;
   padding-bottom: 0px;
   margin-bottom: 10px;
@@ -242,6 +242,13 @@
   color: black;
   text-align: center;
 }
+
+#clothingShowDimensions {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 13px;
+}
+
+
 
 /* #clothingShowImgCol {
   border-width: 1px 1px 1px 1px;
