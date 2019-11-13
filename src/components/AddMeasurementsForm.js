@@ -71,14 +71,14 @@ class AddMeasurementsForm extends Component {
   }
 
   handleMeasurementSubmit = (e, obj) => {
-    let {clothing} = this.props
+    let {clothing, user} = this.props
     let {addCustomSize, existingSizeId, customSizeEntry } = this.state
 
     if (!addCustomSize){
       if(!!existingSizeId) {
         let newMeasure = this.validateMinThreeMeasures()
         if(newMeasure) {
-          newMeasure.push(["size", existingSizeId], ["clothing_id", clothing.id])
+          newMeasure.push(["size", existingSizeId], ["clothing_id", clothing.id], ["user_id", user.id])
           newMeasure = _.fromPairs(newMeasure)
           this.props.addMeasurement(newMeasure)
         }
@@ -96,7 +96,7 @@ class AddMeasurementsForm extends Component {
       if(!!customSizeEntry) {
         let customMeasure = this.validateMinThreeMeasures()
         if(customMeasure) {
-        customMeasure.push(["custom_size", customSizeEntry], ["clothing_id", clothing.id])
+        customMeasure.push(["custom_size", customSizeEntry], ["clothing_id", clothing.id], ["user_id", user.id])
         customMeasure = _.fromPairs(customMeasure)
         this.props.addMeasurement(customMeasure)
         }
@@ -121,10 +121,10 @@ class AddMeasurementsForm extends Component {
     clothing.categories[0].name.toLowerCase() === "jeans") {
       let bottomMeasurements = [["bottomWaist", bottomWaist], ["bottomLength", bottomLength], ["bottomHip", bottomHip], ["bottomThigh", bottomThigh], ["bottomBottomHem",bottomBottomHem]].filter(m => {
         return m[1] !== ""} )
-      if(bottomMeasurements.length < 3) {
+      if(bottomMeasurements.length < 2) {
         Swal.fire({
           title: 'Additional Measurements Needed',
-          text: 'Please provide at least 3 measurement values before submitting',
+          text: 'Please provide at least 2 measurement values before submitting',
           icon: 'error',
           timer: 2500
         })
@@ -136,10 +136,10 @@ class AddMeasurementsForm extends Component {
     else {
       let topMeasurements = [["topNeck", topNeck], ["topChest", topChest], ["topWaist",topWaist], ["topSleeve",topSleeve], ["topFrontLength", topFrontLength]].filter(m => {
         return m[1] !== ""} )
-      if(topMeasurements.length < 3) {
+      if(topMeasurements.length < 2) {
         Swal.fire({
           title: 'Additional Measurements Needed',
-          text: 'Please provide at least 3 measurement values before submitting',
+          text: 'Please provide at least 2 measurement values before submitting',
           icon: 'error',
           timer: 2500
         })

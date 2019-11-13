@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { withRouter } from "react-router-dom";
 import { Container, Grid, Card, Image, Icon, Button, Segment } from 'semantic-ui-react'
 import AddMeasurementsForm from './AddMeasurementsForm'
+import MeasurementsDisplay from './MeasurementsDisplay'
 
 const _ = require("lodash")
 
@@ -97,44 +98,10 @@ class ClothingShowContainer extends Component {
               </Card.Content>
                 {clothing.user_clothings.length > 0 ?
                   <>
-                  <Card.Content>
-                    <Card.Header id='clothingShowMeasuresHeader'>
-                      <strong>MEASUREMENTS</strong>
-                    </Card.Header>
-                  <Grid columns='equal'>
-                    <Grid.Row id='clothingShowMeasures'>
-                      <Grid.Column width={4} textAlign='center'>
-                        <Card.Description id='clothingShowMeasures'>
-                          <strong>SIZE</strong>
-                        </Card.Description>
-                      </Grid.Column>
-                      <Grid.Column width={12} textAlign='center'>
-                        <Card.Description id='clothingShowMeasures'>
-                          <strong>FITTED MEASUREMENTS</strong>
-                        </Card.Description>
-                      </Grid.Column>
-                    </Grid.Row>
-                  </Grid>
-
-
-                <Grid columns='equal'>
-                  {clothing.sizes.map(size =>
-                    <Grid.Row key={size.id}>
-                      <Grid.Column width={4}>
-                        <Segment id='clothingShowInnerMeasures'><strong>{size.size}</strong> </Segment>
-                      </Grid.Column>
-                      <Grid.Column width={12}>
-                        {clothing.user_clothings.filter(measurement => size.id === measurement.size_id).map(sizedMeasures =>
-                          <Segment id='clothingShowInnerMeasures' key={sizedMeasures.id}> {sizedMeasures.measurements} by User ID:{sizedMeasures.user_id}</Segment>
-                        )}
-                      </Grid.Column>
-                    </Grid.Row>
-                  )}
-                </Grid>
-                </Card.Content>
-                </>
-                :
-                null
+                  <MeasurementsDisplay / >
+                  </>
+                  :
+                  null
                 }
                 {!this.state.addMeasurement ?
                 <Card.Content textAlign='center'>
