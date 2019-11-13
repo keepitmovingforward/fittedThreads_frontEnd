@@ -6,8 +6,8 @@ import {addMeasurement} from '../redux/actions'
 
 const Swal = require('sweetalert2')
 const _ = require("lodash")
-const topMeasurements = ["Neck", "Chest", "Waist", "Sleeve", "Front Length"]
-const bottomsMeasurements = ["Waist", "Length", "Hip", "Thigh", "Bottom Hem"]
+const topMeasurements = ["Neck", "Chest", "Waist", "Sleeve", "Front_Length"]
+const bottomsMeasurements = ["Waist", "Length", "Hip", "Thigh", "Bottom_Hem"]
 
 class AddMeasurementsForm extends Component {
 
@@ -19,12 +19,12 @@ class AddMeasurementsForm extends Component {
     topChest: "",
     topWaist: "",
     topSleeve: "",
-    topFrontLength: "",
+    topFront_Length: "",
     bottomWaist: "",
     bottomLength: "",
     bottomHip: "",
     bottomThigh: "",
-    bottomBottomHem: ""
+    bottomBottom_Hem: ""
   }
 
   createSizeOptions = () => {
@@ -114,12 +114,12 @@ class AddMeasurementsForm extends Component {
 
   validateMinThreeMeasures = () => {
     let {clothing} = this.props
-    let {topNeck, topChest, topWaist, topSleeve, topFrontLength,
-        bottomWaist, bottomLength, bottomHip, bottomThigh, bottomBottomHem } = this.state
+    let {topNeck, topChest, topWaist, topSleeve, topFront_Length,
+        bottomWaist, bottomLength, bottomHip, bottomThigh, bottomBottom_Hem } = this.state
 
     if(clothing.categories[0].name.toLowerCase() === "pants" ||
     clothing.categories[0].name.toLowerCase() === "jeans") {
-      let bottomMeasurements = [["bottomWaist", bottomWaist], ["bottomLength", bottomLength], ["bottomHip", bottomHip], ["bottomThigh", bottomThigh], ["bottomBottomHem",bottomBottomHem]].filter(m => {
+      let bottomMeasurements = [["bottomWaist", bottomWaist], ["bottomLength", bottomLength], ["bottomHip", bottomHip], ["bottomThigh", bottomThigh], ["bottomBottom_Hem",bottomBottom_Hem]].filter(m => {
         return m[1] !== ""} )
       if(bottomMeasurements.length < 2) {
         Swal.fire({
@@ -134,7 +134,7 @@ class AddMeasurementsForm extends Component {
       }
     }
     else {
-      let topMeasurements = [["topNeck", topNeck], ["topChest", topChest], ["topWaist",topWaist], ["topSleeve",topSleeve], ["topFrontLength", topFrontLength]].filter(m => {
+      let topMeasurements = [["topNeck", topNeck], ["topChest", topChest], ["topWaist",topWaist], ["topSleeve",topSleeve], ["topFront_Length", topFront_Length]].filter(m => {
         return m[1] !== ""} )
       if(topMeasurements.length < 2) {
         Swal.fire({
@@ -182,10 +182,10 @@ class AddMeasurementsForm extends Component {
           bottomsMeasurements.map(dim => {
             return (
               <Form.Field key={dim}>
-                <label>{dim}</label>
+                <label>{dim.split("_").join(" ")}</label>
                 <Dropdown clearable options={this.generateOptions()}
                   selection search
-                  name={`bottom${dim.split(" ").join("")}`}
+                  name={`bottom${dim}`}
                   onChange={this.handleDimensionsChange}/>
               </Form.Field>
             )
@@ -194,10 +194,10 @@ class AddMeasurementsForm extends Component {
           topMeasurements.map(dim => {
             return (
               <Form.Field key={dim}>
-                <label>{dim}</label>
+                <label>{dim.split("_").join(" ")}</label>
                 <Dropdown clearable options={this.generateOptions()}
                    selection search
-                   name={`top${dim.split(" ").join("")}`}
+                   name={`top${dim}`}
                    onChange={this.handleDimensionsChange}
                    />
               </Form.Field>
