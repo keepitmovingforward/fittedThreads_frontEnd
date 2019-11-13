@@ -3,6 +3,7 @@ import { Card, Form, Dropdown, Select, Button, Icon } from 'semantic-ui-react'
 import {connect} from 'react-redux'
 import { withRouter } from "react-router-dom";
 import {addMeasurement} from '../redux/actions'
+import {sortSizes} from './importFunctions'
 
 const Swal = require('sweetalert2')
 const _ = require("lodash")
@@ -29,8 +30,8 @@ class AddMeasurementsForm extends Component {
 
   createSizeOptions = () => {
     let {clothing} = this.props
-    let sizeOptions = clothing.sizes.map(s => {
-      return {"key": s.id, "text": s.size, "value": s.id}
+    let sizeOptions = sortSizes(this.props).map(s => {
+      return {"key": clothing.sizes.find(size => size.size === s).id, "text": s, "value": clothing.sizes.find(size => size.size === s).id}
     })
     sizeOptions.push({"key": 'New', "text": 'Add New Size', "value": 'New'})
     return sizeOptions

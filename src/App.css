@@ -236,11 +236,16 @@
   margin-bottom: 10px;
 }
 
+#clothingShowInnerMeasuresSize {
+  padding-top: 5%
+}
+
 #clothingShowInnerMeasures {
   font-family: 'Noto Sans JP', sans-serif;
   font-size: 17px;
   color: black;
   text-align: center;
+  height: 100%
 }
 
 #clothingShowDimensions {
