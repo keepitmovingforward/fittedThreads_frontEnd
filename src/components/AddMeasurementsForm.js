@@ -38,7 +38,7 @@ class AddMeasurementsForm extends Component {
 
   generateOptions = () => {
     let options = []
-    for (let i = 5; i < 66; i++) {
+    for (let i = 5; i < 66; i+=0.5) {
       options.push({"key": i, "text": `${i} inches`, "value": i})
     }
     return options

@@ -25,29 +25,29 @@ class ClothingShowContainer extends Component {
     let value
     let sizeNames = clothing.sizes.map(s => s.size)
     let prepForSort = sizeNames.map(name => {
-      switch(name.toLowerCase()) {
-        case 'x-small' || 'xs' || 'x-s':
+      let shrunk = name.toLowerCase()
+      if (shrunk === 'x-small' || shrunk === 'xs' || shrunk === 'x-s') {
           value = 1000;
-          break;
-        case 'small' || 's' || 'sm':
+      }
+      else if (shrunk === 'small' || shrunk === 's' || shrunk ==='sm') {
           value = 1001;
-          break;
-        case 'medium' || 'm' || 'med':
+      }
+      else if (shrunk === 'medium' || shrunk === 'm' || shrunk ==='med') {
           value = 1002;
-          break;
-        case 'large' || 'l' || 'lg':
+      }
+      else if (shrunk === 'large' || shrunk === 'l' || shrunk ==='lg') {
           value = 1003;
-          break;
-        case 'x-large' || 'xl' || 'x-l':
+      }
+      else if (shrunk === 'x-large' || shrunk === 'xl' || shrunk === 'x-l') {
           value = 1004;
-          break;
-        case 'xx-large' || 'xxl' || 'xx-l':
+      }
+      else if (shrunk === 'xx-large' || shrunk === 'xxl' || shrunk === 'xx-l') {
           value = 1005;
-          break;
-        case (parseInt(name.toLowerCase()).toString()):
+      }
+      else if (shrunk === (parseInt(name.toLowerCase()).toString())) {
           value = 1 + parseInt(name.toLowerCase());
-          break;
-        default:
+      }
+      else {
           value = 9999;
       }
       return [value, name]
