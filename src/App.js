@@ -8,6 +8,7 @@ import NavBar from './components/NavBar'
 import MainPage from './components/MainPage'
 import LoginForm from './components/LoginForm'
 import ClothingShowContainer from './components/ClothingShowContainer'
+import ProfilePageContainer from './components/ProfilePageContainer'
 
 class App extends Component {
 
@@ -89,7 +90,7 @@ class App extends Component {
 
               <Route exact path="/profile" render={() => {
                 return (loggedInUser ?
-                <div>My Profile</div>
+                <ProfilePageContainer />
                 :
                 <Redirect to='/home' />
                 )}
