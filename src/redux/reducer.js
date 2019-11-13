@@ -127,6 +127,17 @@ let selectedClothingReducer = (state=initialState.selectedClothing, action) => {
     }
   }
 
+  let activeItemReducer = (state=initialState.activeItem, action) => {
+    switch (action.type) {
+      case "UPDATE_ACTIVE_ITEM":
+        return action.payload
+      case "LOG_OUT":
+        return 'home'
+      default:
+        return state
+      }
+    }
+
 
 const rootReducer = combineReducers({
   clothingCollection: clothingCollectionReducer,
@@ -139,44 +150,8 @@ const rootReducer = combineReducers({
   clothingSearch: clothingSearchReducer,
   brandsSearch: brandsSearchReducer,
   categoriesSearch: categoriesSearchReducer,
-  selectedClothing: selectedClothingReducer
+  selectedClothing: selectedClothingReducer,
+  activeItem: activeItemReducer
 })
 
 export default rootReducer
-
-// const paintingsReducer = (state = initialState.paintings, action) => {
-//   switch (action.type) {
-//     case "FETCHED_PAINTINGS":
-//       return action.payload
-//     case "INCREASE_VOTES":
-//       return state.map(painting => {
-//         if (painting.id === action.payload) {
-//           return {
-//             ...painting,
-//             votes: painting.votes + 1
-//           };
-//         } else {
-//           return painting;
-//         }
-//       });
-//     case "UPDATE_PAINTING":
-//       return state.map(painting => {
-//         if (painting.id === action.payload.paintingId) {
-//           return {
-//             ...painting,
-//             title: action.payload.title,
-//             artist: {
-//               ...painting.artist,
-//               name: action.payload.name,
-//               birthday: action.payload.birthday,
-//               deathday: action.payload.deathday
-//             }
-//           };
-//         } else {
-//           return painting;
-//         }
-//       });
-//     default:
-//       return state;
-//   }
-// };

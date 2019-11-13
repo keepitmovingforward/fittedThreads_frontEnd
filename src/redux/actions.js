@@ -190,12 +190,20 @@ function addMeasurement(measurementObj) {
   }
 }
 
+function handleNavBarClick(e, {name}) {
+  return {type: "UPDATE_ACTIVE_ITEM", payload: name}
+}
+
+function nullifyNavBar () {
+  return {type: ""}
+}
+
 export {fetchingData, logOutUser,
         handleLoginSubmit, toggleSearch,
         goHome, updateClothingSearch,
         updateBrandsSearch, updateCategoriesSearch,
         updateSelectedClothing, closeSelectedClothing,
-        addMeasurement
+        addMeasurement, handleNavBarClick
       }
 
 //at top of components import {onChange} from '../redux/action'
