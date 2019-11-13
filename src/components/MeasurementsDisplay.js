@@ -8,25 +8,34 @@ const _ = require("lodash")
 class MeasurementsDisplay extends Component {
 
   generateMeasurementDisplay = size => {
+    let prep = this.generateSizedArray(size)
+    let newPrep = _.groupBy(prep, function(x) {return x[0]})
+    debugger
+
+  }
+
+  generateSizedArray = size => {
     let {clothing} = this.props
-    let array = []
+    let sizedArray = []
     clothing.user_clothings.filter(measurement => size.id === measurement.size_id)
     .map(sizedMeasures => {
         let measurementArray = _.toPairs(sizedMeasures)
         return (
             measurementArray.filter(e => e[1] !== null).filter(e => !e[0].includes("id"))
             .forEach(actualMeas => {
-              array.push(`${actualMeas[0].split("top")[1]} x ${actualMeas[1]}`)
+              sizedArray.push([sizedMeasures.id, `${actualMeas[0].split("top")[1]}: ${actualMeas[1]}`])
             })
+
           )
-            }
+          }
         // <Segment id='clothingShowInnerMeasures' key={sizedMeasures.id}>
         // </Segment>
         // uploaded by {clothing.user_measurements.find(user => user.id === sizedMeasures.user_id).username})
       )
-      console.log(array)
-      debugger
+      return sizedArray
     }
+
+
 
 
 
