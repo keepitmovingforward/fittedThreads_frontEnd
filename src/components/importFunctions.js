@@ -42,7 +42,6 @@ function sortSizes(props) {
         }
         return a[0] - b[0];
     }))
-    console.log(prepForSort)
 
     return prepForSort.map(e => e[1])
 }
