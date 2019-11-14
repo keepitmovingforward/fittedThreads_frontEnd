@@ -260,27 +260,13 @@
   font-size: 13px;
 }
 
-
-
-/* #clothingShowImgCol {
-  border-width: 1px 1px 1px 1px;
-  border-style: solid;
-  border-color: #0d0d0d;
-}
-
-
-#clothingShowDetailCol {
-  border-width: 7px 10px 7px 10px;
-  border-style: solid;
-  border-color: #571028;
-} */
-
 #clothingShowGrid {
   margin-top: 0px;
 }
 
 #addMeasBtn {
   padding-bottom: 15px;
+  background-color: #571028;
 }
 #profileAvatarBox {
   height: 100%
@@ -347,5 +333,49 @@
   margin-bottom: 2px;
   font-weight: 600;
   text-align: center;
+  background-color: #571028;
+}
+
+#profileClothesCard {
+  max-width: 260px;
+}
+
+#profileClothesCardPhoto {
+  min-height: 150px;
+  max-height: 150px;
+  max-width: 165px;
+  margin: 5px auto 5px auto;
+}
+
+#profileClothesCardBrand {
+  font-family: 'Staatliches', cursive;
+  font-size: 21px;
+  color: #571028;
+
+}
+
+#profileClothesCardName {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+#profileClothesTextBox {
+  text-align: center;
+  line-height: 5px;
+  padding: 5px 5px 5px 5px;
+}
+
+#profileClothesCardDetailsBtn {
+  color: white;
+  font-size: 9px;
+  background-color: #571028;
+}
+
+#profileClothesCardHeart {
+  padding: 5px 1px 0px 1px;
+}
+
+#submitMeasurementBtn {
   background-color: #571028;
 }

@@ -210,8 +210,9 @@ class AddMeasurementsForm extends Component {
       </Form.Group>
       <Card.Content textAlign='center'>
           <Button type='submit' animated='fade' color='black' size='big'
-           onClick={this.handleMeasurementSubmit}
-          >
+            id='submitMeasurementBtn'
+            onClick={this.handleMeasurementSubmit}
+            >
            <Button.Content visible>Submit Measurement</Button.Content>
            <Button.Content hidden>
               <Icon name='arrow circle up' />

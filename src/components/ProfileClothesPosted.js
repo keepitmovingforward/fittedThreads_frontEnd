@@ -9,26 +9,26 @@ const ProfileClothesPosted = (props) => {
 
     <>
     {props.clothingArray.map(clothingObj =>
-      <Card color='black'
-        key={clothingObj.id} id='clothesCard'>
-        <Card.Content extra textAlign='right'>
+      <Card color='black' id='profileClothesCard'
+        key={clothingObj.id}>
+        <Card.Content extra textAlign='right' id='profileClothesCardHeart'>
           <Icon name='heart outline' color='red' onClick={(e) => console.log(e.target.classList["value"])} />
         </Card.Content>
-        <Image src={clothingObj.image_url} verticalAlign='middle' centered id="clothesCardPhoto" bordered />
-        <Card.Content id="clothesTextBox">
-          <Card.Header id="clothesCardBrand">{clothingObj.brand}</Card.Header>
-          <Card.Header id="clothesCardName">{clothingObj.name}</Card.Header>
-            <Card.Description textAlign='right'>
+        <Image src={clothingObj.image_url} verticalAlign='middle' centered id="profileClothesCardPhoto" bordered />
+        <Card.Content id="profileClothesTextBox">
+          <Card.Header id="profileClothesCardBrand">{clothingObj.brand}</Card.Header>
+          <Card.Header id="profileClothesCardName">{clothingObj.name}</Card.Header>
+
             <Button animated='fade' color='black'
               as={Link}
               to = {`/threads/${clothingObj.id}`}
-              id='clothingCardDetailsBtn'>
+              id='profileClothesCardDetailsBtn'>
             <Button.Content visible>Details</Button.Content>
             <Button.Content hidden>
               <Icon name='magnify' />
             </Button.Content>
             </Button>
-            </Card.Description>
+
         </Card.Content>
       </Card>
     )}
