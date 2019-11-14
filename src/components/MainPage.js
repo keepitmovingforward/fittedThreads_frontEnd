@@ -12,14 +12,14 @@ import {updateFirstTimeUser} from '../redux/actions'
 class MainPage extends Component {
 
   render() {
-    let { searchActive, selectedClothing, firstTimeUser, loggedInUser } = this.props
+    let { searchActive, selectedClothing, loggedInUser } = this.props
 
     return(
       <>
       <div>
         <Modal
           id='modalBox'
-          open={firstTimeUser}
+          open={loggedInUser.firstTimeUser}
           >
            <Modal.Header id="modalHeader">Welcome to Fitted Threads!</Modal.Header>
            <Modal.Content image>
@@ -37,7 +37,8 @@ class MainPage extends Component {
                <p>CHEERS!  - Rob Paik, <i>Fitted Threads: Founder and CEO</i></p>
              </Modal.Description>
            </Modal.Content>
-           <div id='modalBtnDiv'>
+           <Modal.Actions>
+
            <Button
              animated
              size='big'
@@ -48,7 +49,8 @@ class MainPage extends Component {
                <Icon name='double angle right' />
              </Button.Content>
            </Button>
-         </div>
+
+         </Modal.Actions>
          </Modal>
       </div>
       <Container fluid>
