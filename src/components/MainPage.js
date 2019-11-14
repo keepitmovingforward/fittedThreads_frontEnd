@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Container } from 'semantic-ui-react'
+import { Grid, Container, Image } from 'semantic-ui-react'
 import {connect} from 'react-redux'
 import ClothesContainer from './ClothesContainer'
 import SearchColumn from './SearchColumn'

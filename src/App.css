@@ -379,3 +379,8 @@
 #submitMeasurementBtn {
   background-color: #571028;
 }
+
+#underConstruction {
+  height: 100%;
+  text-align: center;
+}

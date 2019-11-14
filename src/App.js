@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import {BrowserRouter as Router, Route, Switch, Redirect, withRouter } from "react-router-dom"
 import {connect} from 'react-redux'
-import { Card, Image } from 'semantic-ui-react'
+import { Card, Image, Container } from 'semantic-ui-react'
 import {fetchingData} from './redux/actions'
 import NavBar from './components/NavBar'
 import MainPage from './components/MainPage'
@@ -74,9 +74,9 @@ class App extends Component {
 
               <Route exact path="/addclothing" render={() => {
                 return (loggedInUser ?
-                <Card fluid>
+                <Container fluid id='underConstruction'>
                   <Image src={'http://karenmcgrane.com/wp-content/uploads/2018/06/under-construction1.gif'}  verticalAlign='middle' centered />
-                </Card>
+                </Container>
                 :
                 <Redirect to='/home' />
                 )}
