@@ -78,7 +78,7 @@ class ProfilePageContainer extends Component {
           <Grid.Column>
             <Card fluid id='profileThreadsHeaderPostCard'>
               <Card.Content>
-              <Card.Header id='profileThreadsHeaderPost'>Threads I've Posted</Card.Header>
+              <Card.Header id='profileThreadsHeaderPost'>Threads Posted</Card.Header>
               </Card.Content>
             </Card>
             <Card fluid id='profileThreadsBox'>
@@ -96,7 +96,7 @@ class ProfilePageContainer extends Component {
           <Grid.Column>
             <Card fluid id='profileThreadsHeaderMeasuredCard'>
               <Card.Content>
-              <Card.Header id='profileThreadsHeaderMeasured'>Threads I've Measured</Card.Header>
+              <Card.Header id='profileThreadsHeaderMeasured'>Threads Fitted</Card.Header>
               </Card.Content>
             </Card>
             <Card fluid id='profileThreadsBox'>

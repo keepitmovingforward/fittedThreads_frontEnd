@@ -198,9 +198,6 @@ function inactivateNavBar () {
   return {type: "INACTIVATE_NAVBAR"}
 }
 
-function backHomeNavBar () {
-  return {type: "BACK_HOME"}
-}
 
 export {fetchingData, logOutUser,
         handleLoginSubmit, toggleSearch,
@@ -208,7 +205,7 @@ export {fetchingData, logOutUser,
         updateBrandsSearch, updateCategoriesSearch,
         updateSelectedClothing, closeSelectedClothing,
         addMeasurement, handleNavBarClick,
-        inactivateNavBar, backHomeNavBar
+        inactivateNavBar
       }
 
 //at top of components import {onChange} from '../redux/action'
