@@ -35,8 +35,8 @@ class ProfilePageContainer extends Component {
                 <Card.Content>
                   <Card.Header id='profileHeader'>{user.username}'s Profile</Card.Header>
                   <Card.Description id='profileStatsHeader'>User Stats</Card.Description>
-                  <Card.Description id='profileStats'>Threads Posted: {user.clothings.length}</Card.Description>
-                  <Card.Description id='profileStats'>Threads Fitted: {user.measured_clothings.length}</Card.Description>
+                  <Card.Description id='profileStats'>Posted Threads: {user.clothings.length}</Card.Description>
+                  <Card.Description id='profileStats'>Fitted Threads: {user.measured_clothings.length}</Card.Description>
                 </Card.Content>
                 <Card.Content>
                   <Card.Header id='profileStatsHeader'>My Measurements</Card.Header>
@@ -78,7 +78,7 @@ class ProfilePageContainer extends Component {
           <Grid.Column>
             <Card fluid id='profileThreadsHeaderPostCard'>
               <Card.Content>
-              <Card.Header id='profileThreadsHeaderPost'>Threads Posted</Card.Header>
+              <Card.Header id='profileThreadsHeaderPost'>Posted Threads</Card.Header>
               </Card.Content>
             </Card>
             <Card fluid id='profileThreadsBox'>
@@ -96,7 +96,7 @@ class ProfilePageContainer extends Component {
           <Grid.Column>
             <Card fluid id='profileThreadsHeaderMeasuredCard'>
               <Card.Content>
-              <Card.Header id='profileThreadsHeaderMeasured'>Threads Fitted</Card.Header>
+              <Card.Header id='profileThreadsHeaderMeasured'>Fitted Threads</Card.Header>
               </Card.Content>
             </Card>
             <Card fluid id='profileThreadsBox'>
