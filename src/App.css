@@ -351,7 +351,6 @@
   font-family: 'Staatliches', cursive;
   font-size: 21px;
   color: #571028;
-
 }
 
 #profileClothesCardName {
@@ -384,4 +383,34 @@
   height: 100%;
   text-align: center;
   margin-top: 70px;
+}
+
+#modalHeader {
+  font-family: 'Staatliches', cursive;
+  font-size: 40px;
+  color: white;
+  background-color: black;
+}
+
+#modalText {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 16px;
+}
+
+#modalBtn {
+  background-color: #571028;
+  font-family: 'Staatliches', cursive;
+  font-size: 25px;
+  color: white;
+  padding: 10px 0px 10px 35px;
+  margin-bottom: 10px;
+  margin-right: 2%;
+}
+
+#modalBtnDiv {
+  text-align: right;
+}
+
+#modalImg {
+  max-width: 1500px;
 }

@@ -198,6 +198,25 @@ function inactivateNavBar () {
   return {type: "INACTIVATE_NAVBAR"}
 }
 
+function updateFirstTimeUser(userId) {
+  return dispatch => {fetch("http://localhost:4000/firstTimeUser", {
+  method: "PATCH",
+  headers: {
+    "Content-Type": "application/json",
+    "Accept": "application/json"
+  },
+  body: JSON.stringify({
+    userId
+  })
+})
+  .then(res => {
+    return res.json()
+  }).then(user => {
+      dispatch ({type: "UPDATE_FIRST_TIME_STATUS", payload: user})
+  })
+  }
+}
+
 
 export {fetchingData, logOutUser,
         handleLoginSubmit, toggleSearch,
@@ -205,7 +224,7 @@ export {fetchingData, logOutUser,
         updateBrandsSearch, updateCategoriesSearch,
         updateSelectedClothing, closeSelectedClothing,
         addMeasurement, handleNavBarClick,
-        inactivateNavBar
+        inactivateNavBar, updateFirstTimeUser
       }
 
 //at top of components import {onChange} from '../redux/action'

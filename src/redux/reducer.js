@@ -63,6 +63,8 @@ let loggedInUserReducer = (state=initialState.loggedInUser, action) => {
       return null
     case "LOGIN_USER":
       return action.payload
+    case "UPDATE_FIRST_TIME_STATUS":
+      return action.payload
     default:
       return state
     }
