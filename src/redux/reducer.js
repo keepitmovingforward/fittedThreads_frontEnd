@@ -133,6 +133,10 @@ let selectedClothingReducer = (state=initialState.selectedClothing, action) => {
         return action.payload
       case "LOG_OUT":
         return 'home'
+      case "INACTIVATE_NAVBAR":
+        return null
+      case "BACK_HOME":
+        return 'home'
       default:
         return state
       }

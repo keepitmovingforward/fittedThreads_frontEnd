@@ -6,6 +6,7 @@ import { Container, Grid, Card, Image, Icon, Button } from 'semantic-ui-react'
 import AddMeasurementsForm from './AddMeasurementsForm'
 import MeasurementsDisplay from './MeasurementsDisplay'
 import {sortSizes} from './importFunctions'
+import {backHomeNavBar} from '../redux/actions'
 
 const _ = require("lodash")
 
@@ -54,7 +55,8 @@ class ClothingShowContainer extends Component {
                       <div>
                         <Button animated='fade' color='black' size='large'
                           as={ Link }
-                          to = {`/home`}>
+                          to = {`/home`}
+                          onClick={this.props.backHomeNavBar}>
                         <Button.Content visible>Back</Button.Content>
                         <Button.Content hidden>
                           <Icon name='home' />
@@ -151,4 +153,10 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-export default withRouter(connect(mapStateToProps)(ClothingShowContainer));
+const mapDispatchToProps = dispatch => {
+  return {
+    backHomeNavBar: () => {dispatch( backHomeNavBar() )}
+  }
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ClothingShowContainer));

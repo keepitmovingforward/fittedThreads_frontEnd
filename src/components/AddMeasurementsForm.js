@@ -156,8 +156,9 @@ class AddMeasurementsForm extends Component {
 
   render() {
     let {clothing} = this.props
+    window.scrollTo(0,document.body.scrollHeight)
   return(
-    <Form>
+    <Form id='addMeasForm'>
       <Form.Group>
       <Form.Field
         label='Size'
@@ -179,7 +180,7 @@ class AddMeasurementsForm extends Component {
         }
       </Form.Group>
 
-      <Form.Group>
+      <Form.Group widths='equal'>
         {clothing.categories[0].name.toLowerCase() === "pants" ||
         clothing.categories[0].name.toLowerCase() === "jeans" ?
           bottomsMeasurements.map(dim => {

@@ -2,9 +2,10 @@ import React from 'react';
 import {connect} from 'react-redux'
 import { Link } from 'react-router-dom';
 import { Card, Image, Icon, Button } from 'semantic-ui-react'
+import {inactivateNavBar} from '../redux/actions'
+
 
 const ProfileClothesPosted = (props) => {
-  debugger
   return (
 
     <>
@@ -22,6 +23,7 @@ const ProfileClothesPosted = (props) => {
             <Button animated='fade' color='black'
               as={Link}
               to = {`/threads/${clothingObj.id}`}
+              onClick={props.inactivateNavBar}
               id='profileClothesCardDetailsBtn'>
             <Button.Content visible>Details</Button.Content>
             <Button.Content hidden>
@@ -42,4 +44,10 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(ProfileClothesPosted);
+const mapDispatchToProps = dispatch => {
+  return {
+    inactivateNavBar: () => { dispatch (inactivateNavBar() )}
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProfileClothesPosted);

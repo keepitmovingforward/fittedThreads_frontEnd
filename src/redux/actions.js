@@ -194,8 +194,12 @@ function handleNavBarClick(e, {name}) {
   return {type: "UPDATE_ACTIVE_ITEM", payload: name}
 }
 
-function nullifyNavBar () {
-  return {type: ""}
+function inactivateNavBar () {
+  return {type: "INACTIVATE_NAVBAR"}
+}
+
+function backHomeNavBar () {
+  return {type: "BACK_HOME"}
 }
 
 export {fetchingData, logOutUser,
@@ -203,7 +207,8 @@ export {fetchingData, logOutUser,
         goHome, updateClothingSearch,
         updateBrandsSearch, updateCategoriesSearch,
         updateSelectedClothing, closeSelectedClothing,
-        addMeasurement, handleNavBarClick
+        addMeasurement, handleNavBarClick,
+        inactivateNavBar, backHomeNavBar
       }
 
 //at top of components import {onChange} from '../redux/action'
