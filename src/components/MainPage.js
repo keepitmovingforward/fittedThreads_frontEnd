@@ -34,7 +34,7 @@ class MainPage extends Component {
                  on returns.
                </p>
                <p>Stay fitted and Let's get it!</p>
-               <p>CHEERS!  - Rob Paik, <i>Fitted Threads: Founder and CEO</i></p>
+               <p>CHEERS!  - <b>Rob Paik</b> <i>Fitted Threads, Founder and CEO</i></p>
              </Modal.Description>
            </Modal.Content>
            <Modal.Actions>

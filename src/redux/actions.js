@@ -29,7 +29,7 @@ function logOutUser() {
   return(dispatch) => {
     Swal.fire({
       title: 'Logout',
-      text: 'Please confirm logout',
+      text: 'Please confirm your logout',
       confirmButtonText: 'Ok',
       showCancelButton: true,
       cancelButtonColor: '#d33',
