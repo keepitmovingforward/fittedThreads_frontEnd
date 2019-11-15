@@ -234,7 +234,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addMeasurement: (measurementObj) => {dispatch( addMeasurement(measurementObj) )}
+    addMeasurement: measurementObj => {dispatch( addMeasurement(measurementObj) )}
   }
 }
 

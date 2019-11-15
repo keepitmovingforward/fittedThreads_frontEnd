@@ -171,7 +171,7 @@ function closeSelectedClothing(e) {
   return {type: "DO_NOTHING"}
 }
 
-function addMeasurement(measurementObj) {
+function addMeasurement(measurementObj, user_id) {
   return (dispatch) => {fetch("http://localhost:4000/addMeasurement", {
   method: "POST",
   headers: {
@@ -185,7 +185,8 @@ function addMeasurement(measurementObj) {
   .then(res => {
     return res.json()
   }).then(data => {
-  dispatch (fetchedClothings(data))
+  dispatch (fetchedClothings(data.clothing))
+  dispatch( {type: "USER_ADD_MEASUREMENT", payload: data.user})
   })
   }
 }

@@ -65,6 +65,8 @@ let loggedInUserReducer = (state=initialState.loggedInUser, action) => {
       return action.payload
     case "UPDATE_FIRST_TIME_STATUS":
       return action.payload
+    case "USER_ADD_MEASUREMENT":
+      return action.payload
     default:
       return state
     }
@@ -89,6 +91,8 @@ let clothingSearchReducer = (state=initialState.clothingSearch, action) => {
       return action.payload
     case "LOG_OUT":
       return ""
+    case "HOME":
+      return ""
     default:
       return state
     }
@@ -100,6 +104,8 @@ let brandsSearchReducer = (state=initialState.brandsSearch, action) => {
       return action.payload
     case "LOG_OUT":
       return []
+    case "HOME":
+      return []
     default:
       return state
     }
@@ -110,6 +116,8 @@ let categoriesSearchReducer = (state=initialState.categoriesSearch, action) => {
     case "UPDATE_CATEGORIES_SEARCH":
       return action.payload
     case "LOG_OUT":
+      return []
+    case "HOME":
       return []
     default:
       return state
