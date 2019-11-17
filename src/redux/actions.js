@@ -9,6 +9,7 @@ function fetchingData() {
       dispatch (fetchedClothings(data.clothing))
       dispatch (fetchedCategories(data.categories))
       dispatch (fetchedBrands(data.brands))
+      dispatch (fetchesComplete() )
     })
    }
 }
@@ -23,6 +24,10 @@ function fetchedCategories(categories) {
 
 function fetchedBrands(brands) {
   return {type: "FETCHED_BRANDS", payload: brands}
+}
+
+function fetchesComplete(clothings) {
+  return {type: "FETCHES_COMPLETE"}
 }
 
 function logOutUser() {

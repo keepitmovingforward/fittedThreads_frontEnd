@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import {BrowserRouter as Router, Route, Switch, Redirect, withRouter } from "react-router-dom"
 import {connect} from 'react-redux'
-import { Card, Image, Container } from 'semantic-ui-react'
+import { Card, Image, Container, Loader, Dimmer } from 'semantic-ui-react'
 import {fetchingData} from './redux/actions'
 import NavBar from './components/NavBar'
 import MainPage from './components/MainPage'
@@ -45,7 +45,12 @@ class App extends Component {
         null}
         <div>
           {clothingLoading ?
-            null
+            <Container>
+             <Dimmer active inverted>
+               <Loader inverted>Loading</Loader>
+             </Dimmer>
+
+           </Container>
             :
             <Switch>
               <Route exact path="/home" render = {() => {
@@ -124,7 +129,7 @@ class App extends Component {
     return {
       loggedInUser: state.loggedInUser,
       clothingLoading: state.clothingLoading,
-      clothingCollection: state.clothingCollection
+      clothingCollection: state.clothingCollection,
     }
   }
 

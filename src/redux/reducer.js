@@ -18,7 +18,7 @@ let initialState = {
 
 let clothingLoadingReducer = (state=initialState.clothingLoading, action) => {
   switch (action.type) {
-    case "FETCHED_CLOTHINGS":
+    case "FETCHES_COMPLETE":
       return false
     default:
       return state
