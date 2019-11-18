@@ -232,28 +232,3 @@ export {fetchingData, logOutUser,
         addMeasurement, handleNavBarClick,
         inactivateNavBar, updateFirstTimeUser
       }
-
-//at top of components import {onChange} from '../redux/action'
-
-// function votedForPainting(paintingId) {
-//   return { type: "INCREASE_VOTES", payload: paintingId };
-// }
-//
-// //click event -> voting (fetch) -> voted (updating store)
-// function votingForPainting(paintingId){
-//   return (dispatch, getState) => {
-//     let oldVotes = getState().paintings.find(p => p.id === paintingId).votes
-//     fetch(`${URL}/${paintingId}`,{
-//       method: "PATCH",
-//       headers : {
-//         "Content-Type" : "application/json",
-//         "Accept" : "application/json"
-//       },
-//       body: JSON.stringify({
-//         votes: oldVotes + 1
-//       })
-//     }).then(() => {
-//         dispatch(votedForPainting(paintingId))
-//     })
-//   }
-// }

@@ -92,5 +92,3 @@ const mapDispatchToProps = dispatch => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ClothesCard);
-
-// {props.users.find( user => user.id === clothingObj.user_id).username}

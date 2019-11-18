@@ -6,8 +6,6 @@ import SearchColumn from './SearchColumn'
 import ClothesPreview from './ClothesPreview'
 import {updateFirstTimeUser} from '../redux/actions'
 
-// <Button label='modal' onClick={() => {this.props.updateFirstTimeUser(loggedInUser.id)}} />
-// onClose={() => {this.props.updateFirstTimeUser(loggedInUser.id)}}
 
 class MainPage extends Component {
 
