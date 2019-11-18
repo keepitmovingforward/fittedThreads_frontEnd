@@ -119,24 +119,8 @@ function updateClothingSearch(clothingSearchTerm) {
   return {type: "UPDATE_CLOTHING_SEARCH", payload: clothingSearchTerm }
 }
 
-function updateBrandsSearch(brand, checked) {
-  return (dispatch, getState) => {
-    let state = getState()
-    if (checked) {
-    let brandsArray = [...state.brandsSearch]
-    brandsArray.push(brand)
-    dispatch({type: 'UPDATE_BRANDS_SEARCH', payload: brandsArray })
-    }
-    else {
-      if(state.brandsSearch.includes(brand)) {
-      let brandsArray = state.brandsSearch.filter(b => b !== brand)
-      dispatch({type: 'UPDATE_BRANDS_SEARCH', payload: brandsArray })
-      }
-      else {
-        dispatch({type: 'DO_NOTHING'})
-      }
-    }
-  }
+function updateBrandsSearch(brandsSearchArray) {
+  return {type: 'UPDATE_BRANDS_SEARCH', payload: brandsSearchArray }
 }
 
 function updateCategoriesSearch(category, checked) {
@@ -232,3 +216,22 @@ export {fetchingData, logOutUser,
         addMeasurement, handleNavBarClick,
         inactivateNavBar, updateFirstTimeUser
       }
+
+      // function updateBrandsSearch(brandsSearchArray) {
+      //   return (dispatch, getState) => {
+      //     let state = getState()
+      //     let brandsArray = [...state.brandsSearch]
+      //     brandsArray.push(brand)
+      //     dispatch({type: 'UPDATE_BRANDS_SEARCH', payload: brandsArray })
+      //     }
+      //     else {
+      //       if(state.brandsSearch.includes(brand)) {
+      //       let brandsArray = state.brandsSearch.filter(b => b !== brand)
+      //       dispatch({type: 'UPDATE_BRANDS_SEARCH', payload: brandsArray })
+      //       }
+      //       else {
+      //         dispatch({type: 'DO_NOTHING'})
+      //       }
+      //     }
+      //   }
+      // }
