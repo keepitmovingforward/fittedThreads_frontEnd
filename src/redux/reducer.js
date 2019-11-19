@@ -74,8 +74,10 @@ let loggedInUserReducer = (state=initialState.loggedInUser, action) => {
 
 let searchActiveReducer = (state=initialState.searchActive, action) => {
   switch (action.type) {
-    case "TOGGLE":
-      return !state
+    case "TOGGLE_SEARCH_OFF":
+      return false
+    case "TOGGLE_SEARCH_ON":
+      return true
     case "HOME":
       return false
     case "LOG_OUT":
@@ -93,6 +95,8 @@ let clothingSearchReducer = (state=initialState.clothingSearch, action) => {
       return ""
     case "HOME":
       return ""
+    case "TOGGLE_SEARCH_OFF":
+      return ""
     default:
       return state
     }
@@ -106,6 +110,8 @@ let brandsSearchReducer = (state=initialState.brandsSearch, action) => {
       return []
     case "HOME":
       return []
+    case "TOGGLE_SEARCH_OFF":
+      return []
     default:
       return state
     }
@@ -118,6 +124,8 @@ let categoriesSearchReducer = (state=initialState.categoriesSearch, action) => {
     case "LOG_OUT":
       return []
     case "HOME":
+      return []
+    case "TOGGLE_SEARCH_OFF":
       return []
     default:
       return state

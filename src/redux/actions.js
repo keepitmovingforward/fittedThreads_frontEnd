@@ -108,7 +108,19 @@ function updateLoggedInUser(user) {
 }
 
 function toggleSearch() {
-  return {type: "TOGGLE"}
+  return (dispatch, getState) => {
+    let state = getState()
+    if (state.searchActive) {
+      dispatch({type: "TOGGLE_SEARCH_OFF"})
+    }
+    else {
+      dispatch({type: "TOGGLE_SEARCH_ON"})
+    }
+  }
+}
+
+function turnSearchOff() {
+  return {type: "TOGGLE_SEARCH_OFF"}
 }
 
 function goHome() {
@@ -127,9 +139,9 @@ function updateCategoriesSearch(category, checked) {
   return (dispatch, getState) => {
     let state = getState()
     if (checked) {
-    let categoriesArray = [...state.categoriesSearch]
-    categoriesArray.push(category)
-    dispatch({type: 'UPDATE_CATEGORIES_SEARCH', payload: categoriesArray })
+      let categoriesArray = [...state.categoriesSearch]
+      categoriesArray.push(category)
+      dispatch({type: 'UPDATE_CATEGORIES_SEARCH', payload: categoriesArray })
     }
     else {
       if(state.categoriesSearch.includes(category)) {
@@ -214,7 +226,8 @@ export {fetchingData, logOutUser,
         updateBrandsSearch, updateCategoriesSearch,
         updateSelectedClothing, closeSelectedClothing,
         addMeasurement, handleNavBarClick,
-        inactivateNavBar, updateFirstTimeUser
+        inactivateNavBar, updateFirstTimeUser,
+        turnSearchOff
       }
 
       // function updateBrandsSearch(brandsSearchArray) {
