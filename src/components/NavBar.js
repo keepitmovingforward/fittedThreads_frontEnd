@@ -49,7 +49,9 @@ class NavBar extends Component {
               to="/addclothing"
               active={activeItem === 'Add Clothing'}
               onClick={(e, clickObj) => {
-                this.props.handleNavBarClick(e, clickObj)}}
+                this.props.turnSearchOff()
+                this.props.handleNavBarClick(e, clickObj)}
+              }
             >
             <Icon name='plus square' />
             Add Clothing
@@ -62,8 +64,8 @@ class NavBar extends Component {
               active={activeItem === 'Profile'}
               onClick={(e, clickObj) => {
                 this.props.turnSearchOff()
-                this.props.handleNavBarClick(e, clickObj)}}
-
+                this.props.handleNavBarClick(e, clickObj)}
+              }
             >
             <Icon name='user' />
             {`${user.username}'s`} Profile
