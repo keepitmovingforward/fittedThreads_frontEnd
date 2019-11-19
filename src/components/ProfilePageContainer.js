@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
-import { Container, Grid, Card, Image, Form } from 'semantic-ui-react'
+import { Container, Grid, Card, Image } from 'semantic-ui-react'
 import ProfileClothesPosted from './ProfileClothesPosted'
+import MyMeasurementsForm from './MyMeasurementsForm'
 
 const _ = require("lodash")
 
@@ -38,37 +39,9 @@ class ProfilePageContainer extends Component {
                   <Card.Description id='profileStats'>Posted Threads: {user.clothings.length}</Card.Description>
                   <Card.Description id='profileStats'>Fitted Threads: {user.measured_clothings.length}</Card.Description>
                 </Card.Content>
-                <Card.Content>
-                  <Card.Header id='profileStatsHeader'>My Measurements</Card.Header>
 
-                  <Card.Content>
+                <MyMeasurementsForm />
 
-                    <Card.Header id='profileStats'>Top Measurements</Card.Header>
-                    <Form>
-                     <Form.Group widths='equal'>
-                       <Form.Input fluid label='Neck' placeholder='Neck' />
-                       <Form.Input fluid label='Chest' placeholder='Chest' />
-                       <Form.Input fluid label='Waist' placeholder='Waist' />
-                       <Form.Input fluid label='Sleeve' placeholder='Sleeve' />
-                       <Form.Input fluid label='Front Length' placeholder='Front Length' />
-                     </Form.Group>
-                    </Form>
-
-                  </Card.Content>
-
-                  <Card.Content>
-                    <Card.Header id='profileStats'>Bottom Measurements</Card.Header>
-                    <Form>
-                     <Form.Group widths='equal'>
-                       <Form.Input fluid label='Waist' placeholder='Waist' />
-                       <Form.Input fluid label='Length' placeholder='Length' />
-                       <Form.Input fluid label='Hip' placeholder='Hip' />
-                       <Form.Input fluid label='Thigh' placeholder='Thigh' />
-                       <Form.Input fluid label='Bottom Hem' placeholder='Bottom Hem' />
-                     </Form.Group>
-                    </Form>
-                  </Card.Content>
-                </Card.Content>
               </Card>
             </Grid.Column>
           </Grid.Row>

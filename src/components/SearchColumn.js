@@ -28,6 +28,7 @@ class SearchColumn extends Component {
             <Segment inverted raised>
               <Form inverted>
                 <Form.Input
+
                   fluid icon='search'
                   iconPosition='left'
                   label='Search by Clothing Name'
@@ -42,7 +43,7 @@ class SearchColumn extends Component {
 
                 <Dropdown
                     label='Search by Brand Name'
-                    placeholder='Select Brand Name(s)'
+                    placeholder='Select brand name(s)'
                     fluid
                     multiple
                     search
