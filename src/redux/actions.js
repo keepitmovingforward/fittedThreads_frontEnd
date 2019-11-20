@@ -219,6 +219,11 @@ function updateFirstTimeUser(userId) {
   }
 }
 
+function updateUserMeasurements(dimensionName, dimensionValue) {
+  console.log(dimensionName, dimensionValue)
+  return {type: "DO_NOTHING"}
+}
+
 
 export {fetchingData, logOutUser,
         handleLoginSubmit, toggleSearch,
@@ -227,7 +232,7 @@ export {fetchingData, logOutUser,
         updateSelectedClothing, closeSelectedClothing,
         addMeasurement, handleNavBarClick,
         inactivateNavBar, updateFirstTimeUser,
-        turnSearchOff
+        turnSearchOff, updateUserMeasurements
       }
 
       // function updateBrandsSearch(brandsSearchArray) {

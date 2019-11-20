@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import { Card, Form } from 'semantic-ui-react'
-// import {inactivateNavBar} from '../redux/actions'
+import {updateUserMeasurements} from '../redux/actions'
 
 
 const MyMeasurementsForm = (props) => {
@@ -16,7 +16,7 @@ const MyMeasurementsForm = (props) => {
         <Card.Header id='profileStats'>Top Measurements</Card.Header>
         <Form>
          <Form.Group widths='equal'>
-           <Form.Input fluid label='Neck' name='topNeck' value={user.topNeck} />
+           <Form.Input fluid label='Neck' name='topNeck' value={user.topNeck} onChange={(e, {name, value}) => {props.updateUserMeasurements(name, value)}}/>
            <Form.Input fluid label='Chest' name='topChest' value={user.topChest} />
            <Form.Input fluid label='Waist' name='topWaist' value={user.topWaist}/>
            <Form.Input fluid label='Sleeve' name='topSleeve' value={user.topSleeve}/>
@@ -49,4 +49,10 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(MyMeasurementsForm);
+const mapDispatchToProps = dispatch => {
+  return {
+    updateUserMeasurements: (name, value) => {dispatch (updateUserMeasurements(name, value))}
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MyMeasurementsForm);
