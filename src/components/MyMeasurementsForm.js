@@ -21,6 +21,12 @@ class MyMeasurementsForm extends Component {
   }
 
 
+  handleDimensionsChange = (e, {name, value}) => {
+    this.setState({
+      [name]: value
+    })
+  }
+
   render() {
   let { user } = this.props
 
@@ -38,40 +44,40 @@ class MyMeasurementsForm extends Component {
              <Dropdown clearable options={generateOptions()}
                selection search
                name={'topNeck'}
-               value={user.topNeck}
-               onChange={(e, {name, value}) => {this.props.updateUserMeasurements(name, value)}}/>
+               value={this.state.topNeck}
+               onChange={this.handleDimensionsChange}/>
            </Form.Field>
            <Form.Field>
              <label>Chest</label>
              <Dropdown clearable options={generateOptions()}
                selection search
                name={'topChest'}
-               value={user.topChest}
-               onChange={(e, {name, value}) => {this.props.updateUserMeasurements(name, value)}}/>
+               value={this.state.topChest}
+               onChange={this.handleDimensionsChange}/>
            </Form.Field>
            <Form.Field>
              <label>Waist</label>
              <Dropdown clearable options={generateOptions()}
                selection search
                name={'topWaist'}
-               value={user.topWaist}
-               onChange={(e, {name, value}) => {this.props.updateUserMeasurements(name, value)}}/>
+               value={this.state.topWaist}
+               onChange={this.handleDimensionsChange}/>
            </Form.Field>
            <Form.Field>
              <label>Sleeve</label>
              <Dropdown clearable options={generateOptions()}
                selection search
                name={'topSleeve'}
-               value={user.topSleeve}
-               onChange={(e, {name, value}) => {this.props.updateUserMeasurements(name, value)}}/>
+               value={this.state.topSleeve}
+               onChange={this.handleDimensionsChange}/>
            </Form.Field>
            <Form.Field>
              <label>Front Length</label>
              <Dropdown clearable options={generateOptions()}
                selection search
                name={'topFront_Length'}
-               value={user.topFront_Length}
-               onChange={(e, {name, value}) => {this.props.updateUserMeasurements(name, value)}}/>
+               value={this.state.topFront_Length}
+               onChange={this.handleDimensionsChange}/>
            </Form.Field>
          </Form.Group>
         </Form>
@@ -87,40 +93,40 @@ class MyMeasurementsForm extends Component {
               <Dropdown clearable options={generateOptions()}
                 selection search
                 name={'bottomWaist'}
-                value={user.bottomWaist}
-                onChange={(e, {name, value}) => {this.props.updateUserMeasurements(name, value)}}/>
+                value={this.state.bottomWaist}
+                onChange={this.handleDimensionsChange}/>
             </Form.Field>
             <Form.Field>
               <label>Length</label>
               <Dropdown clearable options={generateOptions()}
                 selection search
                 name={'bottomLength'}
-                value={user.bottomLength}
-                onChange={(e, {name, value}) => {this.props.updateUserMeasurements(name, value)}}/>
+                value={this.state.bottomLength}
+                onChange={this.handleDimensionsChange}/>
             </Form.Field>
             <Form.Field>
               <label>Hip</label>
               <Dropdown clearable options={generateOptions()}
                 selection search
                 name={'bottomHip'}
-                value={user.bottomHip}
-                onChange={(e, {name, value}) => {this.props.updateUserMeasurements(name, value)}}/>
+                value={this.state.bottomHip}
+                onChange={this.handleDimensionsChange}/>
             </Form.Field>
             <Form.Field>
               <label>Thigh</label>
               <Dropdown clearable options={generateOptions()}
                 selection search
                 name={'bottomThigh'}
-                value={user.bottomThigh}
-                onChange={(e, {name, value}) => {this.props.updateUserMeasurements(name, value)}}/>
+                value={this.state.bottomThigh}
+                onChange={this.handleDimensionsChange}/>
             </Form.Field>
             <Form.Field>
               <label>Bottom Hem</label>
               <Dropdown clearable options={generateOptions()}
                 selection search
                 name={'bottomBottom_Hem'}
-                value={user.bottomBottom_Hem}
-                onChange={(e, {name, value}) => {this.props.updateUserMeasurements(name, value)}}/>
+                value={this.state.bottomBottom_Hem}
+                onChange={this.handleDimensionsChange}/>
             </Form.Field>
           </Form.Group>
         </Form>
