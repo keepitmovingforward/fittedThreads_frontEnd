@@ -8,16 +8,16 @@ import {generateOptions} from './importFunctions'
 class MyMeasurementsForm extends Component {
 
   state = {
-    topNeck: "",
-    topChest: "",
-    topWaist: "",
-    topSleeve: "",
-    topFront_Length: "",
-    bottomWaist: "",
-    bottomLength: "",
-    bottomHip: "",
-    bottomThigh: "",
-    bottomBottom_Hem: ""
+    topNeck: this.props.user.topNeck,
+    topChest: this.props.user.topChest,
+    topWaist: this.props.user.topWaist,
+    topSleeve: this.props.user.topSleeve,
+    topFront_Length: this.props.user.topFront_Length,
+    bottomWaist: this.props.user.bottomWaist,
+    bottomLength: this.props.user.bottomLength,
+    bottomHip: this.props.user.bottomHip,
+    bottomThigh: this.props.user.bottomThigh,
+    bottomBottom_Hem: this.props.user.bottomBottom_Hem
   }
 
 
