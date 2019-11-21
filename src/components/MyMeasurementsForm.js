@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
-import { Card, Form } from 'semantic-ui-react'
+import { Card, Form, Dropdown } from 'semantic-ui-react'
 import {updateUserMeasurements} from '../redux/actions'
 import {generateOptions} from './importFunctions'
 
@@ -33,11 +33,46 @@ class MyMeasurementsForm extends Component {
         <Card.Header id='profileStats'>Top Measurements</Card.Header>
         <Form>
          <Form.Group widths='equal'>
-           <Form.Input fluid label='Neck' name='topNeck' value={user.topNeck} onChange={(e, {name, value}) => {this.props.updateUserMeasurements(name, value)}}/>
-           <Form.Input fluid label='Chest' name='topChest' value={user.topChest} />
-           <Form.Input fluid label='Waist' name='topWaist' value={user.topWaist}/>
-           <Form.Input fluid label='Sleeve' name='topSleeve' value={user.topSleeve}/>
-           <Form.Input fluid label='Front Length' name='topFront_Length' value={user.topFront_Length} />
+           <Form.Field>
+             <label>Neck</label>
+             <Dropdown clearable options={generateOptions()}
+               selection search
+               name={'topNeck'}
+               value={user.topNeck}
+               onChange={(e, {name, value}) => {this.props.updateUserMeasurements(name, value)}}/>
+           </Form.Field>
+           <Form.Field>
+             <label>Chest</label>
+             <Dropdown clearable options={generateOptions()}
+               selection search
+               name={'topChest'}
+               value={user.topChest}
+               onChange={(e, {name, value}) => {this.props.updateUserMeasurements(name, value)}}/>
+           </Form.Field>
+           <Form.Field>
+             <label>Waist</label>
+             <Dropdown clearable options={generateOptions()}
+               selection search
+               name={'topWaist'}
+               value={user.topWaist}
+               onChange={(e, {name, value}) => {this.props.updateUserMeasurements(name, value)}}/>
+           </Form.Field>
+           <Form.Field>
+             <label>Sleeve</label>
+             <Dropdown clearable options={generateOptions()}
+               selection search
+               name={'topSleeve'}
+               value={user.topSleeve}
+               onChange={(e, {name, value}) => {this.props.updateUserMeasurements(name, value)}}/>
+           </Form.Field>
+           <Form.Field>
+             <label>Front Length</label>
+             <Dropdown clearable options={generateOptions()}
+               selection search
+               name={'topFront_Length'}
+               value={user.topFront_Length}
+               onChange={(e, {name, value}) => {this.props.updateUserMeasurements(name, value)}}/>
+           </Form.Field>
          </Form.Group>
         </Form>
 
@@ -46,13 +81,48 @@ class MyMeasurementsForm extends Component {
       <Card.Content>
         <Card.Header id='profileStats'>Bottom Measurements</Card.Header>
         <Form>
-         <Form.Group widths='equal'>
-           <Form.Input fluid label='Waist' name='bottomWaist' value={user.bottomWaist} />
-           <Form.Input fluid label='Length' name='bottomLength' value={user.bottomLength} />
-           <Form.Input fluid label='Hip' name='bottomHip' value={user.bottomHip} />
-           <Form.Input fluid label='Thigh' name='bottomThigh' value={user.bottomThigh}  />
-           <Form.Input fluid label='Bottom Hem' name='bottomBottom_Hem' value={user.bottomBottom_Hem} />
-         </Form.Group>
+          <Form.Group widths='equal'>
+            <Form.Field>
+              <label>Waist</label>
+              <Dropdown clearable options={generateOptions()}
+                selection search
+                name={'bottomWaist'}
+                value={user.bottomWaist}
+                onChange={(e, {name, value}) => {this.props.updateUserMeasurements(name, value)}}/>
+            </Form.Field>
+            <Form.Field>
+              <label>Length</label>
+              <Dropdown clearable options={generateOptions()}
+                selection search
+                name={'bottomLength'}
+                value={user.bottomLength}
+                onChange={(e, {name, value}) => {this.props.updateUserMeasurements(name, value)}}/>
+            </Form.Field>
+            <Form.Field>
+              <label>Hip</label>
+              <Dropdown clearable options={generateOptions()}
+                selection search
+                name={'bottomHip'}
+                value={user.bottomHip}
+                onChange={(e, {name, value}) => {this.props.updateUserMeasurements(name, value)}}/>
+            </Form.Field>
+            <Form.Field>
+              <label>Thigh</label>
+              <Dropdown clearable options={generateOptions()}
+                selection search
+                name={'bottomThigh'}
+                value={user.bottomThigh}
+                onChange={(e, {name, value}) => {this.props.updateUserMeasurements(name, value)}}/>
+            </Form.Field>
+            <Form.Field>
+              <label>Bottom Hem</label>
+              <Dropdown clearable options={generateOptions()}
+                selection search
+                name={'bottomBottom_Hem'}
+                value={user.bottomBottom_Hem}
+                onChange={(e, {name, value}) => {this.props.updateUserMeasurements(name, value)}}/>
+            </Form.Field>
+          </Form.Group>
         </Form>
       </Card.Content>
     </Card.Content>
