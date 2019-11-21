@@ -1,11 +1,12 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import { Card, Form } from 'semantic-ui-react'
 import {updateUserMeasurements} from '../redux/actions'
 
 
-const MyMeasurementsForm = (props) => {
-  let { user } = props
+class MyMeasurementsForm extends Component {
+  render() {
+  let { user } = this.props
 
   return (
     <Card.Content>
@@ -16,7 +17,7 @@ const MyMeasurementsForm = (props) => {
         <Card.Header id='profileStats'>Top Measurements</Card.Header>
         <Form>
          <Form.Group widths='equal'>
-           <Form.Input fluid label='Neck' name='topNeck' value={user.topNeck} onChange={(e, {name, value}) => {props.updateUserMeasurements(name, value)}}/>
+           <Form.Input fluid label='Neck' name='topNeck' value={user.topNeck} onChange={(e, {name, value}) => {this.props.updateUserMeasurements(name, value)}}/>
            <Form.Input fluid label='Chest' name='topChest' value={user.topChest} />
            <Form.Input fluid label='Waist' name='topWaist' value={user.topWaist}/>
            <Form.Input fluid label='Sleeve' name='topSleeve' value={user.topSleeve}/>
@@ -40,6 +41,7 @@ const MyMeasurementsForm = (props) => {
       </Card.Content>
     </Card.Content>
   )
+  }
 }
 
 const mapStateToProps = state => {

@@ -46,5 +46,13 @@ function sortSizes(props) {
     return prepForSort.map(e => e[1])
 }
 
+function generateOptions () {
+  let options = []
+  for (let i = 5; i < 66; i+=0.5) {
+    options.push({"key": i, "text": `${i} inches`, "value": i})
+  }
+  return options
+}
 
-export {sortSizes}
+
+export {sortSizes, generateOptions}

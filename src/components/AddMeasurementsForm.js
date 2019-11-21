@@ -3,7 +3,7 @@ import { Card, Form, Dropdown, Select, Button, Icon } from 'semantic-ui-react'
 import {connect} from 'react-redux'
 import { withRouter } from "react-router-dom";
 import {addMeasurement} from '../redux/actions'
-import {sortSizes} from './importFunctions'
+import {sortSizes, generateOptions} from './importFunctions'
 
 const Swal = require('sweetalert2')
 const _ = require("lodash")
@@ -35,14 +35,6 @@ class AddMeasurementsForm extends Component {
     })
     sizeOptions.push({"key": 'New', "text": 'Add New Size', "value": 'New'})
     return sizeOptions
-  }
-
-  generateOptions = () => {
-    let options = []
-    for (let i = 5; i < 66; i+=0.5) {
-      options.push({"key": i, "text": `${i} inches`, "value": i})
-    }
-    return options
   }
 
   checkForNewSize = (e, {name, value}) => {
@@ -187,7 +179,7 @@ class AddMeasurementsForm extends Component {
             return (
               <Form.Field key={dim}>
                 <label>{dim.split("_").join(" ")}</label>
-                <Dropdown clearable options={this.generateOptions()}
+                <Dropdown clearable options={generateOptions()}
                   selection search
                   name={`bottom${dim}`}
                   onChange={this.handleDimensionsChange}/>
@@ -199,7 +191,7 @@ class AddMeasurementsForm extends Component {
             return (
               <Form.Field key={dim}>
                 <label>{dim.split("_").join(" ")}</label>
-                <Dropdown clearable options={this.generateOptions()}
+                <Dropdown clearable options={generateOptions()}
                    selection search
                    name={`top${dim}`}
                    onChange={this.handleDimensionsChange}
