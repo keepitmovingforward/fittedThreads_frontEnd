@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
-import { Card, Form, Dropdown } from 'semantic-ui-react'
+import { Card, Form, Dropdown, Button, Icon } from 'semantic-ui-react'
 import {updateUserMeasurements} from '../redux/actions'
 import {generateOptions} from './importFunctions'
 
@@ -80,6 +80,14 @@ class MyMeasurementsForm extends Component {
                onChange={this.handleDimensionsChange}/>
            </Form.Field>
          </Form.Group>
+         <Form.Group>
+           <Button animated='fade' size='large'>
+             <Button.Content visible>Update Top Measurements</Button.Content>
+             <Button.Content hidden>
+               <Icon name='save' />
+             </Button.Content>
+           </Button>
+         </Form.Group>
         </Form>
 
       </Card.Content>
@@ -128,6 +136,14 @@ class MyMeasurementsForm extends Component {
                 value={this.state.bottomBottom_Hem}
                 onChange={this.handleDimensionsChange}/>
             </Form.Field>
+          </Form.Group>
+          <Form.Group>
+            <Button animated='fade' size='large'>
+              <Button.Content visible>Update Bottom Measurements</Button.Content>
+              <Button.Content hidden>
+                <Icon name='save' />
+              </Button.Content>
+            </Button>
           </Form.Group>
         </Form>
       </Card.Content>
