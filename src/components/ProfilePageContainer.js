@@ -24,14 +24,14 @@ class ProfilePageContainer extends Component {
       <Container fluid>
         <Grid celled columns='equal'>
           <Grid.Row>
-            <Grid.Column width={5}>
+            <Grid.Column width={4}>
               <Card fluid id='profileAvatarBox'>
                 <Card.Content textAlign='center'>
                 <Image id='profileAvatar' src={user.avatar}/>
                 </Card.Content>
               </Card>
             </Grid.Column>
-            <Grid.Column width={11}>
+            <Grid.Column width={12}>
               <Card fluid>
                 <Card.Content>
                   <Card.Header id='profileHeader'>{user.username}'s Profile</Card.Header>

@@ -2,9 +2,25 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import { Card, Form } from 'semantic-ui-react'
 import {updateUserMeasurements} from '../redux/actions'
+import {generateOptions} from './importFunctions'
 
 
 class MyMeasurementsForm extends Component {
+
+  state = {
+    topNeck: "",
+    topChest: "",
+    topWaist: "",
+    topSleeve: "",
+    topFront_Length: "",
+    bottomWaist: "",
+    bottomLength: "",
+    bottomHip: "",
+    bottomThigh: "",
+    bottomBottom_Hem: ""
+  }
+
+
   render() {
   let { user } = this.props
 
