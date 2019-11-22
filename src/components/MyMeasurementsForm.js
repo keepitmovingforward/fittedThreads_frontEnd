@@ -27,6 +27,10 @@ class MyMeasurementsForm extends Component {
     })
   }
 
+  handleSubmit = (e, obj) => {
+    console.log("e: ", e, "obj: ", obj)
+  }
+
   render() {
   let { user } = this.props
 

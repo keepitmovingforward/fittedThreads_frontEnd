@@ -3,7 +3,6 @@ import {combineReducers} from 'redux'
 
 let initialState = {
   clothingCollection: [],
-  users: [],
   categories: [],
   brands: [],
   loggedInUser: null,
@@ -53,10 +52,6 @@ let brandsReducer = (state=initialState.brands, action) => {
   }
 }
 
-let usersReducer = (state=initialState.users, action) => {
-  return state
-}
-
 let loggedInUserReducer = (state=initialState.loggedInUser, action) => {
   switch (action.type) {
     case "LOG_OUT":
@@ -66,6 +61,10 @@ let loggedInUserReducer = (state=initialState.loggedInUser, action) => {
     case "UPDATE_FIRST_TIME_STATUS":
       return action.payload
     case "USER_ADD_MEASUREMENT":
+      return action.payload
+    case "USER_UPDATE_TOP_MEASUREMENT":
+      return action.payload
+    case "USER_UPDATE_BOTTOM_MEASUREMENT":
       return action.payload
     default:
       return state
@@ -165,7 +164,6 @@ let selectedClothingReducer = (state=initialState.selectedClothing, action) => {
 
 const rootReducer = combineReducers({
   clothingCollection: clothingCollectionReducer,
-  users: usersReducer,
   categories: categoriesReducer,
   brands: brandsReducer,
   loggedInUser: loggedInUserReducer,
