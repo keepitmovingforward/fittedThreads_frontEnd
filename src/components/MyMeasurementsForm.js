@@ -27,12 +27,15 @@ class MyMeasurementsForm extends Component {
     })
   }
 
-  handleSubmit = (e, obj) => {
-    console.log("e: ", e, "obj: ", obj)
+  handleSubmit = (measurements) => {
+    console.log("measurements: ", measurements)
+    debugger
   }
 
   render() {
   let { user } = this.props
+  let { topNeck, topChest, topWaist, topSleeve, topFront_Length,
+        bottomWaist, bottomLength, bottomHip, bottomThigh, bottomBottom_Hem} = this.state
 
   return (
     <Card.Content>
@@ -85,7 +88,11 @@ class MyMeasurementsForm extends Component {
            </Form.Field>
          </Form.Group>
          <Form.Group>
-           <Button animated='fade' size='large'>
+           <Button
+             animated='fade'
+             size='large'
+             type='submit'
+             onClick={() => this.handleSubmit({ topNeck, topChest, topWaist, topSleeve, topFront_Length})}>
              <Button.Content visible>Update Top Measurements</Button.Content>
              <Button.Content hidden>
                <Icon name='save' />
