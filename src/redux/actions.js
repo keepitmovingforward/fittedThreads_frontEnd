@@ -219,8 +219,8 @@ function updateFirstTimeUser(userId) {
   }
 }
 
-function updateUserMeasurements(dimensionName, dimensionValue) {
-  console.log(dimensionName, dimensionValue)
+function updateUserMeasurements(measurements, type, user_id) {
+  console.log(measurements, type, user_id)
   return {type: "DO_NOTHING"}
 }
 

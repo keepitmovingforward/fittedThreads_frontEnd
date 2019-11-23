@@ -27,11 +27,6 @@ class MyMeasurementsForm extends Component {
     })
   }
 
-  handleSubmit = (measurements) => {
-    console.log("measurements: ", measurements)
-    debugger
-  }
-
   render() {
   let { user } = this.props
   let { topNeck, topChest, topWaist, topSleeve, topFront_Length,
@@ -92,7 +87,7 @@ class MyMeasurementsForm extends Component {
              animated='fade'
              size='large'
              type='submit'
-             onClick={() => this.handleSubmit({ topNeck, topChest, topWaist, topSleeve, topFront_Length})}>
+             onClick={() => this.props.updateUserMeasurements({ topNeck, topChest, topWaist, topSleeve, topFront_Length}, "top", user.id)}>
              <Button.Content visible>Update Top Measurements</Button.Content>
              <Button.Content hidden>
                <Icon name='save' />
@@ -152,7 +147,7 @@ class MyMeasurementsForm extends Component {
             <Button animated='fade'
               size='large'
               type='submit'
-              onClick={() => this.handleSubmit({ bottomWaist, bottomLength, bottomHip, bottomThigh, bottomBottom_Hem})}>
+              onClick={() => this.props.updateUserMeasurements({ bottomWaist, bottomLength, bottomHip, bottomThigh, bottomBottom_Hem}, "bottom", user.id)}>
               <Button.Content visible>Update Bottom Measurements</Button.Content>
               <Button.Content hidden>
                 <Icon name='save' />
@@ -175,7 +170,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    updateUserMeasurements: (name, value) => {dispatch (updateUserMeasurements(name, value))}
+    updateUserMeasurements: (measurements, type, user_id) => {dispatch (updateUserMeasurements(measurements, type, user_id))}
   }
 }
 
