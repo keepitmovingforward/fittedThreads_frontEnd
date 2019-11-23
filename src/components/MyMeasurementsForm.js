@@ -149,7 +149,10 @@ class MyMeasurementsForm extends Component {
             </Form.Field>
           </Form.Group>
           <Form.Group>
-            <Button animated='fade' size='large'>
+            <Button animated='fade'
+              size='large'
+              type='submit'
+              onClick={() => this.handleSubmit({ bottomWaist, bottomLength, bottomHip, bottomThigh, bottomBottom_Hem})}>
               <Button.Content visible>Update Bottom Measurements</Button.Content>
               <Button.Content hidden>
                 <Icon name='save' />
