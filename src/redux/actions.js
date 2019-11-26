@@ -220,6 +220,10 @@ function updateFirstTimeUser(userId) {
 }
 
 function updateUserMeasurements(measurements, type, user_id) {
+  Object.keys(measurements).map((key, index) => {
+    debugger
+    return measurements[key] === "" ? measurements[key] = null : measurements[key]
+  })
   console.log(measurements, type, user_id)
   return {type: "DO_NOTHING"}
 }
