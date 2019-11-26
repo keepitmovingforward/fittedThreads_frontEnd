@@ -147,7 +147,10 @@ class MyMeasurementsForm extends Component {
             <Button animated='fade'
               size='large'
               type='submit'
-              onClick={() => this.props.updateUserMeasurements({ bottomWaist, bottomLength, bottomHip, bottomThigh, bottomBottom_Hem}, user.id)}>
+              onClick={(e) =>
+                {
+                this.props.updateUserMeasurements({ bottomWaist, bottomLength, bottomHip, bottomThigh, bottomBottom_Hem}, user.id)}
+                }>
               <Button.Content visible>Update Bottom Measurements</Button.Content>
               <Button.Content hidden>
                 <Icon name='save' />

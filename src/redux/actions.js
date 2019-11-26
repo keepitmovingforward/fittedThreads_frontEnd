@@ -239,6 +239,18 @@ function updateUserMeasurements(measurements, user_id) {
     .then(res => {
       return res.json()
     }).then (user => {
+
+      const Toast = Swal.mixin({
+       toast: true,
+       position: 'top-end',
+       showConfirmButton: false,
+       timer: 2500
+      })
+
+      Toast.fire({
+       icon: 'success',
+       title: `${_.capitalize(user.username)} measurements updated!`
+      })
       dispatch ({type: "USER_UPDATE_MEASUREMENTS", payload: user})
     })
   }
@@ -254,22 +266,3 @@ export {fetchingData, logOutUser,
         inactivateNavBar, updateFirstTimeUser,
         turnSearchOff, updateUserMeasurements
       }
-
-      // function updateBrandsSearch(brandsSearchArray) {
-      //   return (dispatch, getState) => {
-      //     let state = getState()
-      //     let brandsArray = [...state.brandsSearch]
-      //     brandsArray.push(brand)
-      //     dispatch({type: 'UPDATE_BRANDS_SEARCH', payload: brandsArray })
-      //     }
-      //     else {
-      //       if(state.brandsSearch.includes(brand)) {
-      //       let brandsArray = state.brandsSearch.filter(b => b !== brand)
-      //       dispatch({type: 'UPDATE_BRANDS_SEARCH', payload: brandsArray })
-      //       }
-      //       else {
-      //         dispatch({type: 'DO_NOTHING'})
-      //       }
-      //     }
-      //   }
-      // }
