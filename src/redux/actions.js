@@ -219,7 +219,7 @@ function updateFirstTimeUser(userId) {
   }
 }
 
-function updateUserMeasurements(measurements, type, user_id) {
+function updateUserMeasurements(measurements, user_id) {
   Object.keys(measurements).map((key, index) => {
     return measurements[key] === "" ? measurements[key] = null : measurements[key]
   })
@@ -238,13 +238,10 @@ function updateUserMeasurements(measurements, type, user_id) {
     })
     .then(res => {
       return res.json()
-    }).then (data => {
-      console.log(data)
+    }).then (user => {
+      dispatch ({type: "USER_UPDATE_MEASUREMENTS", payload: user})
     })
   }
-
-  console.log(measurements, type, user_id)
-  return {type: "DO_NOTHING"}
 }
 
 

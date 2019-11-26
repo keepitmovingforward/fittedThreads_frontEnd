@@ -62,9 +62,7 @@ let loggedInUserReducer = (state=initialState.loggedInUser, action) => {
       return action.payload
     case "USER_ADD_MEASUREMENT":
       return action.payload
-    case "USER_UPDATE_TOP_MEASUREMENT":
-      return action.payload
-    case "USER_UPDATE_BOTTOM_MEASUREMENT":
+    case "USER_UPDATE_MEASUREMENTS":
       return action.payload
     default:
       return state

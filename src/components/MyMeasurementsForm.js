@@ -87,7 +87,7 @@ class MyMeasurementsForm extends Component {
              animated='fade'
              size='large'
              type='submit'
-             onClick={() => this.props.updateUserMeasurements({ topNeck, topChest, topWaist, topSleeve, topFront_Length}, "top", user.id)}>
+             onClick={() => this.props.updateUserMeasurements({ topNeck, topChest, topWaist, topSleeve, topFront_Length}, user.id)}>
              <Button.Content visible>Update Top Measurements</Button.Content>
              <Button.Content hidden>
                <Icon name='save' />
@@ -147,7 +147,7 @@ class MyMeasurementsForm extends Component {
             <Button animated='fade'
               size='large'
               type='submit'
-              onClick={() => this.props.updateUserMeasurements({ bottomWaist, bottomLength, bottomHip, bottomThigh, bottomBottom_Hem}, "bottom", user.id)}>
+              onClick={() => this.props.updateUserMeasurements({ bottomWaist, bottomLength, bottomHip, bottomThigh, bottomBottom_Hem}, user.id)}>
               <Button.Content visible>Update Bottom Measurements</Button.Content>
               <Button.Content hidden>
                 <Icon name='save' />
@@ -170,7 +170,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    updateUserMeasurements: (measurements, type, user_id) => {dispatch (updateUserMeasurements(measurements, type, user_id))}
+    updateUserMeasurements: (measurements, user_id) => {dispatch (updateUserMeasurements(measurements, user_id))}
   }
 }
 
