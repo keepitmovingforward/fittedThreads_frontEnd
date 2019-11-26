@@ -221,9 +221,28 @@ function updateFirstTimeUser(userId) {
 
 function updateUserMeasurements(measurements, type, user_id) {
   Object.keys(measurements).map((key, index) => {
-    debugger
     return measurements[key] === "" ? measurements[key] = null : measurements[key]
   })
+
+  return dispatch => {
+    fetch("http://localhost:4000/updateMyMeasurements", {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        user_id,
+        measurements
+      })
+    })
+    .then(res => {
+      return res.json()
+    }).then (data => {
+      console.log(data)
+    })
+  }
+
   console.log(measurements, type, user_id)
   return {type: "DO_NOTHING"}
 }
