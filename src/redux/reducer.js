@@ -73,6 +73,8 @@ let searchActiveReducer = (state=initialState.searchActive, action) => {
   switch (action.type) {
     case "TOGGLE_SEARCH_OFF":
       return false
+    case "ALL_SEARCHES_OFF":
+      return false
     case "TOGGLE_SEARCH_ON":
       return true
     case "HOME":
