@@ -219,7 +219,7 @@ function updateFirstTimeUser(userId) {
   }
 }
 
-function updateUserMeasurements(measurements, user) {
+function updateUserMeasurements(measurements, user, type) {
 
   let user_id = user.id
 
@@ -257,7 +257,7 @@ function updateUserMeasurements(measurements, user) {
 
         Toast.fire({
          icon: 'success',
-         title: `${_.capitalize(user.username)} measurements updated!`
+         title: `${_.capitalize(user.username)} ${type} measurements updated!`
         })
         dispatch ({type: "USER_UPDATE_MEASUREMENTS", payload: user})
       })
@@ -273,7 +273,7 @@ function updateUserMeasurements(measurements, user) {
 
     Toast.fire({
      icon: 'error',
-     title: `No measurements changed, please change before updating!`
+     title: `No ${type} measurements changed, please change before updating!`
     })
     return {type: "DO_NOTHING"}
   }
