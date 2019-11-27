@@ -84,14 +84,15 @@ class MyMeasurementsForm extends Component {
          </Form.Group>
          <Form.Group>
            <Button
-             animated='fade'
+             icon
+             labelPosition='left'
              size='large'
              type='submit'
-             onClick={() => this.props.updateUserMeasurements({ topNeck, topChest, topWaist, topSleeve, topFront_Length}, user, "top")}>
-             <Button.Content visible>Update Top Measurements</Button.Content>
-             <Button.Content hidden>
-               <Icon name='save' />
-             </Button.Content>
+             onClick={() =>
+               this.props.updateUserMeasurements({ topNeck, topChest, topWaist, topSleeve, topFront_Length}, user, "top")}
+               >
+              <Icon name='save'/>
+             Update Top Measurements
            </Button>
          </Form.Group>
         </Form>
@@ -144,17 +145,16 @@ class MyMeasurementsForm extends Component {
             </Form.Field>
           </Form.Group>
           <Form.Group>
-            <Button animated='fade'
+            <Button
+              icon
+              labelPosition='left'
               size='large'
               type='submit'
-              onClick={(e) =>
-                {
+              onClick={() =>
                 this.props.updateUserMeasurements({ bottomWaist, bottomLength, bottomHip, bottomThigh, bottomBottom_Hem}, user, "bottom")}
-                }>
-              <Button.Content visible>Update Bottom Measurements</Button.Content>
-              <Button.Content hidden>
-                <Icon name='save' />
-              </Button.Content>
+                >
+              <Icon name='save'/>
+               Update Bottom Measurements
             </Button>
           </Form.Group>
         </Form>
