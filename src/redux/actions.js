@@ -219,10 +219,15 @@ function updateFirstTimeUser(userId) {
   }
 }
 
-function updateUserMeasurements(measurements, user_id) {
+function updateUserMeasurements(measurements, user) {
+
+  let user_id = user.id
+
   Object.keys(measurements).map((key, index) => {
     return measurements[key] === "" ? measurements[key] = null : measurements[key]
   })
+
+
 
   return dispatch => {
     fetch("http://localhost:4000/updateMyMeasurements", {
