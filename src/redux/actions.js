@@ -119,8 +119,8 @@ function toggleSearch() {
   }
 }
 
-function turnSearchOff() {
-  return {type: "TOGGLE_SEARCH_OFF"}
+function turnSearchesOff() {
+  return {type: "ALL_SEARCHES_OFF"}
 }
 
 function goHome() {
@@ -287,5 +287,5 @@ export {fetchingData, logOutUser,
         updateSelectedClothing, closeSelectedClothing,
         addMeasurement, handleNavBarClick,
         inactivateNavBar, updateFirstTimeUser,
-        turnSearchOff, updateUserMeasurements
+        turnSearchesOff, updateUserMeasurements
       }

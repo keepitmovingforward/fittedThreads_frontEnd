@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux'
 import { Link } from 'react-router-dom';
 import { Card, Image, Icon, Button } from 'semantic-ui-react'
-import {updateSelectedClothing, inactivateNavBar, turnSearchOff} from '../redux/actions'
+import {updateSelectedClothing, inactivateNavBar, turnSearchesOff} from '../redux/actions'
 
 const ClothesCard = (props) => {
 
@@ -61,7 +61,7 @@ const ClothesCard = (props) => {
               to = {`/threads/${clothingObj.id}`}
               onClick={() => {
                 props.inactivateNavBar()
-                props.turnSearchOff()
+                props.turnSearchesOff()
                 }
               }
               id='clothingCardDetailsBtn'>
@@ -92,7 +92,7 @@ const mapDispatchToProps = dispatch => {
   return {
     updateSelectedClothing: (e, clothing) => {dispatch ( updateSelectedClothing(e, clothing) )},
     inactivateNavBar: () => { dispatch (inactivateNavBar() )},
-    turnSearchOff: () => {dispatch ( turnSearchOff() )}
+    turnSearchesOff: () => {dispatch ( turnSearchesOff() )}
   }
 }
 

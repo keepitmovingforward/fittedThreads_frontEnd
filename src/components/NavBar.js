@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import {connect} from 'react-redux'
 import { Image, Menu, Segment, Icon } from 'semantic-ui-react'
-import {logOutUser, toggleSearch, goHome, handleNavBarClick, turnSearchOff} from '../redux/actions'
+import {logOutUser, toggleSearch, goHome, handleNavBarClick, turnSearchesOff} from '../redux/actions'
 
 class NavBar extends Component {
 
@@ -49,7 +49,7 @@ class NavBar extends Component {
               to="/addclothing"
               active={activeItem === 'Add Clothing'}
               onClick={(e, clickObj) => {
-                this.props.turnSearchOff()
+                this.props.turnSearchesOff()
                 this.props.handleNavBarClick(e, clickObj)}
               }
             >
@@ -63,7 +63,7 @@ class NavBar extends Component {
               to="/profile"
               active={activeItem === 'Profile'}
               onClick={(e, clickObj) => {
-                this.props.turnSearchOff()
+                this.props.turnSearchesOff()
                 this.props.handleNavBarClick(e, clickObj)}
               }
             >
@@ -101,7 +101,7 @@ const mapDispatchToProps = dispatch => {
     toggleSearch: () => {dispatch ( toggleSearch() )},
     goHome: () => {dispatch ( goHome() )},
     handleNavBarClick: (e, { name }) => {dispatch (handleNavBarClick(e, { name }) )},
-    turnSearchOff: () => {dispatch ( turnSearchOff() )}
+    turnSearchesOff: () => {dispatch ( turnSearchesOff() )}
   }
 }
 

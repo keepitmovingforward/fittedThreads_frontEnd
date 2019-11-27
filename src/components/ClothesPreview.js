@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import { Card, Image, Icon, Button,
         Rail, Ref, Sticky, Grid
         } from 'semantic-ui-react'
-import {closeSelectedClothing, turnSearchOff, inactivateNavBar} from '../redux/actions'
+import {closeSelectedClothing, turnSearchesOff, inactivateNavBar} from '../redux/actions'
 
 const _ = require("lodash")
 
@@ -68,7 +68,7 @@ class ClothesPreview extends Component {
                           id="clothingPrevDetailsBtn"
                           onClick={() => {
                             this.props.inactivateNavBar()
-                            this.props.turnSearchOff()
+                            this.props.turnSearchesOff()
                             }
                           }
                           >
@@ -99,7 +99,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     closeSelectedClothing: (e, clothing) => {dispatch ( closeSelectedClothing(e, clothing) )},
-    turnSearchOff: () => {dispatch ( turnSearchOff() )},
+    turnSearchesOff: () => {dispatch ( turnSearchesOff() )},
     inactivateNavBar: () => { dispatch (inactivateNavBar() )}
   }
 }
