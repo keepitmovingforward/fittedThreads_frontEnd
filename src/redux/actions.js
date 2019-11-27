@@ -227,37 +227,55 @@ function updateUserMeasurements(measurements, user) {
     return measurements[key] === "" ? measurements[key] = null : measurements[key]
   })
 
+  let changesCheck = Object.entries(measurements).map( ([key, value], index) => {
+    return user[key] === value ? false : true
+  })
 
-
-  return dispatch => {
-    fetch("http://localhost:4000/updateMyMeasurements", {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-      body: JSON.stringify({
-        user_id,
-        measurements
+  if (changesCheck.includes(true)) {
+    return dispatch => {
+      fetch("http://localhost:4000/updateMyMeasurements", {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          user_id,
+          measurements
+        })
       })
+      .then(res => {
+        return res.json()
+      }).then (user => {
+
+        const Toast = Swal.mixin({
+         toast: true,
+         position: 'top-end',
+         showConfirmButton: false,
+         timer: 2500
+        })
+
+        Toast.fire({
+         icon: 'success',
+         title: `${_.capitalize(user.username)} measurements updated!`
+        })
+        dispatch ({type: "USER_UPDATE_MEASUREMENTS", payload: user})
+      })
+    }
+  }
+  else {
+    const Toast = Swal.mixin({
+     toast: true,
+     position: 'top-end',
+     showConfirmButton: false,
+     timer: 2500
     })
-    .then(res => {
-      return res.json()
-    }).then (user => {
 
-      const Toast = Swal.mixin({
-       toast: true,
-       position: 'top-end',
-       showConfirmButton: false,
-       timer: 2500
-      })
-
-      Toast.fire({
-       icon: 'success',
-       title: `${_.capitalize(user.username)} measurements updated!`
-      })
-      dispatch ({type: "USER_UPDATE_MEASUREMENTS", payload: user})
+    Toast.fire({
+     icon: 'error',
+     title: `No measurements changed, please change before updating!`
     })
+    return {type: "DO_NOTHING"}
   }
 }
 
