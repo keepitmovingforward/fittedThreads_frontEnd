@@ -414,3 +414,13 @@
 #modalImg {
   max-width: 1500px;
 }
+
+#bottomMeasSubmit {
+  background-color: #571028;
+  color: white;
+}
+
+#topMeasSubmit {
+  background-color: #571028;
+  color: white;
+}

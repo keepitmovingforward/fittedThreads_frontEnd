@@ -83,7 +83,7 @@ class MyMeasurementsForm extends Component {
            </Form.Field>
          </Form.Group>
          <Form.Group>
-           <Button
+           <Button id='topMeasSubmit'
              icon
              labelPosition='left'
              size='large'
@@ -145,7 +145,7 @@ class MyMeasurementsForm extends Component {
             </Form.Field>
           </Form.Group>
           <Form.Group>
-            <Button
+            <Button id='bottomMeasSubmit'
               icon
               labelPosition='left'
               size='large'
