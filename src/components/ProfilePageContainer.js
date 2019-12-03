@@ -34,7 +34,7 @@ class ProfilePageContainer extends Component {
             <Grid.Column width={12}>
               <Card fluid>
                 <Card.Content>
-                  <Card.Header id='profileHeader'>{user.username}'s Profile</Card.Header>
+                  <Card.Header id='profileHeader'>{`${user.username}'s Profile`}</Card.Header>
                   <Card.Description id='profileStatsHeader'>User Stats</Card.Description>
                   <Card.Description id='profileStats'>Posted Threads: {user.clothings.length}</Card.Description>
                   <Card.Description id='profileStats'>Fitted Threads: {user.measured_clothings.length}</Card.Description>
