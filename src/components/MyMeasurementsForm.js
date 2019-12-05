@@ -100,7 +100,7 @@ class MyMeasurementsForm extends Component {
       </Card.Content>
 
       <Card.Content id='measFields'>
-        <Card.Header id='profileStats'>Bottom Measurements</Card.Header>
+        <Card.Header id='myMeasHeaders'>Bottom Measurements</Card.Header>
         <Form id='userMeasForm'>
           <Form.Group widths='equal'>
             <Form.Field>

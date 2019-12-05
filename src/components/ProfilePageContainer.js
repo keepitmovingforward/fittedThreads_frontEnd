@@ -16,7 +16,7 @@ class ProfilePageContainer extends Component {
   }
 
   render() {
-    
+
     let {user} = this.props
     return(
       <Container fluid>
@@ -31,8 +31,10 @@ class ProfilePageContainer extends Component {
             </Grid.Column>
             <Grid.Column width={12}>
               <Card fluid>
-                <Card.Content>
+                <Card.Content id='profileHeaderCard'>
                   <Card.Header id='profileHeader'>{`${user.username}'s Profile`}</Card.Header>
+                </Card.Content>
+                <Card.Content>
                   <Card.Description id='profileStatsHeader'>User Stats</Card.Description>
                   <Card.Description id='profileStats'>Posted Threads: {user.clothings.length}</Card.Description>
                   <Card.Description id='profileStats'>Fitted Threads: {user.measured_clothings.length}</Card.Description>
