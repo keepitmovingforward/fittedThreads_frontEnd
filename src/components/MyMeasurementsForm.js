@@ -99,7 +99,7 @@ class MyMeasurementsForm extends Component {
 
       </Card.Content>
 
-      <Card.Content>
+      <Card.Content id='measFields'>
         <Card.Header id='profileStats'>Bottom Measurements</Card.Header>
         <Form>
           <Form.Group widths='equal'>
@@ -144,7 +144,7 @@ class MyMeasurementsForm extends Component {
                 onChange={this.handleDimensionsChange}/>
             </Form.Field>
           </Form.Group>
-          <Form.Group>
+          <Card.Content>
             <Button id='bottomMeasSubmit'
               icon
               labelPosition='left'
@@ -156,7 +156,7 @@ class MyMeasurementsForm extends Component {
               <Icon name='save'/>
                Update Bottom Measurements
             </Button>
-          </Form.Group>
+          </Card.Content>
         </Form>
       </Card.Content>
     </Card.Content>
