@@ -38,7 +38,7 @@ class MyMeasurementsForm extends Component {
 
       <Card.Content id='measFields'>
 
-        <Card.Header id='profileStats'>Top Measurements</Card.Header>
+        <Card.Header id='myMeasHeaders'>Top Measurements</Card.Header>
         <Form id='userMeasForm'>
          <Form.Group widths='equal'>
            <Form.Field>

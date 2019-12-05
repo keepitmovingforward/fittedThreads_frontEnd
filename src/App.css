@@ -296,6 +296,15 @@
   margin-bottom: 3px;
 }
 
+#myMeasHeaders {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 20px;
+  color: black;
+  padding-bottom: 0px;
+  margin-bottom: 15px;
+  font-weight: bolder;
+}
+
 #profileThreadsBox {
   height: 100%;
   margin-top: 0px;
