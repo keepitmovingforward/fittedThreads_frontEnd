@@ -39,7 +39,7 @@ class MyMeasurementsForm extends Component {
       <Card.Content id='measFields'>
 
         <Card.Header id='profileStats'>Top Measurements</Card.Header>
-        <Form>
+        <Form id='userMeasForm'>
          <Form.Group widths='equal'>
            <Form.Field>
              <label>Neck</label>
@@ -101,7 +101,7 @@ class MyMeasurementsForm extends Component {
 
       <Card.Content id='measFields'>
         <Card.Header id='profileStats'>Bottom Measurements</Card.Header>
-        <Form>
+        <Form id='userMeasForm'>
           <Form.Group widths='equal'>
             <Form.Field>
               <label>Waist</label>
