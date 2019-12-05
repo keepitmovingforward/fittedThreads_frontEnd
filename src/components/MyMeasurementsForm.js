@@ -33,11 +33,12 @@ class MyMeasurementsForm extends Component {
         bottomWaist, bottomLength, bottomHip, bottomThigh, bottomBottom_Hem} = this.state
 
   return (
-    <Card.Content>
-      <Card.Header id='profileStatsHeader'>My Measurements</Card.Header>
+    <>
+      <Card.Content id='profileHeaderCard'>
+      <Card.Header id='profileHeader'>My Measurements</Card.Header>
+      </Card.Content>
 
       <Card.Content id='measFields'>
-
         <Card.Header id='myMeasHeaders'>Top Measurements</Card.Header>
         <Form id='userMeasForm'>
          <Form.Group widths='equal'>
@@ -159,7 +160,7 @@ class MyMeasurementsForm extends Component {
           </Card.Content>
         </Form>
       </Card.Content>
-    </Card.Content>
+  </>
   )
   }
 }
