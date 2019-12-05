@@ -36,7 +36,7 @@ class MyMeasurementsForm extends Component {
     <Card.Content>
       <Card.Header id='profileStatsHeader'>My Measurements</Card.Header>
 
-      <Card.Content>
+      <Card.Content id='measFields'>
 
         <Card.Header id='profileStats'>Top Measurements</Card.Header>
         <Form>
@@ -82,7 +82,7 @@ class MyMeasurementsForm extends Component {
                onChange={this.handleDimensionsChange}/>
            </Form.Field>
          </Form.Group>
-         <Form.Group>
+         <Card.Content>
            <Button id='topMeasSubmit'
              icon
              labelPosition='left'
@@ -94,7 +94,7 @@ class MyMeasurementsForm extends Component {
               <Icon name='save'/>
              Update Top Measurements
            </Button>
-         </Form.Group>
+         </Card.Content>
         </Form>
 
       </Card.Content>

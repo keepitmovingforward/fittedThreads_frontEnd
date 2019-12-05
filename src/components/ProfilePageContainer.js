@@ -13,12 +13,10 @@ class ProfilePageContainer extends Component {
     let uniqueClothKeys = _.uniq(user.measured_clothings.map(e => e.id))
 
     return uniqueClothKeys.map(k => user.measured_clothings.find(c => c.id === k))
-
-
   }
 
   render() {
-    window.scrollTo(0,0);
+    
     let {user} = this.props
     return(
       <Container fluid>

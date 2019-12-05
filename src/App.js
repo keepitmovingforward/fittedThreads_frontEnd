@@ -99,7 +99,7 @@ class App extends Component {
                 return (loggedInUser ?
                 <ProfilePageContainer />
                 :
-                <Redirect to='/home' />
+                <Redirect to='/login' />
                 )}
                 } />
 
