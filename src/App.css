@@ -450,3 +450,10 @@
 #userMeasForm {
   margin-bottom: 15px;
 }
+
+#searchColHeader {
+  font-family: 'Staatliches', cursive;
+  font-size: 25px;
+  color: white;
+  padding: 15px;
+}
