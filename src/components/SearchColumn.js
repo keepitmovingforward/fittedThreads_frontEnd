@@ -26,9 +26,14 @@ class SearchColumn extends Component {
         <Rail internal position='left' id='searchColumn'>
           <Sticky context={this.contextRef}>
             <Segment inverted raised>
-              <Form inverted>
-                <Form.Input
 
+              <Form inverted>
+
+                <Form.Field>
+                  <Checkbox label="Search for My Fitted Threads" />
+                </Form.Field>
+
+                <Form.Input
                   fluid icon='search'
                   iconPosition='left'
                   label='Search by Clothing Name'
