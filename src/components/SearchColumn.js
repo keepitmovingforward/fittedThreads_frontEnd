@@ -1,5 +1,5 @@
 import React, { Component, createRef   } from 'react';
-import { Form, Segment, Checkbox,
+import { Form, Segment, Checkbox, Header,
         Rail, Ref, Sticky, Dropdown
         } from 'semantic-ui-react';
 import {connect} from 'react-redux'
@@ -25,8 +25,11 @@ class SearchColumn extends Component {
       <Ref innerRef={this.contextRef}>
         <Rail internal position='left' id='searchColumn'>
           <Sticky context={this.contextRef}>
-            <Segment inverted raised>
-
+            <Segment.Group>
+              <Segment id='searchColHeader' inverted raised>
+                Search
+              </Segment>
+              <Segment inverted raised>
               <Form inverted>
 
                 <Form.Field>
@@ -77,6 +80,7 @@ class SearchColumn extends Component {
 
                 </Form>
             </Segment>
+            </Segment.Group>
             </Sticky>
           </Rail>
         </Ref>
