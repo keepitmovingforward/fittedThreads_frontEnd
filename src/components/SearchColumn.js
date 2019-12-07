@@ -115,18 +115,3 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchColumn);
-
-// <Form.Field>
-//   <label>Search by Specific Brands</label>
-// </Form.Field>
-// {this.props.brands.map(brand =>
-//   <Form.Field key={brand}>
-//     <Checkbox
-//       key={brand}
-//       label={brand}
-//       name={brand}
-//       onChange={this.props.updateBrandsSearch}
-//       checked={this.props.brandsSearch.includes(brand)}
-//     />
-//   </Form.Field>
-// )}
