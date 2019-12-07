@@ -1,5 +1,5 @@
 import React, { Component, createRef   } from 'react';
-import { Form, Segment, Checkbox, Header,
+import { Form, Segment, Checkbox,
         Rail, Ref, Sticky, Dropdown
         } from 'semantic-ui-react';
 import {connect} from 'react-redux'
@@ -18,6 +18,10 @@ class SearchColumn extends Component {
     }))
   }
 
+  myFittedThreads = (e, data) => {
+    console.log(e, data)
+  }
+
   render() {
 
     return (
@@ -33,7 +37,8 @@ class SearchColumn extends Component {
               <Form inverted>
 
                 <Form.Field>
-                  <Checkbox label="Search for My Fitted Threads" />
+                  <Checkbox label="Search for My Fitted Threads"
+                    onChange={this.myFittedThreads} />
                 </Form.Field>
 
                 <Form.Input
