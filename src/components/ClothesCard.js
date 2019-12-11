@@ -65,14 +65,14 @@ const ClothesCard = (props) => {
                 }
               }
               id='clothingCardDetailsBtn'>
-            <Button.Content visible>Details</Button.Content>
-            <Button.Content hidden>
-              <Icon name='magnify' />
-            </Button.Content>
+              <Button.Content visible>Details</Button.Content>
+              <Button.Content hidden>
+                <Icon name='magnify' />
+              </Button.Content>
             </Button>
             </Card.Description>
         </Card.Content>
-      </Card>)
+      </Card> )
     }
     </>
   )

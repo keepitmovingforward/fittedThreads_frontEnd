@@ -22,9 +22,9 @@
 }
 
 #clothesCardPhoto {
-  min-height: 250px;
-  max-height: 250px;
-  max-width: 260px;
+  min-height: 35%;
+  max-height: 35%;
+  max-width: 65%;
   margin: 5px auto 5px auto;
 }
 
@@ -113,8 +113,8 @@
 
 #clothesTextBox {
   text-align: left;
-  line-height: 10px;
   padding: 10px 5px 10px 5px;
+  height: 50%;
 }
 
 #clothingPreviewCard {
@@ -153,7 +153,7 @@
   font-size: 12px;
   font-style: italic;
   text-align: right;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 #clothingPrevDetailsBtn {
@@ -162,7 +162,7 @@
 
 #clothingCardDetailsBtn {
   color: white;
-  font-size: 9px;
+  font-size: 10px;
 }
 
 #clothingPreviewCardRail {
