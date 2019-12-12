@@ -41,6 +41,10 @@
   margin: 5px auto 5px auto;
 }
 
+#clothesPreviewPhotoSection {
+  text-align: center;
+}
+
 #clothingShowImg {
   min-height: 510px;
   max-height: 510px;

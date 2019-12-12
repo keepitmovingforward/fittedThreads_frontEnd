@@ -34,7 +34,7 @@ class ClothesPreview extends Component {
                       </Card.Description>
                       <Card.Header id="clothesCardBrand">{selectedClothing.brand}</Card.Header>
                       <Card.Header id="clothesCardName">{selectedClothing.name}</Card.Header>
-                      <Card.Description>
+                      <Card.Description id='clothesPreviewPhotoSection'>
                         <Image src={selectedClothing.image_url} verticalAlign='middle' centered id="previewImg" />
                       </Card.Description>
                     </Card.Content>
