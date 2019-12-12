@@ -36,9 +36,8 @@
 }
 
 #previewImg {
-  min-height: 375px;
-  max-height: 375px;
-  min-width: auto;
+  height: 250px;
+  width: auto;
   margin: 5px auto 5px auto;
 }
 
