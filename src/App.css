@@ -20,16 +20,19 @@
 .App-link {
   color: #09d3ac;
 }
-
-#clothesCardPhoto {
-  height: 95%;
-  width: auto;
-  margin: 5px auto 5px auto;
+#clothesCard {
+  max-height: 500px;
 }
 
 #clothesCardPhotoSection {
   text-align: center;
-    max-height: 220px;
+  max-height: 220px;
+}
+
+#clothesCardPhoto {
+  height: 200px;
+  width: auto;
+  margin: 5px auto 5px auto;
 }
 
 #previewImg {

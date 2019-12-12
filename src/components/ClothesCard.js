@@ -46,12 +46,18 @@ const ClothesCard = (props) => {
     <>
     {filterClothingCollection().map(clothingObj =>
       <Card color='black' onClick={(e) => props.updateSelectedClothing(e, clothingObj)}
-        key={clothingObj.id}>
-        <Card.Content extra textAlign='right'>
-          <Icon name='heart outline' color='red' onClick={(e) => console.log(e.target.classList["value"])} />
-        </Card.Content>
-        <Card.Content id='clothesCardPhotoSection'>
-        <Image src={clothingObj.image_url} verticalAlign='middle' centered id="clothesCardPhoto" bordered />
+        key={clothingObj.id} id='clothesCard'>
+        <Card.Content>
+          <Card.Header textAlign='right'>
+          <Icon
+            name='heart outline'
+            color='red'
+            onClick={(e) => console.log(e.target.classList["value"])}
+          />
+          </Card.Header>
+          <Card.Description id='clothesCardPhotoSection'>
+          <Image src={clothingObj.image_url} verticalAlign='middle' centered id="clothesCardPhoto" bordered />
+          </Card.Description>
         </Card.Content>
         <Card.Content id="clothesTextBox">
           <Card.Header id="clothesCardBrand">{clothingObj.brand}</Card.Header>
