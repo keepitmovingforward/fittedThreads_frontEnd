@@ -46,15 +46,17 @@ const ClothesCard = (props) => {
     <>
     {filterClothingCollection().map(clothingObj =>
       <Card color='black' onClick={(e) => props.updateSelectedClothing(e, clothingObj)}
-        key={clothingObj.id} id='clothesCard'>
+        key={clothingObj.id}>
         <Card.Content extra textAlign='right'>
           <Icon name='heart outline' color='red' onClick={(e) => console.log(e.target.classList["value"])} />
         </Card.Content>
+        <Card.Content id='clothesCardPhotoSection'>
         <Image src={clothingObj.image_url} verticalAlign='middle' centered id="clothesCardPhoto" bordered />
+        </Card.Content>
         <Card.Content id="clothesTextBox">
           <Card.Header id="clothesCardBrand">{clothingObj.brand}</Card.Header>
           <Card.Header id="clothesCardName">{clothingObj.name}</Card.Header>
-          <Card.Description id="clothesCardUser">posted by {clothingObj.user.username}</Card.Description>
+          <Card.Header id="clothesCardUser">posted by {clothingObj.user.username}</Card.Header>
             <Card.Description textAlign='right'>
             <Button animated='fade' color='black'
               as={Link}
