@@ -36,13 +36,15 @@
 }
 
 #previewImg {
-  height: 250px;
+  min-height: 300px;
+  max-height: 350px;
   width: auto;
   margin: 5px auto 5px auto;
 }
 
 #clothesPreviewPhotoSection {
   text-align: center;
+  max-height: 350px;
 }
 
 #clothingShowImg {

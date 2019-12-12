@@ -66,7 +66,7 @@ class MainPage extends Component {
             </Grid.Column>
 
             {selectedClothing ?
-            <Grid.Column width={3}>
+            <Grid.Column width={4}>
             <ClothesPreview />
             </Grid.Column>
             :
