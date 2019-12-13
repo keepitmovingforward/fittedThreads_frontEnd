@@ -37,7 +37,10 @@ class SearchColumn extends Component {
               <Form inverted>
 
                 <Form.Field>
-                  <Checkbox label="Search for My Fitted Threads"
+                  <label>Search for My Fitted Threads</label>
+                  <Dropdown
+                    placeholder='Search by Top or Bottom'
+                    options={key}
                     onChange={this.myFittedThreads} />
                 </Form.Field>
 
@@ -52,7 +55,7 @@ class SearchColumn extends Component {
                 />
 
                 <Form.Field>
-                  <label>Search by Specific Brands</label>
+                  <label>Search by Brand Name</label>
 
                 <Dropdown
                     label='Search by Brand Name'
