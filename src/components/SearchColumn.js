@@ -40,7 +40,8 @@ class SearchColumn extends Component {
                   <label>Search for My Fitted Threads</label>
                   <Dropdown
                     placeholder='Search by Top or Bottom'
-                    options={key}
+                    options={[{key: 'top', value: 'top', text: 'Top'},
+                              {key: 'bottom', value: 'bottom', text: "Bottom"}]}
                     onChange={this.myFittedThreads} />
                 </Form.Field>
 
