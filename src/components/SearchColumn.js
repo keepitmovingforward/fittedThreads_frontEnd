@@ -39,6 +39,7 @@ class SearchColumn extends Component {
                 <Form.Field>
                   <label>Search for My Fitted Threads</label>
                   <Dropdown
+                    fluid
                     placeholder='Search by Top or Bottom'
                     options={[{key: 'top', value: 'top', text: 'Top'},
                               {key: 'bottom', value: 'bottom', text: "Bottom"}]}

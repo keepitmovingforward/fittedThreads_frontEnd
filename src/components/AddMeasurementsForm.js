@@ -69,7 +69,7 @@ class AddMeasurementsForm extends Component {
 
     if (!addCustomSize){
       if(!!existingSizeId) {
-        let newMeasure = this.validateMinThreeMeasures()
+        let newMeasure = this.validateMinTwoMeasures()
         if(newMeasure) {
           let wrappedNewMeasure = {measurements: _.fromPairs(newMeasure)}
           let newMeasObj ={...wrappedNewMeasure, "size": existingSizeId, "clothing_id": clothing.id, "user_id": user.id}
@@ -88,7 +88,7 @@ class AddMeasurementsForm extends Component {
     }
     else {
       if(!!customSizeEntry) {
-        let customMeasure = this.validateMinThreeMeasures()
+        let customMeasure = this.validateMinTwoMeasures()
         if(customMeasure) {
           let wrappedCustomMeasure = {measurements: _.fromPairs(customMeasure)}
           let newCustObj = {...wrappedCustomMeasure, "custom_size": customSizeEntry, "clothing_id": clothing.id, "user_id": user.id}
@@ -107,7 +107,7 @@ class AddMeasurementsForm extends Component {
     }
   }
 
-  validateMinThreeMeasures = () => {
+  validateMinTwoMeasures = () => {
     let {clothing} = this.props
     let {topNeck, topChest, topWaist, topSleeve, topFront_Length,
         bottomWaist, bottomLength, bottomHip, bottomThigh, bottomBottom_Hem } = this.state
